@@ -2,6 +2,12 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Play, BookOpen, Image as ImageIcon, ChevronLeft, Calendar, Eye, ExternalLink } from 'lucide-react'
 
+// استيراد صور المزار الحقيقية من المجلد المحلي
+import img21 from '../assets/images/21.jpg'
+import img22 from '../assets/images/22.jpg'
+import img23 from '../assets/images/23.jpg'
+import img24 from '../assets/images/24.jpg'
+
 // مصفوفة الفيديوهات المميزة
 const featuredVideos = [
   {
@@ -52,17 +58,17 @@ const latestArticles = [
   },
 ]
 
-// مصفوفة معاينة معرض الصور (يجب وضع روابط الصور الحقيقية هنا)
+// مصفوفة معاينة معرض الصور باستخدام الصور المحلية الحقيقية
 const galleryPreview = [
-  { id: 1, url: 'https://images.unsplash.com/photo-1542810634-71277d95dcbb?q=80&w=800', title: 'الصحن الشريف' },
-  { id: 2, url: 'https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?q=80&w=800', title: 'القبة المباركة' },
-  { id: 3, url: 'https://images.unsplash.com/photo-156612173be27-319f07b998d3?q=80&w=800', title: 'أروقة المزار' },
-  { id: 4, url: 'https://images.unsplash.com/photo-1519817650390-64a93db51149?q=80&w=800', title: 'منارة المزار' },
+  { id: 1, url: img21, title: 'أروقة المزار' },
+  { id: 2, url: img22, title: 'قبة المزار' },
+  { id: 3, url: img23, title: 'أروقة المزار' },
+  { id: 4, url: img24, title: 'منارة المزار' },
 ]
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#05140d] text-white overflow-x-hidden">
+    <div className="min-h-screen bg-[#05140d] text-white overflow-x-hidden text-right" dir="rtl">
       
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -147,13 +153,13 @@ export default function Home() {
 
       {/* Featured Videos Section */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-black/20">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-end justify-between mb-12 border-r-4 border-[#c9a227] pr-6">
-            <div>
+        <div className="max-w-7xl mx-auto text-right">
+          <div className="flex items-end justify-between mb-12 border-r-4 border-[#c9a227] pr-6 flex-row-reverse">
+            <div className="text-right w-full">
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2 font-ar">فيديوهات مميزة</h2>
               <p className="text-white/50 text-lg">شاهد أهم الفيديوهات عن سيرة ميثم التمار</p>
             </div>
-            <Link to="/videos" className="hidden sm:flex items-center gap-2 text-[#c9a227] hover:underline transition-all">
+            <Link to="/videos" className="hidden sm:flex items-center gap-2 text-[#c9a227] hover:underline transition-all whitespace-nowrap">
               عرض الكل <ChevronLeft className="w-5 h-5" />
             </Link>
           </div>
@@ -199,12 +205,12 @@ export default function Home() {
       {/* Latest Articles Section */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#05140d]">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-end justify-between mb-12 border-r-4 border-[#c9a227] pr-6">
-            <div>
+          <div className="flex items-end justify-between mb-12 border-r-4 border-[#c9a227] pr-6 flex-row-reverse">
+            <div className="text-right w-full">
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2 font-ar">أحدث المقالات</h2>
               <p className="text-white/50 text-lg">اقرأ المقالات الدينية والتاريخية</p>
             </div>
-            <Link to="/articles" className="hidden sm:flex items-center gap-2 text-[#c9a227] hover:underline transition-all font-bold">
+            <Link to="/articles" className="hidden sm:flex items-center gap-2 text-[#c9a227] hover:underline transition-all font-bold whitespace-nowrap">
               عرض الكل <ChevronLeft className="w-5 h-5" />
             </Link>
           </div>
@@ -242,15 +248,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Gallery Preview Section - النسخة المربوطة بالصور */}
+      {/* Gallery Preview Section - النسخة المربوطة بالصور المحلية */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-black/20">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-end justify-between mb-12 border-r-4 border-[#c9a227] pr-6">
-            <div>
+          <div className="flex items-end justify-between mb-12 border-r-4 border-[#c9a227] pr-6 flex-row-reverse">
+            <div className="text-right w-full">
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2 font-ar">معرض الصور</h2>
               <p className="text-white/50 text-lg">لقطات من المزار الشريف</p>
             </div>
-            <Link to="/gallery" className="text-[#c9a227] hover:underline transition-all font-bold flex items-center gap-2">
+            <Link to="/gallery" className="text-[#c9a227] hover:underline transition-all font-bold flex items-center gap-2 whitespace-nowrap">
               عرض كامل المعرض <ChevronLeft className="w-5 h-5" />
             </Link>
           </div>
@@ -271,7 +277,7 @@ export default function Home() {
                   alt={item.title} 
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent opacity-0 group-hover:opacity-100 transition-all flex flex-col justify-end p-4">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent opacity-0 group-hover:opacity-100 transition-all flex flex-col justify-end p-4 text-right">
                   <span className="text-[#c9a227] text-[10px] font-bold uppercase tracking-widest mb-1">المزار الشريف</span>
                   <span className="text-white text-sm font-bold">{item.title}</span>
                 </div>
