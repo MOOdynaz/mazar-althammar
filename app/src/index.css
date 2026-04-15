@@ -2,221 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: 0 0% 100%;
-  --foreground: 222.2 84% 4.9%;
-  --card: 0 0% 100%;
-  --card-foreground: 222.2 84% 4.9%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 222.2 84% 4.9%;
-  --primary: 222.2 47.4% 11.2%;
-  --primary-foreground: 210 40% 98%;
-  --secondary: 210 40% 96.1%;
-  --secondary-foreground: 222.2 47.4% 11.2%;
-  --muted: 210 40% 96.1%;
-  --muted-foreground: 215.4 16.3% 46.9%;
-  --accent: 210 40% 96.1%;
-  --accent-foreground: 222.2 47.4% 11.2%;
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 214.3 31.8% 91.4%;
-  --input: 214.3 31.8% 91.4%;
-  --ring: 222.2 84% 4.9%;
-  --radius: 0.5rem;
+@layer base {
+  :root {
+    /* تحويل المتغيرات الأساسية لتعكس الهوية الجديدة */
+    --background: 154 60% 6%;    /* أخضر داكن جداً */
+    --foreground: 45 70% 96%;   /* أبيض كريمي */
+    --card: 154 60% 8%;
+    --card-foreground: 45 70% 90%;
+    --popover: 154 60% 6%;
+    --popover-foreground: 45 70% 96%;
+    --primary: 45 67% 47%;      /* ذهبي */
+    --primary-foreground: 154 60% 6%;
+    --secondary: 154 40% 15%;
+    --secondary-foreground: 45 67% 47%;
+    --muted: 154 40% 12%;
+    --muted-foreground: 45 20% 70%;
+    --accent: 45 67% 47%;
+    --accent-foreground: 154 60% 6%;
+    --destructive: 0 84.2% 60.2%;
+    --border: 45 67% 20%;
+    --input: 45 67% 20%;
+    --ring: 45 67% 47%;
+    --radius: 0.75rem;
+  }
+
+  /* فرض الخلفية والخط على الموقع بالكامل */
+  body {
+    @apply antialiased transition-colors duration-300;
+    font-family: 'Noto Sans Arabic', Tahoma, Arial, sans-serif;
+    background: radial-gradient(circle at center, #0d3322 0%, #05140d 100%) fixed;
+    color: #f8f5e9;
+    min-height: 100vh;
+  }
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* كلاسات مخصصة للهوية البصرية */
+@layer components {
+  .gold-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#c9a227] via-[#e5c035] to-[#c9a227];
+  }
 
-html {
-  scroll-behavior: smooth;
-}
+  .gold-border {
+    @apply border border-[#c9a227]/30 hover:border-[#c9a227]/60 transition-colors;
+  }
 
-body {
-  font-family: 'Noto Sans Arabic', Tahoma, Arial, sans-serif;
-  background: linear-gradient(135deg, #0d3322 0%, #1a5f3f 50%, #0d3322 100%);
-  min-height: 100vh;
-  color: #fff;
-}
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-[#c9a227]/20 rounded-2xl overflow-hidden;
+  }
 
-.gold-gradient {
-  background: linear-gradient(135deg, #c9a227 0%, #e5c035 50%, #c9a227 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.gold-bg {
-  background: linear-gradient(135deg, #c9a227 0%, #e5c035 50%, #c9a227 100%);
+  /* منع ظهور أي لون أحمر قديم */
+  .bg-red-900, .bg-red-800, .bg-red-700 {
+    @apply bg-[#0d3322] !important;
+  }
+  
+  .text-red-900, .text-red-800 {
+    @apply text-[#c9a227] !important;
+  }
 }
 
 .islamic-pattern {
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a227' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a227' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
-.card-hover {
-  transition: all 0.3s ease;
-}
-
-.card-hover:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-.nav-link {
-  position: relative;
-  transition: all 0.3s ease;
-}
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  right: 0;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #c9a227, #e5c035);
-  transition: width 0.3s ease;
-}
-
-.nav-link:hover::after {
-  width: 100%;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, #c9a227 0%, #e5c035 100%);
-  color: #0d3322;
-  padding: 0.75rem 2rem;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  border: none;
-  cursor: pointer;
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(201, 162, 39, 0.4);
-}
-
-.btn-secondary {
-  background: transparent;
-  color: #c9a227;
-  padding: 0.75rem 2rem;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  border: 2px solid #c9a227;
-  cursor: pointer;
-}
-
-.btn-secondary:hover {
-  background: rgba(201, 162, 39, 0.1);
-  transform: translateY(-2px);
-}
-
-.section-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  background: linear-gradient(135deg, #c9a227 0%, #e5c035 50%, #c9a227 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.section-subtitle {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 3rem;
-}
-
-.glass-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(201, 162, 39, 0.2);
-  border-radius: 1rem;
-}
-
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.animate-fadeInUp {
-  animation: fadeInUp 0.6s ease forwards;
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #0d3322;
-}
-
+/* تحسين السكرول بار */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #05140d; }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #c9a227, #e5c035);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #e5c035, #c9a227);
-}
-
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --radius: 0.5rem;
-  }
+  background: linear-gradient(to bottom, #c9a227, #8e701a);
+  border-radius: 10px;
 }
