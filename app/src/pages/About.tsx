@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Book, MapPin, Star, Heart, Award, Navigation } from 'lucide-react'
+import mazarLogo from '../assets/images/logo.png'
 
 const features = [
   { icon: Book, title: 'أول المفسرين', description: 'أول من فسر القرآن الكريم بالتأويل' },
@@ -44,15 +45,28 @@ export default function About() {
 
           {/* Intro Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
-            <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} className="aspect-[4/5] rounded-3xl overflow-hidden glass-card flex items-center justify-center bg-gradient-to-br from-[#1a5f3f] to-[#0d3322] border border-[#c9a227]/20">
-              <div className="text-center p-8">
-                <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-[#c9a227] flex items-center justify-center shadow-[0_0_30px_rgba(201,162,39,0.3)]">
-                  <span className="text-5xl font-bold text-[#05140d]">م</span>
-                </div>
-                <h3 className="text-2xl font-bold text-[#c9a227] mb-2">ميثم التمار</h3>
-                <p className="text-white/60">رضي الله عنه</p>
-              </div>
-            </motion.div>
+  <motion.div 
+    initial={{ opacity: 0, x: -30 }} 
+    animate={{ opacity: 1, x: 0 }} 
+    className="aspect-[4/5] rounded-3xl overflow-hidden glass-card flex items-center justify-center bg-gradient-to-br from-[#1a5f3f] to-[#0d3322] border border-[#c9a227]/20"
+  >
+    <div className="text-center p-8">
+      {/* استبدال الحرف "م" باللوغو */}
+      <div className="relative group mb-6">
+        {/* توهج ذهبي خلف اللوغو */}
+        <div className="absolute -inset-4 bg-[#c9a227]/20 rounded-full blur-2xl opacity-50 group-hover:opacity-80 transition duration-500"></div>
+        
+        <img 
+          src={mazarLogo} 
+          alt="شعار مزار ميثم التمار" 
+          className="relative w-48 h-48 mx-auto object-contain transition-transform duration-700 group-hover:scale-110 drop-shadow-[0_0_15px_rgba(201,162,39,0.4)]" 
+        />
+      </div>
+
+      <h3 className="text-2xl font-bold text-[#c9a227] mb-2">من هو الصحابي الجليل ميثم التمار؟</h3>
+      <p className="text-white/60">رضي الله عنه وأرضاه</p>
+    </div>
+  </motion.div>
 
             <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} className="space-y-6">
               <h2 className="text-3xl font-bold gold-gradient">من هو ميثم التمار؟</h2>
