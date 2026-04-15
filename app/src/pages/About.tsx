@@ -16,8 +16,8 @@ const timeline = [
 ]
 
 export default function About() {
-  // الرابط الذي زودتنا به للمزار
-  const googleMapUrl = "https://maps.app.goo.gl/rYfLp4D7a4n4oH5P9";
+  // الرابط المباشر والنهائي لموقع المزار لضمان عدم حدوث خطأ Dynamic Link
+  const directMapUrl = "https://www.google.com/maps/place/%D9%85%D8%B2%D8%A7%D8%B1+%D9%85%D9%8A%D8%AB%D9%85+%D8%A7%D9%84%D8%AA%D9%85%D8%A7%D8%B1%E2%80%AD/@32.0232497,44.3797669,17z/data=!4m6!3m5!1s0x155ed6019dc9cafb:0xda6623385062016b!8m2!3d32.0229419!4d44.3797436!16s%2Fg%2F12270967?entry=ttu";
 
   return (
     <div className="min-h-screen pt-20 bg-[#05140d]">
@@ -85,7 +85,7 @@ export default function About() {
             </div>
           </div>
 
-          {/* GPS Map Section - باستخدام الرابط الصحيح */}
+          {/* GPS Map Section */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -99,9 +99,8 @@ export default function About() {
             </div>
 
             <div className="relative rounded-2xl overflow-hidden h-[450px] border border-[#c9a227]/20">
-              {/* عرض الموقع باستخدام Place ID المستخرج من رابطك */}
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3408.06606015568!2d44.39294098485409!3d32.02640698115456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x155ed6019dc9cafd%3A0xda6623385062016b!2z2YXYsdmC2K8g2YXZitir2YUg2KfZhNiq2YXYp9ix!5e0!3m2!1sar!2siq!4v1715767000000!5m2!1sar!2siq"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3408.3845946355344!2d44.37716867554854!3d32.02294187398912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x155ed6019dc9cafb%3A0xda6623385062016b!2z2YXYstin2LEg2YXZitir2YUg2KfZhNiq2YXYp9ix!5e1!3m2!1sar!2siq!4v1715770000000!5m2!1sar!2siq"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -112,15 +111,14 @@ export default function About() {
               ></iframe>
               
               <div className="absolute bottom-6 right-6 left-6 sm:left-auto">
-                {/* استخدام الرابط المباشر الذي أرسلته للتوجيه */}
                 <a 
-                  href={googleMapUrl}
+                  href={directMapUrl}
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 bg-[#c9a227] text-[#05140d] px-8 py-4 rounded-xl font-bold shadow-2xl hover:bg-[#e5c035] hover:scale-105 transition-all"
                 >
                   <Navigation className="w-5 h-5" />
-                  توجيه GPS (خرائط جوجل)
+                  توجيه GPS (فتح التطبيق)
                 </a>
               </div>
             </div>
