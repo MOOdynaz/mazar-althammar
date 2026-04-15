@@ -21,7 +21,7 @@ export default function Footer() {
                 <span className="text-[#0d3322] font-bold text-xl">م</span>
               </div>
               <div>
-                <h3 className="text-lg font-bold gold-gradient">ميثم بن يحيى التمار</h3>
+                <h3 className="text-lg font-bold gold-gradient">مزار الصحابي الجليل ميثم بن يحيى التمار</h3>
                 <p className="text-xs text-white/60">رضي الله عنه</p>
               </div>
             </div>
