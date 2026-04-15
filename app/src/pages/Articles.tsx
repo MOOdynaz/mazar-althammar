@@ -127,11 +127,9 @@ export default function Articles() {
                   {selectedArticle.excerpt}
                 </p>
                 <p className="text-white/80 leading-relaxed mb-4">
-                 تجريبي 1
-                </p>
+تدقيق : محمد اعمير                </p>
                 <p className="text-white/80 leading-relaxed mb-4">
-                  كان ميثم التمار من أقرب أصحاب الإمام علي إليه، وقد أخذ عنه علوماً 
-                  كثيرة في تفسير القرآن وتأويله.
+                 الشعبة الثقافية
                 </p>
               </div>
 
