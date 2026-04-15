@@ -1,13 +1,7 @@
 import { motion } from 'framer-motion'
 import { Book, MapPin, Star, Heart, Award, Navigation } from 'lucide-react'
-import mazarLogo from '../assets/images/logo.png'
-
-const features = [
-  { icon: Book, title: 'أول المفسرين', description: 'أول من فسر القرآن الكريم بالتأويل' },
-  { icon: Star, title: 'صحابي جليل', description: 'من أصحاب أمير المؤمنين عليه السلام' },
-  { icon: Heart, title: 'الولاء', description: 'ولاء تام لأهل البيت عليهم السلام' },
-  { icon: Award, title: 'العلم', description: 'حافظ للقرآن وعالم بالتفسير' },
-]
+// تأكد أن هذا المسار يطابق بنية المجلدات عندك تماماً
+import mazarLogo from '../assets/images/logo.png' 
 
 const timeline = [
   { year: 'العصر النبوي', title: 'نشأة ميثم التمار', description: 'ولد ميثم بن يحيى التمار في اليمن، ونشأ في بيئة إيمانية' },
@@ -17,8 +11,8 @@ const timeline = [
 ]
 
 export default function About() {
-  // الرابط المباشر والنهائي لموقع المزار لضمان عدم حدوث خطأ Dynamic Link
-  const directMapUrl = "https://www.google.com/maps/place/%D9%85%D8%B2%D8%A7%D8%B1+%D9%85%D9%8A%D8%AB%D9%85+%D8%A7%D9%84%D8%AA%D9%85%D8%A7%D8%B1%E2%80%AD/@32.0232497,44.3797669,17z/data=!4m6!3m5!1s0x155ed6019dc9cafb:0xda6623385062016b!8m2!3d32.0229419!4d44.3797436!16s%2Fg%2F12270967?entry=ttu";
+  // الرابط الحقيقي لتوجيه الـ GPS لمزار ميثم التمار
+  const directMapUrl = "https://www.google.com/maps/dir/?api=1&destination=32.0229419,44.3797436";
 
   return (
     <div className="min-h-screen pt-20 bg-[#05140d]">
@@ -26,7 +20,6 @@ export default function About() {
         <div className="absolute inset-0 islamic-pattern opacity-10" />
         <div className="relative z-10 max-w-7xl mx-auto">
           
-          {/* Header Section */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -43,34 +36,29 @@ export default function About() {
             </p>
           </motion.div>
 
-          {/* Intro Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
-  <motion.div 
-    initial={{ opacity: 0, x: -30 }} 
-    animate={{ opacity: 1, x: 0 }} 
-    className="aspect-[4/5] rounded-3xl overflow-hidden glass-card flex items-center justify-center bg-gradient-to-br from-[#1a5f3f] to-[#0d3322] border border-[#c9a227]/20"
-  >
-    <div className="text-center p-8">
-      {/* استبدال الحرف "م" باللوغو */}
-      <div className="relative group mb-6">
-        {/* توهج ذهبي خلف اللوغو */}
-        <div className="absolute -inset-4 bg-[#c9a227]/20 rounded-full blur-2xl opacity-50 group-hover:opacity-80 transition duration-500"></div>
-        
-        <img 
-          src={mazarLogo} 
-          alt="شعار مزار ميثم التمار" 
-          className="relative w-48 h-48 mx-auto object-contain transition-transform duration-700 group-hover:scale-110 drop-shadow-[0_0_15px_rgba(201,162,39,0.4)]" 
-        />
-      </div>
-
-      <h3 className="text-2xl font-bold text-[#c9a227] mb-2">من هو الصحابي الجليل ميثم التمار؟</h3>
-      <p className="text-white/60">رضي الله عنه وأرضاه</p>
-    </div>
-  </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }} 
+              animate={{ opacity: 1, x: 0 }} 
+              className="aspect-[4/5] rounded-3xl overflow-hidden glass-card flex items-center justify-center bg-gradient-to-br from-[#1a5f3f] to-[#0d3322] border border-[#c9a227]/20"
+            >
+              <div className="text-center p-8">
+                <div className="relative group mb-6">
+                  <div className="absolute -inset-4 bg-[#c9a227]/20 rounded-full blur-2xl opacity-50 group-hover:opacity-80 transition duration-500"></div>
+                  <img 
+                    src={mazarLogo} 
+                    alt="شعار مزار ميثم التمار" 
+                    className="relative w-48 h-48 mx-auto object-contain transition-transform duration-700 group-hover:scale-110 drop-shadow-[0_0_15px_rgba(201,162,39,0.4)]" 
+                  />
+                </div>
+                <h3 className="text-2xl font-bold text-[#c9a227] mb-2">من هو الصحابي الجليل ميثم التمار؟</h3>
+                <p className="text-white/60">رضي الله عنه وأرضاه</p>
+              </div>
+            </motion.div>
 
             <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} className="space-y-6">
               <h2 className="text-3xl font-bold gold-gradient">من هو ميثم التمار؟</h2>
-              <div className="space-y-4 text-white/80 leading-relaxed text-lg text-justify border-r-2 border-[#c9a227]/30 pr-6">
+              <div className="space-y-4 text-white/80 leading-relaxed text-lg text-justify border-r-2 border-[#c9a227]/30 pr-6 font-ar">
                 <p>ميثم بن يحيى التمار (رضي الله عنه) هو أحد الصحابة الجليلين وأول من فسر القرآن الكريم بالتأويل. كان من أقرب أصحاب أمير المؤمنين علي بن أبي طالب عليه السلام.</p>
                 <p>وُلد في اليمن، وعمل في بيع التمر بالكوفة، ومن هنا جاء لقبه. لقبّه الإمام علي عليه السلام بـ"ذي النون" لشدة حفظه وعلمه.</p>
                 <p>استشهد في الكوفة صابراً محتسباً على يد عبيد الله بن زياد بعد أن صُلب على جذع نخلة، وظل يذكر فضائل أهل البيت حتى لحظاته الأخيرة.</p>
@@ -78,7 +66,6 @@ export default function About() {
             </motion.div>
           </div>
 
-          {/* Timeline Section */}
           <div className="mb-20">
             <h2 className="text-3xl font-bold mb-12 text-center gold-gradient">سيرة حياته</h2>
             <div className="relative space-y-8">
@@ -114,7 +101,7 @@ export default function About() {
 
             <div className="relative rounded-2xl overflow-hidden h-[450px] border border-[#c9a227]/20">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3408.3845946355344!2d44.37716867554854!3d32.02294187398912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x155ed6019dc9cafb%3A0xda6623385062016b!2z2YXYstin2LEg2YXZitir2YUg2KfZhNiq2YXYp9ix!5e1!3m2!1sar!2siq!4v1715770000000!5m2!1sar!2siq"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.486242686762!2d44.37716867530511!3d32.02294642180808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1558d6019dc9a82b%3A0xda6623385062016b!2z2YXYstin2LEg2YXZitir2YUg2KfZhNiq2YXYp9ix!5e0!3m2!1sar!2siq!4v1713179000000!5m2!1sar!2siq"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
