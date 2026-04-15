@@ -89,7 +89,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <div className="hidden xl:flex items-center gap-3 ml-4 border-l border-white/10 pl-4">
               <a
-                href="https://youtube.com"
+                href="https://www.youtube.com/@mazar.altammar"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center hover:bg-red-600/20 hover:text-red-500 transition-all duration-300"
@@ -97,7 +97,7 @@ export default function Navbar() {
                 <Youtube className="w-5 h-5" />
               </a>
               <a
-                href="https://facebook.com"
+                href="https://web.facebook.com/mazar.altammar"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-600/20 hover:text-blue-500 transition-all duration-300"
