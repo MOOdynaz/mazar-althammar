@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { Play, BookOpen, Image as ImageIcon, ChevronLeft, Calendar, Eye } from 'lucide-react'
+import { Play, BookOpen, Image as ImageIcon, ChevronLeft, Calendar, Eye, ExternalLink } from 'lucide-react'
 
+// مصفوفة الفيديوهات المميزة
 const featuredVideos = [
   {
     id: 1,
@@ -26,6 +27,7 @@ const featuredVideos = [
   },
 ]
 
+// مصفوفة أحدث المقالات
 const latestArticles = [
   {
     id: 1,
@@ -50,12 +52,20 @@ const latestArticles = [
   },
 ]
 
+// مصفوفة معاينة معرض الصور (يجب وضع روابط الصور الحقيقية هنا)
+const galleryPreview = [
+  { id: 1, url: 'https://images.unsplash.com/photo-1542810634-71277d95dcbb?q=80&w=800', title: 'الصحن الشريف' },
+  { id: 2, url: 'https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?q=80&w=800', title: 'القبة المباركة' },
+  { id: 3, url: 'https://images.unsplash.com/photo-156612173be27-319f07b998d3?q=80&w=800', title: 'أروقة المزار' },
+  { id: 4, url: 'https://images.unsplash.com/photo-1519817650390-64a93db51149?q=80&w=800', title: 'منارة المزار' },
+]
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#05140d] text-white overflow-x-hidden">
+      
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* الخلفية المتدرجة الفخمة */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#144d34] via-[#05140d] to-black opacity-80" />
         <div className="absolute inset-0 islamic-pattern opacity-[0.05] mix-blend-overlay" />
         
@@ -76,7 +86,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8"
           >
-            <span className="text-[#c9a227] drop-shadow-[0_2px_15px_rgba(201,162,39,0.3)]">ميثم بن يحيى التمار</span>
+            <span className="text-[#c9a227] drop-shadow-[0_2px_15px_rgba(201,162,39,0.3)] font-ar">ميثم بن يحيى التمار</span>
           </motion.h1>
           
           <motion.p
@@ -119,7 +129,6 @@ export default function Home() {
           </motion.div>
         </div>
         
-        {/* سهم النزول */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -141,7 +150,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-end justify-between mb-12 border-r-4 border-[#c9a227] pr-6">
             <div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2">فيديوهات مميزة</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2 font-ar">فيديوهات مميزة</h2>
               <p className="text-white/50 text-lg">شاهد أهم الفيديوهات عن سيرة ميثم التمار</p>
             </div>
             <Link to="/videos" className="hidden sm:flex items-center gap-2 text-[#c9a227] hover:underline transition-all">
@@ -168,17 +177,16 @@ export default function Home() {
                   ></iframe>
                 </div>
 
-                <div className="p-6">
-                  <h3 className="text-white font-bold mb-4 line-clamp-1 group-hover:text-[#c9a227] transition-colors text-right text-lg">
+                <div className="p-6 text-right">
+                  <h3 className="text-white font-bold mb-4 line-clamp-1 group-hover:text-[#c9a227] transition-colors text-lg">
                     {video.title}
                   </h3>
                   <div className="flex items-center justify-between text-white/40 text-sm">
                     <span className="bg-black/40 px-3 py-1 rounded-lg text-xs font-mono">
                       {video.duration}
                     </span>
-                    <span className="flex items-center gap-1.5 flex-row-reverse">
-                      <Eye className="w-4 h-4" />
-                      {video.views}
+                    <span className="flex items-center gap-1.5">
+                       {video.views} <Eye className="w-4 h-4" />
                     </span>
                   </div>
                 </div>
@@ -193,15 +201,15 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-end justify-between mb-12 border-r-4 border-[#c9a227] pr-6">
             <div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2">أحدث المقالات</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2 font-ar">أحدث المقالات</h2>
               <p className="text-white/50 text-lg">اقرأ المقالات الدينية والتاريخية</p>
             </div>
-            <Link to="/articles" className="hidden sm:flex items-center gap-2 text-[#c9a227] hover:underline transition-all">
+            <Link to="/articles" className="hidden sm:flex items-center gap-2 text-[#c9a227] hover:underline transition-all font-bold">
               عرض الكل <ChevronLeft className="w-5 h-5" />
             </Link>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-right">
             {latestArticles.map((article, index) => (
               <motion.article
                 key={article.id}
@@ -211,13 +219,12 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="bg-[#0a261a]/50 rounded-2xl p-6 border border-white/5 hover:bg-[#0a261a] transition-all group"
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="px-3 py-1 rounded-lg bg-[#c9a227]/10 text-[#c9a227] text-xs font-bold">
-                    {article.category}
-                  </span>
+                <div className="flex items-center justify-end gap-3 mb-4">
                   <span className="flex items-center gap-1 text-white/30 text-xs">
-                    <Calendar className="w-3.5 h-3.5" />
-                    {article.date}
+                    {article.date} <Calendar className="w-3.5 h-3.5" />
+                  </span>
+                  <span className="px-3 py-1 rounded-lg bg-[#c9a227]/10 text-[#c9a227] text-xs font-bold uppercase tracking-widest">
+                    {article.category}
                   </span>
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#c9a227] transition-colors leading-tight">
@@ -226,8 +233,8 @@ export default function Home() {
                 <p className="text-white/50 text-sm line-clamp-3 mb-6 leading-relaxed">
                   {article.excerpt}
                 </p>
-                <Link to="/articles" className="text-[#c9a227] font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
-                  اقرأ المزيد <ChevronLeft className="w-4 h-4" />
+                <Link to="/articles" className="text-[#c9a227] font-bold text-sm flex items-center justify-end gap-2 group-hover:gap-3 transition-all">
+                   اقرأ المزيد <ChevronLeft className="w-4 h-4" />
                 </Link>
               </motion.article>
             ))}
@@ -235,26 +242,38 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Gallery Preview Section */}
+      {/* Gallery Preview Section - النسخة المربوطة بالصور */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-black/20">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-end justify-between mb-12 border-r-4 border-[#c9a227] pr-6">
             <div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2">معرض الصور</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2 font-ar">معرض الصور</h2>
               <p className="text-white/50 text-lg">لقطات من المزار الشريف</p>
             </div>
+            <Link to="/gallery" className="text-[#c9a227] hover:underline transition-all font-bold flex items-center gap-2">
+              عرض كامل المعرض <ChevronLeft className="w-5 h-5" />
+            </Link>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[1, 2, 3, 4].map((item, index) => (
+            {galleryPreview.map((item, index) => (
               <motion.div
-                key={item}
+                key={item.id}
                 whileHover={{ scale: 1.02 }}
-                className="relative aspect-square rounded-2xl overflow-hidden bg-[#0a261a] flex items-center justify-center border border-white/5 group"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="relative aspect-square rounded-2xl overflow-hidden bg-[#0a261a] border border-white/5 group shadow-lg"
               >
-                <ImageIcon className="w-12 h-12 text-[#c9a227]/20 group-hover:text-[#c9a227]/50 transition-all" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-all flex items-end p-4">
-                  <span className="text-white text-sm font-bold">مشاهدة الصورة</span>
+                <img 
+                  src={item.url} 
+                  alt={item.title} 
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent opacity-0 group-hover:opacity-100 transition-all flex flex-col justify-end p-4">
+                  <span className="text-[#c9a227] text-[10px] font-bold uppercase tracking-widest mb-1">المزار الشريف</span>
+                  <span className="text-white text-sm font-bold">{item.title}</span>
                 </div>
               </motion.div>
             ))}
@@ -271,8 +290,8 @@ export default function Home() {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
           >
-            <div className="text-7xl text-[#c9a227]/30 font-serif mb-8">"</div>
-            <blockquote className="text-2xl sm:text-4xl text-white font-medium mb-8 leading-snug italic px-4">
+            <div className="text-7xl text-[#c9a227]/30 font-serif mb-8 leading-none">"</div>
+            <blockquote className="text-2xl sm:text-4xl text-white font-medium mb-8 leading-snug italic px-4 font-ar">
               يا ميثم، إنك لتعلم بما في هذا الكتاب من التأويل، وإنك لعلى فرج من الله
             </blockquote>
             <cite className="text-[#c9a227] text-xl font-bold not-italic border-t border-[#c9a227]/20 pt-4 inline-block">
