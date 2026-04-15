@@ -53,25 +53,12 @@ export default function About() {
 
             <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} className="space-y-6">
               <h2 className="text-3xl font-bold gold-gradient">من هو ميثم التمار؟</h2>
-              <div className="space-y-4 text-white/80 leading-relaxed text-lg text-justify">
-                <p>ميثم بن يحيى التمار (رضي الله عنه) هو أحد الصحابة الجليلين وأول من فسر القرآن الكريم بالتأويل. كان من أقرب أصحاب أمير المؤمنين علي بن أبي طالب عليه السلام، وقد تتلمذ على يديه في علوم القرآن.</p>
+              <div className="space-y-4 text-white/80 leading-relaxed text-lg text-justify border-r-2 border-[#c9a227]/30 pr-6">
+                <p>ميثم بن يحيى التمار (رضي الله عنه) هو أحد الصحابة الجليلين وأول من فسر القرآن الكريم بالتأويل. كان من أقرب أصحاب أمير المؤمنين علي بن أبي طالب عليه السلام.</p>
                 <p>وُلد في اليمن، وعمل في بيع التمر بالكوفة، ومن هنا جاء لقبه. لقبّه الإمام علي عليه السلام بـ"ذي النون" لشدة حفظه وعلمه.</p>
                 <p>استشهد في الكوفة صابراً محتسباً على يد عبيد الله بن زياد بعد أن صُلب على جذع نخلة، وظل يذكر فضائل أهل البيت حتى لحظاته الأخيرة.</p>
               </div>
             </motion.div>
-          </div>
-
-          {/* Features Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-            {features.map((f, i) => (
-              <motion.div key={i} whileHover={{ y: -5 }} className="glass-card p-6 text-center border border-[#c9a227]/10">
-                <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-[#c9a227]/10 flex items-center justify-center text-[#c9a227]">
-                  <f.icon className="w-7 h-7" />
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2">{f.title}</h3>
-                <p className="text-white/50 text-sm">{f.description}</p>
-              </motion.div>
-            ))}
           </div>
 
           {/* Timeline Section */}
@@ -82,7 +69,7 @@ export default function About() {
               {timeline.map((item, index) => (
                 <motion.div key={index} className={`flex flex-col lg:flex-row items-center gap-8 ${index % 2 === 0 ? 'lg:flex-row-reverse' : ''}`}>
                   <div className="flex-1 w-full">
-                    <div className="glass-card p-6 border border-[#c9a227]/10">
+                    <div className="glass-card p-6 border border-[#c9a227]/10 hover:border-[#c9a227]/40 transition-colors">
                       <span className="inline-block px-3 py-1 rounded-full bg-[#c9a227]/20 text-[#c9a227] text-xs mb-3">{item.year}</span>
                       <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
                       <p className="text-white/60 text-sm">{item.description}</p>
@@ -95,7 +82,7 @@ export default function About() {
             </div>
           </div>
 
-          {/* GPS Map Section - المضافة حديثاً */}
+          {/* GPS Map Section - الروابط الحقيقية هنا */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -110,7 +97,7 @@ export default function About() {
 
             <div className="relative rounded-2xl overflow-hidden h-[450px] border border-[#c9a227]/20">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.483163456811!2d44.38964357530638!3d32.0202999739893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x155ed7839655648b%3A0xe546b627607755e5!2z2YXYstin2LEg2YXZitin2YUg2KfZhNiq2YXYp9ix!5e0!3m2!1sar!2siq!4v1713174240000!5m2!1sar!2siq"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.464947938361!2d44.37755497534571!3d32.02294642181414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x155ed7039097e87b%3A0xc48641a2a14210a1!2z2YXYstin2LEg2YXZitir2YUg2KfZhNiq2YXYp9ixIChyKQ!5e0!3m2!1sar!2siq!4v1713175283456!5m2!1sar!2siq"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -120,15 +107,15 @@ export default function About() {
                 className="grayscale-[30%] hover:grayscale-0 transition-all duration-500"
               ></iframe>
               
-              <div className="absolute bottom-6 right-6">
+              <div className="absolute bottom-6 right-6 left-6 sm:left-auto">
                 <a 
-                  href="https://maps.app.goo.gl/M6u8E1R9s2QG8u7e8" 
+                  href="https://www.google.com/maps/dir/?api=1&destination=32.0229419,44.3797436" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 bg-[#c9a227] text-[#05140d] px-6 py-3 rounded-xl font-bold shadow-2xl hover:bg-[#e5c035] hover:scale-105 transition-all"
+                  className="flex items-center justify-center gap-2 bg-[#c9a227] text-[#05140d] px-8 py-4 rounded-xl font-bold shadow-2xl hover:bg-[#e5c035] hover:scale-105 transition-all"
                 >
                   <Navigation className="w-5 h-5" />
-                  توجيه GPS
+                  توجيه GPS عبر الخرائط
                 </a>
               </div>
             </div>
