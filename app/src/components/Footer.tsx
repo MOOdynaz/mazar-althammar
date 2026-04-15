@@ -87,10 +87,10 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-6 text-white border-r-4 border-[#c9a227] pr-3">تابعنا</h4>
             <div className="flex gap-4 mb-8">
-              <a href="https://youtube.com" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-red-600 transition-all duration-300 group shadow-lg">
+              <a href="https://www.youtube.com/@mazar.altammar" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-red-600 transition-all duration-300 group shadow-lg">
                 <Youtube className="w-5 h-5 text-white/70 group-hover:text-white" />
               </a>
-              <a href="https://facebook.com" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-600 transition-all duration-300 group shadow-lg">
+              <a href="https://web.facebook.com/mazar.altammar" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-600 transition-all duration-300 group shadow-lg">
                 <Facebook className="w-5 h-5 text-white/70 group-hover:text-white" />
               </a>
             </div>
