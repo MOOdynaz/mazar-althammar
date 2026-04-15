@@ -9,6 +9,8 @@ import mazarLogo from '../assets/images/logo.png'
 const navItems = [
   { name: 'الرئيسية', path: '/' },
   { name: 'نبذة عن ميثم التمار', path: '/about' },
+  { name: 'أقسام المزار', path: '/departments' }, // النافذة الجديدة
+  { name: 'إصدارات المزار', path: '/publications' }, // النافذة الجديدة
   { name: 'الفيديوهات', path: '/videos' },
   { name: 'المقالات', path: '/articles' },
   { name: 'معرض الصور', path: '/gallery' },
@@ -42,13 +44,12 @@ export default function Navbar() {
           : 'bg-transparent py-4'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           
           {/* Logo & Identity Section */}
-          <Link to="/" className="flex items-center gap-4 group">
+          <Link to="/" className="flex items-center gap-4 group flex-shrink-0">
             <div className="relative">
-              {/* هالة ضوئية خلف الشعار تظهر عند التمرير */}
               <div className="absolute -inset-1 bg-[#c9a227]/30 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
               <img 
                 src={mazarLogo} 
@@ -68,12 +69,12 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-white/10 backdrop-blur-md">
+          <div className="hidden lg:flex items-center gap-1 bg-white/5 px-2 py-2 rounded-full border border-white/10 backdrop-blur-md">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full ${
+                className={`px-3 xl:px-4 py-2 text-[13px] xl:text-sm font-medium transition-all duration-300 rounded-full whitespace-nowrap ${
                   location.pathname === item.path
                     ? 'bg-[#c9a227] text-[#05140d] shadow-lg shadow-[#c9a227]/20'
                     : 'text-white/70 hover:text-[#c9a227] hover:bg-white/5'
@@ -86,7 +87,7 @@ export default function Navbar() {
 
           {/* Social Icons & Mobile Toggle */}
           <div className="flex items-center gap-3">
-            <div className="hidden sm:flex items-center gap-3 ml-4 border-l border-white/10 pl-4">
+            <div className="hidden xl:flex items-center gap-3 ml-4 border-l border-white/10 pl-4">
               <a
                 href="https://youtube.com"
                 target="_blank"
@@ -147,7 +148,6 @@ export default function Navbar() {
                 </motion.div>
               ))}
               
-              {/* Mobile Social Links */}
               <div className="flex justify-center gap-6 pt-6 mt-6 border-t border-white/5">
                 <Youtube className="w-6 h-6 text-red-500" />
                 <Facebook className="w-6 h-6 text-blue-500" />
