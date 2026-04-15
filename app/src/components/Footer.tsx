@@ -107,7 +107,7 @@ export default function Footer() {
         <div className="mt-12 pt-6 border-t border-white/10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-white/50 text-sm text-center md:text-right">
-              جميع الحقوق محفوظة © 2026 مزار ميثم بن يحيى التمار
+              جميع الحقوق محفوظة لمزار ميثم بن يحيى التمار © 2026 
             </p>
             <p className="text-white/50 text-sm">
 شعبة تكنولوجيا المعلومات             </p>
