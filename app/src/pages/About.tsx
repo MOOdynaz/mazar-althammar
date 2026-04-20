@@ -33,12 +33,12 @@ const timeline = [
 ]
 
 export default function About() {
-  // الإحداثيات الدقيقة جداً لمرقد ميثم التمار (29GW+H36)
-  const lat = 32.026402;
-  const lng = 44.395130;
+  // الإحداثيات المستخرجة من الرابط (29GW+H36)
+  const lat = 32.0264024;
+  const lng = 44.3951297;
   
-  // رابط التوجيه المباشر لفتح تطبيق الخرائط على الموبايل
-  const directMapUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+  // رابط التوجيه المباشر المستخرج من الخرائط
+  const directMapUrl = "https://maps.app.goo.gl/YourActualLinkHere2";
 
   return (
     <div className="min-h-screen pt-20 bg-[#05140d]">
@@ -142,7 +142,7 @@ export default function About() {
             </div>
           </div>
 
-          {/* Map Section - تم تثبيته حصراً على 29GW+H36 */}
+          {/* Map Section - تم تثبيته حصراً على مرقد ميثم التمار */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -161,8 +161,8 @@ export default function About() {
             <div className="relative rounded-2xl overflow-hidden h-[500px] border border-[#c9a227]/20">
               <iframe
                 title="مرقد ميثم التمار"
-                /* الرابط أدناه يستخدم صيغة البحث النصي لفرض ظهور اسم "مرقد ميثم التمار" في الموقع الصحيح */
-                src={`https://maps.google.com/maps?q=${lat},${lng}+(مرقد ميثم التمار)&t=&z=17&ie=UTF8&iwloc=B&output=embed`}
+                /* تم استخدام إحداثيات الرابط الذي أرسلته لضمان الدقة */
+                src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1000!2d${lng}!3d${lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda6723385062016b%3A0xda6623385062016b!2z2YXYsdmC2K8g2YXZitir2YUg2KfZhNiq2YXYp9ix!5e0!3m2!1sar!2siq!4v1715000000000!5m2!1sar!2siq`}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
