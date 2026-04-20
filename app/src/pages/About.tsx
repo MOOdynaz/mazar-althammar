@@ -33,12 +33,12 @@ const timeline = [
 ]
 
 export default function About() {
-  // الإحداثيات المستخرجة من الرابط (29GW+H36)
+  // الإحداثيات الدقيقة لمرقد ميثم التمار (29GW+H36)
   const lat = 32.0264024;
   const lng = 44.3951297;
   
-  // رابط التوجيه المباشر المستخرج من الخرائط
-  const directMapUrl = "https://maps.app.goo.gl/YourActualLinkHere2";
+  // رابط جوجل الرسمي المباشر لفتح التطبيق (بدون Dynamic Links)
+  const directMapUrl = "https://www.google.com/maps/search/?api=1&query=32.0264024,44.3951297&query_place_id=ChIJK8rJnQHWXhURawFiUDgjZto";
 
   return (
     <div className="min-h-screen pt-20 bg-[#05140d]">
@@ -142,7 +142,7 @@ export default function About() {
             </div>
           </div>
 
-          {/* Map Section - تم تثبيته حصراً على مرقد ميثم التمار */}
+          {/* Map Section - تم إصلاح روابط التضمين والتوجيه */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -161,8 +161,8 @@ export default function About() {
             <div className="relative rounded-2xl overflow-hidden h-[500px] border border-[#c9a227]/20">
               <iframe
                 title="مرقد ميثم التمار"
-                /* تم استخدام إحداثيات الرابط الذي أرسلته لضمان الدقة */
-                src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1000!2d${lng}!3d${lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda6723385062016b%3A0xda6623385062016b!2z2YXYsdmC2K8g2YXZitir2YUg2KfZhNiq2YXYp9ix!5e0!3m2!1sar!2siq!4v1715000000000!5m2!1sar!2siq`}
+                /* تم تصحيح رابط التضمين المباشر باستخدام الإحداثيات */
+                src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3401.766324227958!2d${lng}!3d${lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda6723385062016b%3A0xda6623385062016b!2z2YXYsdmC2K8g2YXZitir2YUg2KfZhNiq2YXYp9ix!5e0!3m2!1sar!2siq!4v1715000000000!5m2!1sar!2siq`}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -180,7 +180,7 @@ export default function About() {
                   className="flex items-center justify-center gap-2 bg-[#c9a227] text-[#05140d] px-8 py-4 rounded-xl font-bold shadow-2xl hover:bg-[#e5c035] hover:scale-105 transition-all"
                 >
                   <Navigation className="w-5 h-5" />
-                  توجيه GPS (فتح التطبيق)
+                  توجيه GPS (فتح الخرائط)
                 </a>
               </div>
             </div>
