@@ -33,11 +33,10 @@ const timeline = [
 ]
 
 export default function About() {
-  // الإحداثيات الدقيقة بناءً على الكود 29HX+H39
-  const lat = 32.0294325;
-  const lng = 44.3984804;
+  // إحداثيات "مركز" مزار ميثم التمار بدقة الملي ثانية (لضمان تجاوز مركز العفطية)
+  const lat = 32.029462;
+  const lng = 44.398188;
   
-  // رابط التوجيه المباشر
   const directMapUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
 
   return (
@@ -54,7 +53,7 @@ export default function About() {
             className="text-center mb-16"
           >
             <span className="inline-block px-4 py-2 rounded-full bg-[#c9a227]/20 text-[#c9a227] text-sm font-medium mb-6">
-              من خواص أصحاب أمير المؤمنين (ع)
+              من خواص أصحاب أمير المؤمنين (عليه السلام)
             </span>
             <h1 className="text-4xl sm:text-5xl font-bold mb-6 font-display text-center">
               <span className="gold-gradient">ميثم بن يحيى التمّار الأسديّ</span>
@@ -80,24 +79,23 @@ export default function About() {
                     className="relative w-48 h-48 mx-auto object-contain drop-shadow-[0_0_15px_rgba(201,162,39,0.4)]" 
                   />
                 </div>
-                <div className="bg-black/30 p-6 rounded-2xl backdrop-blur-sm border border-white/5">
+                <div className="bg-black/30 p-6 rounded-2xl backdrop-blur-sm border border-white/5 font-ar">
                    <Quote className="w-8 h-8 text-[#c9a227] mx-auto mb-4 opacity-50" />
-                   <p className="text-white/80 italic text-lg leading-relaxed font-serif">
+                   <p className="text-white/80 italic text-lg leading-relaxed">
                      "والله لتُقطّعن يداك ورجلاك ولسانك، ولتُصلبن على جذع نخلة"
                    </p>
-                   <span className="block mt-2 text-[#c9a227] text-sm">- من حديث أمير المؤمنين (ع) لميثم التمار</span>
+                   <span className="block mt-2 text-[#c9a227] text-sm">- من حديث الإمام علي (ع) لميثم التمار</span>
                 </div>
               </div>
             </motion.div>
 
-            <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} className="space-y-8">
+            <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} className="space-y-8 font-ar">
               <div className="space-y-6">
                 <h2 className="text-3xl font-bold gold-gradient flex items-center gap-3">
                   <History className="w-8 h-8" /> ومضات من حياته
                 </h2>
                 <div className="space-y-4 text-white/80 leading-relaxed text-lg text-justify border-r-2 border-[#c9a227]/30 pr-6">
                   <p>كان ميثم عبداً لامرأة من بني أسد، فاشتراه أمير المؤمنين (ع) وأعتقه. لقّب بالتمّار لأنه كان يبيع التمر في الكوفة، وكان دكانه مقصداً للمؤمنين.</p>
-                  <p>خصّه الإمام علي (ع) بعلم "البلايا والمنايا"، فكان ميثم يخبر الناس بما سيجري عليهم من فتن بفضل ما علمه إياه باب مدينة العلم.</p>
                 </div>
               </div>
 
@@ -106,7 +104,7 @@ export default function About() {
                   <Users className="w-8 h-8" /> أولاده وذريته
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {['عمران (صاحب الإمام السجاد)', 'صالح (صاحب الباقر والصادق)', 'شعيب (صاحب الإمام الصادق)', 'حمزة بن ميثم'].map((son) => (
+                  {['عمران بن ميثم التمار', 'صالح بن ميثم التمار', 'شعيب بن ميثم التمار', 'حمزة بن ميثم'].map((son) => (
                     <div key={son} className="bg-white/5 border border-white/10 p-4 rounded-xl text-white/90 text-sm hover:border-[#c9a227]/30 transition-colors">
                        {son}
                     </div>
@@ -136,11 +134,11 @@ export default function About() {
                   viewport={{ once: true }}
                   className={`flex flex-col lg:flex-row items-center gap-8 ${index % 2 === 0 ? 'lg:flex-row-reverse' : ''}`}
                 >
-                  <div className="flex-1 w-full">
+                  <div className="flex-1 w-full text-right">
                     <div className="glass-card p-6 border border-[#c9a227]/10 hover:border-[#c9a227]/40 transition-colors group">
                       <span className="inline-block px-3 py-1 rounded-full bg-[#c9a227]/20 text-[#c9a227] text-xs mb-3 font-bold group-hover:bg-[#c9a227] group-hover:text-black transition-colors">{item.year}</span>
-                      <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                      <p className="text-white/60 text-sm leading-relaxed">{item.description}</p>
+                      <h3 className="text-xl font-bold text-white mb-2 font-ar">{item.title}</h3>
+                      <p className="text-white/60 text-sm leading-relaxed font-ar">{item.description}</p>
                     </div>
                   </div>
                   <div className="w-4 h-4 rounded-full bg-[#c9a227] hidden lg:block z-10 shadow-[0_0_10px_#c9a227]" />
@@ -150,7 +148,7 @@ export default function About() {
             </div>
           </div>
 
-          {/* Map Section - التعديل الجذري لضمان ظهور الاسم */}
+          {/* Map Section - الحل الجذري النهائي */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -160,17 +158,17 @@ export default function About() {
             <div className="flex flex-col items-center mb-8">
               <MapPin className="w-12 h-12 text-[#c9a227] mb-4 animate-bounce" />
               <h2 className="text-3xl font-bold gold-gradient mb-2 font-display">موقع الضريح الطاهر</h2>
-              <p className="text-white/60 max-w-2xl mx-auto leading-relaxed text-center">
-                يقع المزار الشريف في مدينة الكوفة المقدسة <br /> 
+              <p className="text-white/60 max-w-2xl mx-auto leading-relaxed text-center font-ar">
+                يقع المزار الشريف في مدينة الكوفة المقدسة - مقابل مسجد الكوفة <br /> 
                 <span className="text-[#c9a227] font-mono mt-2 block font-bold">29HX+H39</span>
               </p>
             </div>
 
             <div className="relative rounded-2xl overflow-hidden h-[500px] border border-[#c9a227]/20">
               <iframe
-                title="موقع مزار ميثم التمار"
-                /* هذا الرابط يستخدم معامل البحث النصي مع الإحداثيات لفرض "مزار ميثم التمار" كوجهة وحيدة */
-                src={`https://maps.google.com/maps?q=${lat},${lng}+(مزار ميثم التمار)&t=&z=17&ie=UTF8&iwloc=B&output=embed`}
+                title="مزار ميثم التمار"
+                /* هذا الرابط يستخدم الإحداثيات الخام مع العلم البارز لضمان التمركز فوق المزار حصراً */
+                src={`https://maps.google.com/maps?q=${lat},${lng}&hl=ar&z=18&t=m&output=embed`}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
