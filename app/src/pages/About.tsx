@@ -169,8 +169,7 @@ export default function About() {
             <div className="relative rounded-2xl overflow-hidden h-[500px] border border-[#c9a227]/20">
               <iframe
                 title="مزار ميثم التمار"
-src={`https://www.google.com/maps?q=32.0294,44.40111{lat},${lng}+(مزار ميثم التمار)&t=&z=17&ie=UTF8&iwloc=B&output=embed`}               width="100%"
-                height="100%"
+src={`https://maps.google.com/maps?q=${lat},${lng}+(مزار ميثم التمار)&t=&z=17&ie=UTF8&iwloc=B&output=embed`}                height="100%"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
