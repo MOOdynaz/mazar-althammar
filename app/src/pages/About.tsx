@@ -37,15 +37,15 @@ const timeline = [
 ]
 
 export default function About() {
-  // الرابط المباشر للمزار لتجنب التوجيه لمواقع مجاورة
-  const directMapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.486242686762!2d44.37716867530511!3d32.02294642180808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1558d6019dc9a82b%3A0xda6623385062016b!2z2YXYstin2LEg2YXZitir2YUg2KfZhNiq2YXYp9ix!5e0!3m2!1sar!2siq!4v1713179000000!5m2!1sar!2siq5";
+  // رابط الـ GPS المباشر لفتح تطبيق الخرائط
+  const directMapUrl = "https://www.google.com/maps?q=32.029437,44.398124";
 
   return (
     <div className="min-h-screen pt-20 bg-[#05140d]">
       <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute inset-0 islamic-pattern opacity-10 pointer-events-none" />
         
-        <div className="relative z-10 max-w-7xl mx-auto">
+        <div className="relative z-10 max-w-7xl mx-auto text-right" dir="rtl">
           
           {/* Header Section */}
           <motion.div
@@ -56,7 +56,7 @@ export default function About() {
             <span className="inline-block px-4 py-2 rounded-full bg-[#c9a227]/20 text-[#c9a227] text-sm font-medium mb-6">
               من خواص أصحاب أمير المؤمنين (ع)
             </span>
-            <h1 className="text-4xl sm:text-5xl font-bold mb-6 font-display text-right lg:text-center">
+            <h1 className="text-4xl sm:text-5xl font-bold mb-6 font-display text-center">
               <span className="gold-gradient">ميثم بن يحيى التمّار الأسديّ</span>
             </h1>
             <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
@@ -65,7 +65,7 @@ export default function About() {
           </motion.div>
 
           {/* Intro Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-20" dir="rtl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-20">
             <motion.div 
               initial={{ opacity: 0, x: 30 }} 
               animate={{ opacity: 1, x: 0 }} 
@@ -90,7 +90,7 @@ export default function About() {
               </div>
             </motion.div>
 
-            <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} className="space-y-8 text-right">
+            <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} className="space-y-8">
               <div className="space-y-6">
                 <h2 className="text-3xl font-bold gold-gradient flex items-center gap-3">
                   <History className="w-8 h-8" /> ومضات من حياته
@@ -139,7 +139,7 @@ export default function About() {
                   viewport={{ once: true }}
                   className={`flex flex-col lg:flex-row items-center gap-8 ${index % 2 === 0 ? 'lg:flex-row-reverse' : ''}`}
                 >
-                  <div className="flex-1 w-full text-right">
+                  <div className="flex-1 w-full">
                     <div className="glass-card p-6 border border-[#c9a227]/10 hover:border-[#c9a227]/40 transition-colors group">
                       <span className="inline-block px-3 py-1 rounded-full bg-[#c9a227]/20 text-[#c9a227] text-xs mb-3 font-bold group-hover:bg-[#c9a227] group-hover:text-black transition-colors">{item.year}</span>
                       <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
@@ -153,7 +153,7 @@ export default function About() {
             </div>
           </div>
 
-          {/* Map Section - تم تعديل الروابط بدقة */}
+          {/* Map Section - تم تصحيح رابط الـ Embed */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -170,7 +170,8 @@ export default function About() {
 
             <div className="relative rounded-2xl overflow-hidden h-[450px] border border-[#c9a227]/20">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.486242686762!2d44.37716867530511!3d32.02294642180808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1558d6019dc9a82b%3A0xda6623385062016b!2z2YXYstin2LEg2YXZitir2YUg2KfZhNiq2YXYp9ix!5e0!3m2!1sar!2siq!4v1713179000000!5m2!1sar!2siq6"
+                title="موقع مزار ميثم التمار"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1704.135!2d44.3970!3d32.0294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDAxJzQ1LjkiTiA0NMKwMjMnNTMuMiJF!5e0!3m2!1sar!2siq!4v1700000000000!5m2!1sar!2siq"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -188,7 +189,7 @@ export default function About() {
                   className="flex items-center justify-center gap-2 bg-[#c9a227] text-[#05140d] px-8 py-4 rounded-xl font-bold shadow-2xl hover:bg-[#e5c035] hover:scale-105 transition-all"
                 >
                   <Navigation className="w-5 h-5" />
-                  توجيه GPS (فتح الخريطة)
+                  توجيه GPS (فتح التطبيق)
                 </a>
               </div>
             </div>
