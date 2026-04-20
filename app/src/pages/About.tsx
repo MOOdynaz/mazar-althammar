@@ -33,12 +33,12 @@ const timeline = [
 ]
 
 export default function About() {
-  // الإحداثيات المصححة بناءً على طلبك (29GW+H36) - موقع مرقد ميثم التمار الفعلي
-  const lat = 32.0264024;
-  const lng = 44.3951297;
+  // الإحداثيات الدقيقة جداً لمرقد ميثم التمار (29GW+H36)
+  const lat = 32.026402;
+  const lng = 44.395130;
   
-  // رابط التوجيه المباشر للموقع الجديد
-  const directMapUrl = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
+  // رابط التوجيه المباشر لفتح تطبيق الخرائط على الموبايل
+  const directMapUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
 
   return (
     <div className="min-h-screen pt-20 bg-[#05140d]">
@@ -85,7 +85,7 @@ export default function About() {
                    <p className="text-white/80 italic text-lg leading-relaxed font-serif">
                      "والله لتُقطّعن يداك ورجلاك ولسانك، ولتُصلبن على جذع نخلة"
                    </p>
-                   <span className="block mt-2 text-[#c9a227] text-sm">- من حديث أمير المؤمنين (ع) لميثم التمار</span>
+                   <span className="block mt-2 text-[#c9a227] text-sm">- من حديث الإمام علي (ع) لميثم التمار</span>
                 </div>
               </div>
             </motion.div>
@@ -97,7 +97,6 @@ export default function About() {
                 </h2>
                 <div className="space-y-4 text-white/80 leading-relaxed text-lg text-justify border-r-2 border-[#c9a227]/30 pr-6">
                   <p>كان ميثم عبداً لامرأة من بني أسد، فاشتراه أمير المؤمنين (ع) وأعتقه. لقّب بالتمّار لأنه كان يبيع التمر في الكوفة، وكان دكانه مقصداً للمؤمنين.</p>
-                  <p>خصّه الإمام علي (ع) بعلم "البلايا والمنايا"، فكان ميثم يخبر الناس بما سيجري عليهم من فتن بفضل ما علمه إياه باب مدينة العلم.</p>
                 </div>
               </div>
 
@@ -112,13 +111,6 @@ export default function About() {
                     </div>
                   ))}
                 </div>
-              </div>
-
-              <div className="space-y-6 bg-red-950/20 p-6 rounded-2xl border border-red-900/30">
-                <h2 className="text-2xl font-bold text-red-500">قصة الاستشهاد</h2>
-                <p className="text-white/80 leading-relaxed text-justify">
-                  عندما رفع على الخشبة، جعل ميثم يحدّث الناس بفضائل أمير المؤمنين (عليه السلام)، فأمر ابن زياد بقطع لسانه، فكان أول من أُلجم في الإسلام.
-                </p>
               </div>
             </motion.div>
           </div>
@@ -150,7 +142,7 @@ export default function About() {
             </div>
           </div>
 
-          {/* Map Section - تم التحديث إلى الموقع الجديد 29GW+H36 */}
+          {/* Map Section - تم تثبيته حصراً على 29GW+H36 */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -161,17 +153,16 @@ export default function About() {
               <MapPin className="w-12 h-12 text-[#c9a227] mb-4 animate-bounce" />
               <h2 className="text-3xl font-bold gold-gradient mb-2 font-display">موقع الضريح الطاهر</h2>
               <p className="text-white/60 max-w-2xl mx-auto leading-relaxed text-center">
-                يقع المزار الشريف في مدينة الكوفة المقدسة <br /> 
-                <span className="text-[#c9a227] font-mono mt-2 block font-bold">29GW+H36</span>
+                يقع الضريح المبارك في مدينة الكوفة المقدسة <br /> 
+                <span className="text-[#c9a227] font-mono mt-2 block font-bold text-lg">29GW+H36</span>
               </p>
             </div>
 
             <div className="relative rounded-2xl overflow-hidden h-[500px] border border-[#c9a227]/20">
               <iframe
                 title="مرقد ميثم التمار"
-                src={`https://maps.google.com/maps?q=32.0264024,44.3951297&z=17&output=embed`}                /* ملاحظة: يفضل استخدام Place ID لضمان عدم القفز لأماكن مجاورة */
-                /* إذا لم يتوفر مفتاح API، استخدم الرابط التالي كبديل مباشر: */
-                /* src={`https://maps.google.com/maps?q=${lat},${lng}&hl=ar&z=17&output=embed`} */
+                /* الرابط أدناه يستخدم صيغة البحث النصي لفرض ظهور اسم "مرقد ميثم التمار" في الموقع الصحيح */
+                src={`https://maps.google.com/maps?q=${lat},${lng}+(مرقد ميثم التمار)&t=&z=17&ie=UTF8&iwloc=B&output=embed`}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
