@@ -171,7 +171,7 @@ export default function About() {
 
             <div className="relative rounded-2xl overflow-hidden h-[450px] border border-[#c9a227]/20">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3408.0264152865913!2d44.3986!3d32.0294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDAxJzQ1LjgiTiA0NMKwMjMnNTUuMCJF!5e0!3m2!1sar!2siq!4v1620000000000!5m2!1sar!2siq"
+                src="https://maps.google.com/?cid=15737304672666517867&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ&authuser=1"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
