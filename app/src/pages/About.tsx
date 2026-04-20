@@ -8,10 +8,10 @@ import {
   Navigation, 
   History, 
   Quote, 
-  Users // تأكد من استيراد Users هنا لحل المشكلة السابقة
+  Users 
 } from 'lucide-react'
 
-// استخدام المسار المباشر من مجلد public لضمان عدم توقف الواجهة عند الـ Build
+// استخدام المسار المباشر من مجلد public لضمان الاستقرار
 const mazarLogo = '/logo.png'; 
 
 const timeline = [
@@ -38,8 +38,8 @@ const timeline = [
 ]
 
 export default function About() {
-  // الرابط الفعلي لتوجيه GPS
-  const directMapUrl = "https://maps.app.goo.gl/YourActualLinkHere";
+  // رابط توجيه GPS الذي زودتني به
+  const directMapUrl = "https://www.google.com/maps/dir/?api=1&destination=32.029472,44.398194";
 
   return (
     <div className="min-h-screen pt-20 bg-[#05140d]">
@@ -86,12 +86,12 @@ export default function About() {
                    <p className="text-white/80 italic text-lg leading-relaxed font-serif">
                      "والله لتُقطّعن يداك ورجلاك ولسانك، ولتُصلبن على جذع نخلة"
                    </p>
-                   <span className="block mt-2 text-[#c9a227] text-sm">- من حديث الإمام علي (ع)  لميثم التمار رضي الله عنه</span>
+                   <span className="block mt-2 text-[#c9a227] text-sm">- من حديث الإمام علي (ع) لميثم التمار رضي الله عنه</span>
                 </div>
               </div>
             </motion.div>
 
-            <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} className="space-y-8">
+            <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} className="space-y-8 text-right">
               <div className="space-y-6">
                 <h2 className="text-3xl font-bold gold-gradient flex items-center gap-3">
                   <History className="w-8 h-8" /> ومضات من حياته
@@ -121,7 +121,7 @@ export default function About() {
                    قصة الاستشهاد
                 </h2>
                 <p className="text-white/80 leading-relaxed text-justify">
-                  عندما رفع على الخشبة، جعل ميثم يحدّث الناس بفضائل أمير المؤمنين (عليه السلام ) وبني هاشم، فخاف ابن زياد من تأثير كلامه وأمر بقطع لسانه، فكان أول من أُلجم في الإسلام. طُعن بالحربة في اليوم الثالث من صلبه وفاضت روحه الطاهرة وهو يكبّر الله.
+                  عندما رفع على الخشبة، جعل ميثم يحدّث الناس بفضائل أمير المؤمنين (عليه السلام) وبني هاشم، فخاف ابن زياد من تأثير كلامه وأمر بقطع لسانه، فكان أول من أُلجم في الإسلام. طُعن بالحربة في اليوم الثالث من صلبه وفاضت روحه الطاهرة وهو يكبّر الله.
                 </p>
               </div>
             </motion.div>
@@ -154,7 +154,7 @@ export default function About() {
             </div>
           </div>
 
-          {/* Map Section */}
+          {/* Map Section - Updated for correct Embed functionality */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -170,13 +170,15 @@ export default function About() {
             </div>
 
             <div className="relative rounded-2xl overflow-hidden h-[450px] border border-[#c9a227]/20">
+              {/* الرابط المحدث لعرض الخريطة بنجاح داخل الـ iframe */}
               <iframe
-                src="https://www.google.com/maps?cid=15737304672666517867&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ&authuser=1"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.2422312693976!2d44.39561907535946!3d32.0294719739818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1559de019dc9cacb%3A0xda6623385062016b!2z2YXYsdmC2K8g2YXZitmr2YUg2KfZhNiq2YXYp9ix!5e0!3m2!1sar!2siq!4v1713606559000!5m2!1sar!2siq"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
                 className="grayscale-[30%] hover:grayscale-0 transition-all duration-500"
               ></iframe>
               
