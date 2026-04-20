@@ -86,7 +86,7 @@ export default function About() {
                    <p className="text-white/80 italic text-lg leading-relaxed font-serif">
                      "والله لتُقطّعن يداك ورجلاك ولسانك، ولتُصلبن على جذع نخلة"
                    </p>
-                   <span className="block mt-2 text-[#c9a227] text-sm">- من نبوءة الإمام علي (ع) لميثم</span>
+                   <span className="block mt-2 text-[#c9a227] text-sm">- من حديث الإمام علي (ع) لميثم</span>
                 </div>
               </div>
             </motion.div>
