@@ -4,10 +4,9 @@ import { Play, Eye, Clock, Search, X, Youtube } from 'lucide-react'
 
 const categories = [
   { id: 'all', name: 'الكل' },
-  { id: 'biography', name: 'السيرة' },
-  { id: 'tafsir', name: 'التفسير' },
-  { id: 'history', name: 'التاريخ' },
-  { id: 'lectures', name: 'محاضرات' },
+  { id: 'biography', name: 'السيرة والفضائل' },
+  { id: 'history', name: 'التاريخ والاستشهاد' },
+  { id: 'shrine', name: 'المزار الشريف' },
 ]
 
 const videos = [
@@ -15,51 +14,91 @@ const videos = [
     id: 1,
     youtubeId: 'tnICzO7wONI',
     title: 'استشهاد ميثم التمار || الشيخ الدكتور احمد الوائلي',
-    description: 'من على جذع النخلة مصلوب ومقطع الاطراف وينادي "تعالوا احدثكم عن علي"',
+    description: 'وصف مؤثر للحظات استشهاد ميثم التمار وهو ينادي بفضائل علي من على جذع النخلة',
     duration: '4:19',
     views: '416k',
-    category: 'biography',
+    category: 'history',
     date: '2020-08-12',
   },
   {
     id: 2,
+    youtubeId: 'ftw93UiSefg',
+    title: 'هل قاتل ميثم التمار مع الإمام علي؟',
+    description: 'سماحة الشيخ علي الكوراني يجيب عن دور ميثم التمار الجهادي وصحبته لأمير المؤمنين',
+    duration: '1:24',
+    views: '1k',
+    category: 'biography',
+    date: '2021-11-24',
+  },
+  {
+    id: 3,
+    youtubeId: 'nczYTh0RRN4',
+    title: 'ميثم التمار من أعظم أصحاب الإمام علي ع',
+    description: 'الملا محمود الساعي يستعرض عظمة شخصية ميثم ومنزلته عند النبي (ص) وأهل بيته',
+    duration: '2:52',
+    views: '5k',
+    category: 'biography',
+    date: '2015-08-05',
+  },
+  {
+    id: 4,
+    youtubeId: 'zdqg-r0S34w',
+    title: 'شباك العقيدة (شباك الصحابي ميثم التمار)',
+    description: 'وثائقي من إنتاج العتبة العلوية المقدسة حول صناعة وافتتاح الشباك الجديد للمرقد الشريف',
+    duration: '22:02',
+    views: '11k',
+    category: 'shrine',
+    date: '2017-03-17',
+  },
+  {
+    id: 5,
+    youtubeId: 'CQo2kgPlDec',
+    title: 'مرقد الشهيد ميثم التمار في الكوفة المعظمة',
+    description: 'جولة تعريفية في أروقة المرقد الطاهر وتفاصيل عمارته وتاريخه وموقعه في الكوفة',
+    duration: '3:43',
+    views: '18k',
+    category: 'shrine',
+    date: '2017-05-16',
+  },
+  {
+    id: 6,
+    youtubeId: 'WPkb7n1oxtw',
+    title: 'معالم دينية - مرقد ميثم التمار',
+    description: 'حلقة خاصة من برنامج معالم تستعرض الأنشطة الثقافية والخدمية والجهادية للمزار الشريف',
+    duration: '29:41',
+    views: '1k',
+    category: 'shrine',
+    date: '2022-11-02',
+  },
+  {
+    id: 7,
+    youtubeId: 'dwU72QaVexc',
+    title: 'شواهد مع علاء الحسين | مرقد ميثم التمار',
+    description: 'علاء الحسين يسلط الضوء على قصة تسمية ميثم ومنزلته في حواريي الإمام علي (ع)',
+    duration: '7:12',
+    views: '1k',
+    category: 'shrine',
+    date: '2025-03-22',
+  },
+  {
+    id: 8,
+    youtubeId: 'pz67X7DUgYY',
+    title: 'مرقد الصحابي الجليل ميثم التمار في الكوفة',
+    description: 'تقرير عن النهضة العمرانية والنشاطات القرآنية والفكرية المقامة في المرقد الشريف',
+    duration: '7:53',
+    views: '1k',
+    category: 'shrine',
+    date: '2023-06-15',
+  },
+  {
+    id: 9,
     youtubeId: 'WA_XHuZSWeo',
-    title: 'حُب الصحابي ميثم التمار (رض) للأمام علي (عليه السلام)',
+    title: 'حُب الصحابي ميثم التمار (رض) للأمام علي',
     description: 'الشيخ زمان الحسناوي يتحدث عن عشق ميثم التمار مصلوباً في حب علي',
     duration: '3:09',
     views: '4K',
     category: 'biography',
     date: '2024-02-10',
-  },
-  {
-    id: 3,
-    youtubeId: 'M1rmLxkFIuo',
-    title: 'شجاعة ميثم التمار في قصر ابن مرجانه وعشقه للإمام علي (ع)',
-    description: 'مشهد تمثيلي يجسد ثبات ميثم التمار أمام الطاغية عبيد الله بن زياد',
-    duration: '6:45',
-    views: '4K',
-    category: 'history',
-    date: '2023-02-10',
-  },
-  {
-    id: 4,
-    youtubeId: 'guVlFfO5sbg',
-    title: 'قصة حياة ميثم التمار - برنامج سيرة السابقين',
-    description: 'سماحة الشيخ عقيل الحمداني يستعرض السيرة الكاملة لميثم التمار',
-    duration: '10:45',
-    views: '4K',
-    category: 'biography',
-    date: '2023-02-10',
-  },
-  {
-    id: 5,
-    youtubeId: 'uLD70gMCCVg',
-    title: 'حديث العشق - ميثم التمار والامام علي عليه السلام',
-    description: 'تأملات في العلاقة الروحية والعلمية بين أمير المؤمنين وتلميذه الوفي ميثم',
-    duration: '14:15',
-    views: '4K',
-    category: 'history',
-    date: '2023-02-10',
   },
 ]
 
@@ -156,7 +195,7 @@ export default function Videos() {
                   <h3 className="text-lg font-bold text-[#c9a227] mb-2 line-clamp-1 group-hover:text-[#e5c035] transition-colors">{video.title}</h3>
                   <p className="text-white/60 text-xs line-clamp-2 mb-4 leading-relaxed">{video.description}</p>
                   <div className="flex items-center justify-between text-[10px] text-white/40 border-t border-white/5 pt-4">
-                    <span className="flex items-center gap-1"><Eye className="w-3 h-3 text-[#c9a227]" /> {video.views} مشاهدة</span>
+                    <span className="flex items-center gap-1"><Eye className="w-3 h-3 text-[#c9a227]" /> {video.views}</span>
                     <span className="flex items-center gap-1"><Youtube className="w-3 h-3 text-red-500" /> YouTube</span>
                   </div>
                 </div>
