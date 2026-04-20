@@ -12,15 +12,23 @@
     <title>الموقع الرسمي لمزار ميثم التمار رضي الله عنه</title>
     
     <meta name="description" content="الموقع الرسمي لمزار الصحابي الجليل ميثم بن يحيى التمار في الكوفة المقدسة. يضم السيرة الكاملة، المرويات، المقالات الدينية، ومعرض الصور وأخبار المزار." />
-    <meta name="keywords" content="ميثم التمار, مزار ميثم التمار, الكوفة, الإمام علي, تفسير القرآن, المزارات الشيعية الشريفة, العراق, النجف, مزارات الكوفة" />
+    <meta name="keywords" content="ميثم التمار, مزار ميثم التمار, الكوفة, الإمام علي, مزارات الكوفة" />
     <meta name="author" content="الأمانة العامة للمزارات الشيعية الشريفة" />
 
-    <meta name="color-scheme" content="only dark">
+    <meta name="color-scheme" content="dark only">
     <meta name="theme-color" content="#05140d">
+    <meta name="supported-color-schemes" content="dark">
+    
     <style>
       :root {
         /* إجبار المتصفح على عدم تغيير ألوان النظام */
-        forced-color-adjust: none;
+        forced-color-adjust: none !important;
+        color-scheme: dark !important;
+      }
+      
+      /* إجبار العناوين على عدم التأثر بالثيم التلقائي للمتصفح */
+      h1, h2, h3, h4, h5, h6, p, span, a {
+        forced-color-adjust: none !important;
       }
     </style>
 
@@ -37,8 +45,7 @@
       "name": "مزار ميثم التمار",
       "url": "https://www.mazaraltammar.com",
       "logo": "https://www.mazaraltammar.com/logo.png",
-      "image": "https://www.mazaraltammar.com/logo.png",
-      "description": "مزار الصحابي الجليل ميثم بن يحيى التمار في الكوفة المقدسة"
+      "image": "https://www.mazaraltammar.com/logo.png"
     }
     </script>
 
