@@ -169,8 +169,7 @@ export default function About() {
             <div className="relative rounded-2xl overflow-hidden h-[500px] border border-[#c9a227]/20">
               <iframe
                 title="مرقد ميثم التمار"
-                src={`https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=place_id:ChIJK8rJnQHWXhURawFiUDgjZto`}
-                /* ملاحظة: يفضل استخدام Place ID لضمان عدم القفز لأماكن مجاورة */
+                src={`https://maps.google.com/maps?q=32.0264024,44.3951297&z=17&output=embed`}                /* ملاحظة: يفضل استخدام Place ID لضمان عدم القفز لأماكن مجاورة */
                 /* إذا لم يتوفر مفتاح API، استخدم الرابط التالي كبديل مباشر: */
                 /* src={`https://maps.google.com/maps?q=${lat},${lng}&hl=ar&z=17&output=embed`} */
                 width="100%"
