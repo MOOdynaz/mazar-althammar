@@ -85,7 +85,7 @@ export default function About() {
                    <p className="text-white/80 italic text-lg leading-relaxed font-serif">
                      "والله لتُقطّعن يداك ورجلاك ولسانك، ولتُصلبن على جذع نخلة"
                    </p>
-                   <span className="block mt-2 text-[#c9a227] text-sm">- من حديث الإمام علي (ع) لميثم التمار</span>
+                   <span className="block mt-2 text-[#c9a227] text-sm">- من حديث أمير المؤمنين (ع) لميثم التمار</span>
                 </div>
               </div>
             </motion.div>
@@ -150,7 +150,7 @@ export default function About() {
             </div>
           </div>
 
-          {/* Map Section - الموقع المحدث بناءً على 29HX+H39 */}
+          {/* Map Section - التعديل الجذري لضمان ظهور الاسم */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -168,8 +168,11 @@ export default function About() {
 
             <div className="relative rounded-2xl overflow-hidden h-[500px] border border-[#c9a227]/20">
               <iframe
-                title="مزار ميثم التمار"
-src={`https://maps.app.goo.gl/3x8y7g9mJkgNbb4c8=${lat},${lng}+(مزار ميثم التمار)&t=&z=17&ie=UTF8&iwloc=B&output=embed`}                height="100%"
+                title="موقع مزار ميثم التمار"
+                /* هذا الرابط يستخدم معامل البحث النصي مع الإحداثيات لفرض "مزار ميثم التمار" كوجهة وحيدة */
+                src={`https://maps.google.com/maps?q=${lat},${lng}+(مزار ميثم التمار)&t=&z=17&ie=UTF8&iwloc=B&output=embed`}
+                width="100%"
+                height="100%"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
