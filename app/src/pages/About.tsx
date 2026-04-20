@@ -54,13 +54,13 @@ export default function About() {
             className="text-center mb-16"
           >
             <span className="inline-block px-4 py-2 rounded-full bg-[#c9a227]/20 text-[#c9a227] text-sm font-medium mb-6">
-              من خواص أصحاب أمير المؤمنين (ع)
+              من خواص أصحاب أمير المؤمنين (عليه السلام)
             </span>
             <h1 className="text-4xl sm:text-5xl font-bold mb-6 font-display text-center">
-              <span className="gold-gradient">ميثم بن يحيى التمّار الأسديّ</span>
+              <span className="gold-gradient">ميثم بن يحيى التمّار</span>
             </h1>
             <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed text-center">
-              أبو سالم، شهيد الولاية والعالم المحدث الذي صلب دفاعاً عن الحق والبيعة
+              أبو سالم، شهيد الولاية والعالم المحدث الذي صلب دفاعاً عن الحق 
             </p>
           </motion.div>
 
@@ -83,7 +83,7 @@ export default function About() {
                 <div className="bg-black/30 p-6 rounded-2xl backdrop-blur-sm border border-white/5">
                    <Quote className="w-8 h-8 text-[#c9a227] mx-auto mb-4 opacity-50" />
                    <p className="text-white/80 italic text-lg leading-relaxed font-serif">
-                     "والله لتُقطّعن يداك ورجلاك ولسانك، ولتُصلبن على جذع نخلة"
+                     "دعاني أمير المؤمنين وقال لي: كيف أنت ـ يا مِيثم ـ إذا دعاك دَعيُّ بني أميّة ابن دَعيّها عبيدُ الله بن زياد إلى البراءة منّي ؟ فقلت: يا أمير المؤمنين، أنا ـ واللهِ ـ لا أبرأ منك. قال: إذن ـ واللهِ ـ يَقتلُك ويَصلبك، قلت: أصبِرُ فذاك في الله قليل، فقال: ما ميثم، إذن تكون معي في درجتي"."
                    </p>
                    <span className="block mt-2 text-[#c9a227] text-sm">- من حديث الإمام علي (ع) لميثم التمار</span>
                 </div>
