@@ -11,14 +11,13 @@ import {
   Users 
 } from 'lucide-react'
 
-// استخدام المسار المباشر من مجلد public لضمان الاستقرار
 const mazarLogo = '/logo.png'; 
 
 const timeline = [
   { 
     year: 'النشأة', 
     title: 'من سالم إلى ميثم', 
-    description: 'كان عبداً لمراة من بني أسد فاشتراه أمير المؤمنين (ع) وأعتقه، وأخبره باسمه الحقيقي "ميثم" الذي سماه به أبواه في العجم.' 
+    description: 'كان عبداً لامرأة من بني أسد فاشتراه أمير المؤمنين (ع) وأعتقه، وأخبره باسمه الحقيقي "ميثم" الذي سماه به أبواه في العجم.' 
   },
   { 
     year: 'الصحبة', 
@@ -38,8 +37,8 @@ const timeline = [
 ]
 
 export default function About() {
-  // رابط توجيه GPS الذي زودتني به
-  const directMapUrl = "https://www.google.com/maps/dir/?api=1&destination=32.029472,44.398194";
+  // الرابط المباشر للمزار لتجنب التوجيه لمواقع مجاورة
+  const directMapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.486242686762!2d44.37716867530511!3d32.02294642180808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1558d6019dc9a82b%3A0xda6623385062016b!2z2YXYstin2LEg2YXZitir2YUg2KfZhNiq2YXYp9ix!5e0!3m2!1sar!2siq!4v1713179000000!5m2!1sar!2siq5";
 
   return (
     <div className="min-h-screen pt-20 bg-[#05140d]">
@@ -57,7 +56,7 @@ export default function About() {
             <span className="inline-block px-4 py-2 rounded-full bg-[#c9a227]/20 text-[#c9a227] text-sm font-medium mb-6">
               من خواص أصحاب أمير المؤمنين (ع)
             </span>
-            <h1 className="text-4xl sm:text-5xl font-bold mb-6 font-display">
+            <h1 className="text-4xl sm:text-5xl font-bold mb-6 font-display text-right lg:text-center">
               <span className="gold-gradient">ميثم بن يحيى التمّار الأسديّ</span>
             </h1>
             <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
@@ -140,7 +139,7 @@ export default function About() {
                   viewport={{ once: true }}
                   className={`flex flex-col lg:flex-row items-center gap-8 ${index % 2 === 0 ? 'lg:flex-row-reverse' : ''}`}
                 >
-                  <div className="flex-1 w-full">
+                  <div className="flex-1 w-full text-right">
                     <div className="glass-card p-6 border border-[#c9a227]/10 hover:border-[#c9a227]/40 transition-colors group">
                       <span className="inline-block px-3 py-1 rounded-full bg-[#c9a227]/20 text-[#c9a227] text-xs mb-3 font-bold group-hover:bg-[#c9a227] group-hover:text-black transition-colors">{item.year}</span>
                       <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
@@ -154,7 +153,7 @@ export default function About() {
             </div>
           </div>
 
-          {/* Map Section - Updated for correct Embed functionality */}
+          {/* Map Section - تم تعديل الروابط بدقة */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -165,14 +164,13 @@ export default function About() {
               <MapPin className="w-12 h-12 text-[#c9a227] mb-4 animate-bounce" />
               <h2 className="text-3xl font-bold gold-gradient mb-2 font-display">موقع الضريح الطاهر</h2>
               <p className="text-white/60 max-w-2xl mx-auto leading-relaxed">
-                يقع قبره الشريف خارج مسجد الكوفة بقرب بيت أمير المؤمنين (ع)، في المكان الذي صُلب فيه دفاعاً عن الولاية في أرض الكوفة المقدسة.
+                يقع الضريح المبارك في مدينة الكوفة المقدسة، مقابل مسجد الكوفة المعظم، وهو المعلم الواضح لكل الزائرين.
               </p>
             </div>
 
             <div className="relative rounded-2xl overflow-hidden h-[450px] border border-[#c9a227]/20">
-              {/* الرابط المحدث لعرض الخريطة بنجاح داخل الـ iframe */}
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.2422312693976!2d44.39561907535946!3d32.0294719739818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1559de019dc9cacb%3A0xda6623385062016b!2z2YXYsdmC2K8g2YXZitmr2YUg2KfZhNiq2YXYp9ix!5e0!3m2!1sar!2siq!4v1713606559000!5m2!1sar!2siq"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.486242686762!2d44.37716867530511!3d32.02294642180808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1558d6019dc9a82b%3A0xda6623385062016b!2z2YXYstin2LEg2YXZitir2YUg2KfZhNiq2YXYp9ix!5e0!3m2!1sar!2siq!4v1713179000000!5m2!1sar!2siq6"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
