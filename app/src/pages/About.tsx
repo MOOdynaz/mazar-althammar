@@ -105,7 +105,7 @@ export default function About() {
                   <Users className="w-8 h-8" /> أولاده وذريته
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {['عمران (صاحب الإمام السجاد)', 'صالح (صاحب الباقر والصادق)', 'شعيب (صاحب الإمام الصادق)', 'حمزة بن ميثم'].map((son) => (
+                  {['عمران (صاحب الإمام السجاد عليه السلام)', 'صالح (صاحب الامامين الباقر والصادق عليهما السلام)', 'شعيب (صاحب الإمام الصادق عليه السلام )', 'حمزة بن ميثم'].map((son) => (
                     <div key={son} className="bg-white/5 border border-white/10 p-4 rounded-xl text-white/90 text-sm hover:border-[#c9a227]/30 transition-colors">
                        {son}
                     </div>
