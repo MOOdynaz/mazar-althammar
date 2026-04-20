@@ -169,8 +169,7 @@ export default function About() {
             <div className="relative rounded-2xl overflow-hidden h-[500px] border border-[#c9a227]/20">
               <iframe
                 title="مزار ميثم التمار"
-                src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d428.16373752528!2d${lng}!3d${lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDAxJzQ2LjAiTiA0NMKwMjMnNTQuNSJF!5e0!3m2!1sar!2siq!4v1713608000000!5m2!1sar!2siq`}
-                width="100%"
+src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d428.1656515274191!2d${lng}!3d${lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDAxJzQ2LjAiTiA0NMKwMjMnNTQuNSJF!5e0!3m2!1sar!2siq!4v1713608000000!5m2!1sar!2siq`}                width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen
