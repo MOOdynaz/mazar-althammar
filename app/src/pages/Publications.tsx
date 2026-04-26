@@ -41,7 +41,7 @@ const publications = [
     year: '2024',
     category: 'تاريخ الإعمار',
     description: 'توثيق تاريخي شامل يركز على مراحل إعمار المزار الشريف عبر التاريخ، منذ البناء الأول باللبن وصولاً إلى التوسعات الكبرى.',
-    fileUrl: 'https://files.catbox.moe/jvzm1.pdf',
+    fileUrl: 'https://files.catbox.moe/gmzyh1.pdf',
     fileSize: '2.1 MB'
   }
 ]
