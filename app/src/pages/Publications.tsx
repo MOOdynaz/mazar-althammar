@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { FileText, Download, Eye, Search, BookOpen, FileType } from 'lucide-react'
 import { useState } from 'react'
 
-// مصفوفة البيانات - تضم الآن الإصدارين اللذين أرسلتهما
+// مصفوفة البيانات المحدثة بالتفاصيل الهندسية والتاريخية
 const publications = [
   {
     id: 1,
@@ -23,6 +23,26 @@ const publications = [
     description: 'بحث معمق يسلّط الضوء على المواقف البطولية للشهيد ميثم التمار وثباته على نهج أمير المؤمنين عليه السلام حتى نيله الشهادة.',
     fileUrl: 'https://files.catbox.moe/7d8uzy.pdf',
     fileSize: '1.2 MB'
+  },
+  {
+    id: 3,
+    title: 'ميثم التمار.. حواري أمير المؤمنين (ع)',
+    author: 'الأمانة الخاصة لمزار ميثم التمار',
+    year: '2024',
+    category: 'عمارة وهندسة',
+    description: 'دراسة تخصصية تركز على البناء المعماري الحالي للمقام الشريف، مستعرضة التفاصيل الهندسية الدقيقة والجماليات العمرانية للمزار في وقته الحاضر.',
+    fileUrl: 'https://files.catbox.moe/kxieom.pdf',
+    fileSize: '1.8 MB'
+  },
+  {
+    id: 4,
+    title: 'ميثم التمار.. من الكوفة إلى الخلود',
+    author: 'الأمانة الخاصة لمزار ميثم التمار',
+    year: '2024',
+    category: 'تاريخ الإعمار',
+    description: 'توثيق تاريخي شامل لمراحل إعمار وتطوير المزار الشريف عبر العصور المختلفة، متتبعاً التغييرات الهيكلية والتوسعات التي شهدها المرقد عبر التاريخ.',
+    fileUrl: 'https://files.catbox.moe/jvzm1.pdf',
+    fileSize: '2.1 MB'
   }
 ]
 
@@ -30,7 +50,7 @@ export default function Publications() {
   const [searchTerm, setSearchTerm] = useState('')
 
   const filteredPubs = publications.filter(pub => 
-    pub.title.includes(searchTerm) || pub.category.includes(searchTerm)
+    pub.title.includes(searchTerm) || pub.category.includes(searchTerm) || pub.description.includes(searchTerm)
   )
 
   return (
@@ -54,7 +74,7 @@ export default function Publications() {
             <Search className="absolute right-5 top-1/2 -translate-y-1/2 text-[#c9a227] w-5 h-5 opacity-50" />
             <input 
               type="text"
-              placeholder="ابحث في العناوين أو التصنيفات..."
+              placeholder="ابحث في العناوين أو التصنيفات أو المواضيع..."
               className="w-full bg-white/[0.03] border border-white/10 rounded-2xl py-4 pr-14 pl-6 focus:outline-none focus:border-[#c9a227] focus:bg-white/[0.05] transition-all text-lg font-display"
               onChange={(e) => setSearchTerm(e.target.value)}
             />
