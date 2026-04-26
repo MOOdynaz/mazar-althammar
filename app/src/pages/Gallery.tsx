@@ -27,14 +27,18 @@ import img29 from '../assets/images/29.jpg'
 import img30 from '../assets/images/30.jpg'
 import img31 from '../assets/images/31.jpg'
 
-// استيراد صور الذكاء الاصطناعي
+// استيراد صور الذكاء الاصطناعي (من 32 إلى 36)
 import img32 from '../assets/images/32.jpg'
+import img33 from '../assets/images/33.jpg'
+import img34 from '../assets/images/34.jpg'
+import img35 from '../assets/images/35.jpg'
+import img36 from '../assets/images/36.jpg'
 
 const categories = [
   { id: 'all', name: 'الكل', icon: Camera },
   { id: 'shrine', name: 'المزار', icon: Building },
   { id: 'visitors_photos', name: 'صور الزائرين', icon: ImageIcon },
-  { id: 'ai_photos', name: 'ذكاء اصطناعي', icon: Sparkles }, // القسم الجديد
+  { id: 'ai_photos', name: 'ذكاء اصطناعي', icon: Sparkles },
   { id: 'visitors', name: 'توافد المؤمنين', icon: Users },
   { id: 'location', name: 'الموقع', icon: MapPin },
 ]
@@ -56,16 +60,20 @@ const galleryImages = [
   { id: 14, title: 'خدمة الزوار', description: 'جانب من الخدمات الميدانية', category: 'visitors', src: img14 },
   
   // صور الزائرين
-  { id: 25, title: 'من تصوير الزوار', description: 'لقطة بعدسة أحد الزائرين للمزار', category: 'visitors_photos', src: img25 },
+  { id: 25, title: 'عدسة الزوار', description: 'توثيق الزيارة بعدسة المحبين', category: 'visitors_photos', src: img25 },
   { id: 26, title: 'زاوية خاصة', description: 'صورة تذكارية من داخل الصحن', category: 'visitors_photos', src: img26 },
   { id: 27, title: 'مشهد للمزار', description: 'المزار الشريف كما يراه الزائر', category: 'visitors_photos', src: img27 },
   { id: 28, title: 'لحظة دخول', description: 'صور الزوار عند البوابات الشريفة', category: 'visitors_photos', src: img28 },
   { id: 29, title: 'لقطة علوية', description: 'جمال القبة من زاوية أحد الزوار', category: 'visitors_photos', src: img29 },
-  { id: 30, title: 'في رحاب ميثم', description: 'توثيق الزيارة بعدسة المحبين', category: 'visitors_photos', src: img30 },
+  { id: 30, title: 'في رحاب ميثم', description: 'لقطة بعدسة أحد الزائرين للمزار', category: 'visitors_photos', src: img30 },
   { id: 31, title: 'ذكرى الزيارة', description: 'صورة من أرشيف الزائرين الكرام', category: 'visitors_photos', src: img31 },
 
-  // صور الذكاء الاصطناعي
-  { id: 32, title: 'لوحة فنية (AI)', description: 'تجسيد فني للمزار الشريف بواسطة الذكاء الاصطناعي', category: 'ai_photos', src: img32 },
+  // صور الذكاء الاصطناعي (تمت إضافة الصور من 33 إلى 36)
+  { id: 32, title: 'تجسيد فني (1)', description: 'لوحة فنية للمزار بواسطة الذكاء الاصطناعي', category: 'ai_photos', src: img32 },
+  { id: 33, title: 'تجسيد فني (2)', description: 'رؤية فنية رقمية للمرقد الشريف', category: 'ai_photos', src: img33 },
+  { id: 34, title: 'تجسيد فني (3)', description: 'تصميم تخيلي لجماليات العمارة الإسلامية', category: 'ai_photos', src: img34 },
+  { id: 35, title: 'تجسيد فني (4)', description: 'إبداع بصري يجسد هيبة المقام', category: 'ai_photos', src: img35 },
+  { id: 36, title: 'تجسيد فني (5)', description: 'لوحة رقمية مستوحاة من عبق التاريخ', category: 'ai_photos', src: img36 },
 ]
 
 export default function Gallery() {
@@ -90,7 +98,7 @@ export default function Gallery() {
     <div className="min-h-screen pt-20 bg-[#05140d]">
       <section className="relative py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute inset-0 islamic-pattern opacity-10 pointer-events-none" />
-        <div className="relative z-10 max-w-7xl mx-auto">
+        <div className="relative z-10 max-w-7xl mx-auto text-right" dir="rtl">
           
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -104,11 +112,9 @@ export default function Gallery() {
             <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-white font-display">
               صور من <span className="gold-gradient">المزار الشريف</span>
             </h1>
-            <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-              معرض يوثق مزار ميثم بن يحيى التمار (رض) وأجواء الزيارة في الكوفة المقدسة
-            </p>
           </motion.div>
 
+          {/* أزرار الفئات */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -131,6 +137,7 @@ export default function Gallery() {
             ))}
           </motion.div>
 
+          {/* شبكة الصور */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             <AnimatePresence mode="popLayout">
               {filteredImages.map((image) => (
@@ -150,7 +157,7 @@ export default function Gallery() {
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-5 text-right" dir="rtl">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-5">
                     <h3 className="text-[#c9a227] font-bold text-lg">{image.title}</h3>
                     <p className="text-white/80 text-xs line-clamp-2">{image.description}</p>
                   </div>
@@ -161,6 +168,7 @@ export default function Gallery() {
         </div>
       </section>
 
+      {/* نافذة العرض الكبيرة (Lightbox) */}
       <AnimatePresence>
         {selectedImage && (
           <motion.div
