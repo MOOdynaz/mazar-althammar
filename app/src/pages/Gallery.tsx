@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, ChevronLeft, ChevronRight, Camera, MapPin, Users, Building, Image as ImageIcon } from 'lucide-react'
+import { X, ChevronLeft, ChevronRight, Camera, MapPin, Users, Building, Image as ImageIcon, Sparkles } from 'lucide-react'
 
 // استيراد الصور القديمة
 import img1 from '../assets/images/1.jpg'
@@ -18,7 +18,7 @@ import img12 from '../assets/images/12.jpg'
 import img13 from '../assets/images/13.jpg'
 import img14 from '../assets/images/14.jpg'
 
-// استيراد الصور الجديدة (صور الزائرين)
+// استيراد صور الزائرين
 import img25 from '../assets/images/25.jpg'
 import img26 from '../assets/images/26.jpg'
 import img27 from '../assets/images/27.jpg'
@@ -27,10 +27,14 @@ import img29 from '../assets/images/29.jpg'
 import img30 from '../assets/images/30.jpg'
 import img31 from '../assets/images/31.jpg'
 
+// استيراد صور الذكاء الاصطناعي
+import img32 from '../assets/images/32.jpg'
+
 const categories = [
   { id: 'all', name: 'الكل', icon: Camera },
   { id: 'shrine', name: 'المزار', icon: Building },
-  { id: 'visitors_photos', name: 'صور الزائرين', icon: ImageIcon }, // القسم الجديد
+  { id: 'visitors_photos', name: 'صور الزائرين', icon: ImageIcon },
+  { id: 'ai_photos', name: 'ذكاء اصطناعي', icon: Sparkles }, // القسم الجديد
   { id: 'visitors', name: 'توافد المؤمنين', icon: Users },
   { id: 'location', name: 'الموقع', icon: MapPin },
 ]
@@ -51,7 +55,7 @@ const galleryImages = [
   { id: 13, title: 'أجواء إيمانية', description: 'لحظات من زيارة الموالين', category: 'visitors', src: img13 },
   { id: 14, title: 'خدمة الزوار', description: 'جانب من الخدمات الميدانية', category: 'visitors', src: img14 },
   
-  // إضافة الصور الجديدة للقسم المطلوب
+  // صور الزائرين
   { id: 25, title: 'من تصوير الزوار', description: 'لقطة بعدسة أحد الزائرين للمزار', category: 'visitors_photos', src: img25 },
   { id: 26, title: 'زاوية خاصة', description: 'صورة تذكارية من داخل الصحن', category: 'visitors_photos', src: img26 },
   { id: 27, title: 'مشهد للمزار', description: 'المزار الشريف كما يراه الزائر', category: 'visitors_photos', src: img27 },
@@ -59,6 +63,9 @@ const galleryImages = [
   { id: 29, title: 'لقطة علوية', description: 'جمال القبة من زاوية أحد الزوار', category: 'visitors_photos', src: img29 },
   { id: 30, title: 'في رحاب ميثم', description: 'توثيق الزيارة بعدسة المحبين', category: 'visitors_photos', src: img30 },
   { id: 31, title: 'ذكرى الزيارة', description: 'صورة من أرشيف الزائرين الكرام', category: 'visitors_photos', src: img31 },
+
+  // صور الذكاء الاصطناعي
+  { id: 32, title: 'لوحة فنية (AI)', description: 'تجسيد فني للمزار الشريف بواسطة الذكاء الاصطناعي', category: 'ai_photos', src: img32 },
 ]
 
 export default function Gallery() {
@@ -98,7 +105,7 @@ export default function Gallery() {
               صور من <span className="gold-gradient">المزار الشريف</span>
             </h1>
             <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-              معرض يوثق مزار ميثم بن يحيى التمار (رض) وأجواء الزيارة وتوثيق الزائرين في الكوفة المقدسة
+              معرض يوثق مزار ميثم بن يحيى التمار (رض) وأجواء الزيارة في الكوفة المقدسة
             </p>
           </motion.div>
 
@@ -141,6 +148,7 @@ export default function Gallery() {
                     src={image.src} 
                     alt={image.title} 
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-5 text-right" dir="rtl">
                     <h3 className="text-[#c9a227] font-bold text-lg">{image.title}</h3>
