@@ -9,13 +9,15 @@ import {
   Sparkles,
   ScrollText,
   ShieldCheck,
-  MessageCircle
+  MessageCircle,
+  Stethoscope,
+  Clock
 } from 'lucide-react'
 
 const mazarLogo = '/logo.png'; 
 
 export default function About() {
-  // إحداثيات ومعلومات الموقع (ثابتة كما طلبت)
+  // إحداثيات ومعلومات الموقع (ثابتة تماماً كما طلبت)
   const lat = 32.0264024;
   const lng = 44.3951297;
   const directMapUrl = "https://www.google.com/maps/dir/?api=1&destination=32.0264024,44.3951297";
@@ -27,175 +29,172 @@ export default function About() {
         
         <div className="relative z-10 max-w-7xl mx-auto text-right" dir="rtl">
           
-          {/* Header Section */}
+          {/* --- الرواية الذهبية (صدر الصفحة) --- */}
           <motion.div 
-            initial={{ opacity: 0, y: 30 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            className="text-center mb-24"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="mb-24 relative"
           >
-            <span className="inline-block px-6 py-2 rounded-full bg-[#c9a227]/10 text-[#c9a227] text-sm font-bold mb-6 border border-[#c9a227]/20 tracking-widest">
-              أصفياء أصحاب أمير المؤمنين (عليه السلام)
-            </span>
-            <h1 className="text-5xl md:text-7xl font-bold mb-8">
-              <span className="gold-gradient">ميثم بن يحيى التمّار</span>
-            </h1>
-            <p className="text-xl text-white/60 max-w-4xl mx-auto leading-relaxed italic">
-              "حواريّ عليّ، وعالم التأويل، وشهيد الولاية الذي صلب دفاعاً عن الحق"
-            </p>
+            <div className="absolute inset-0 bg-[#c9a227]/5 blur-3xl rounded-full" />
+            <div className="relative border-2 border-[#c9a227]/30 bg-black/40 p-8 md:p-12 rounded-[3rem] shadow-[0_0_50px_rgba(201,162,39,0.1)] overflow-hidden">
+              <div className="absolute top-0 left-0 w-32 h-32 bg-[#c9a227]/10 rounded-br-full -translate-x-16 -translate-y-16" />
+              <Quote className="w-12 h-12 text-[#c9a227] mb-6 opacity-60" />
+              <blockquote className="text-2xl md:text-4xl font-bold leading-relaxed mb-8 text-white">
+                <span className="text-[#c9a227]">قال مِيثَم التمار:</span> دعاني أمير المؤمنين (ع) وقال: كيف أنت يا ميثم إذا دعاك دعي بني أُمية عبيد الله بن زياد إلى البراءة منّي؟ فقال: يا أمير المؤمنين، أنا والله لا أبرأ منك، قال: إذًا والله يقتلك ويصلبك، قلت: أصبر فذاك في الله قليل، فقال:
+                <div className="mt-6 p-4 bg-[#c9a227] text-[#05140d] rounded-2xl inline-block shadow-[0_0_20px_rgba(201,162,39,0.4)]">
+                  "يا ميثم إذًا تكون معي في درجتي"
+                </div>
+              </blockquote>
+              <div className="text-[#c9a227]/60 text-sm font-bold border-t border-white/10 pt-4 flex items-center gap-2">
+                <BookOpen className="w-4 h-4" /> المصدر: كتاب الرجال للشيخ الكشي
+              </div>
+            </div>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             
-            {/* القائمة الجانبية - الاقتباسات والأحاديث */}
+            {/* القائمة الجانبية - أحاديث ولقاءات */}
             <motion.div 
               initial={{ opacity: 0, x: 50 }} 
               animate={{ opacity: 1, x: 0 }} 
               className="lg:col-span-4 space-y-8 lg:sticky lg:top-32"
             >
-              {/* بطاقة الشعار */}
-              <div className="rounded-[2.5rem] overflow-hidden glass-card bg-gradient-to-br from-[#1a5f3f]/40 to-[#0d3322]/40 border border-[#c9a227]/20 p-10 text-center shadow-2xl">
-                <div className="relative mb-8">
-                  <div className="absolute -inset-8 bg-[#c9a227]/15 rounded-full blur-3xl opacity-50"></div>
-                  <img src={mazarLogo} alt="Logo" className="relative w-44 h-44 mx-auto object-contain drop-shadow-[0_0_20px_rgba(201,162,39,0.5)]" />
-                </div>
-                <h3 className="text-[#c9a227] text-xl font-bold mb-2">مزار ميثم التمار</h3>
-                <p className="text-white/40 text-sm">الكوفة المقدسة</p>
+              {/* لقاؤه بأم سلمة */}
+              <div className="bg-gradient-to-br from-[#1a5f3f]/20 to-transparent p-8 rounded-[2.5rem] border border-[#c9a227]/20 relative overflow-hidden">
+                <div className="absolute top-2 left-2 opacity-10"><MessageCircle size={80}/></div>
+                <h4 className="text-[#c9a227] font-bold mb-4 flex items-center gap-2 text-xl">
+                   لقاؤه بأُمّ سلمة (رض)
+                </h4>
+                <p className="text-sm text-white/70 leading-loose italic">
+                  قالت له أم سلمة: "والله لطالما سمعت رسول الله يوصي بك عليًا في جوف الليل". فدعت بطيب وطيبت لحيته، فقال لها: "أما أنَّها ستخضَّب بدم". فبكت وقالت: "إنه ليس بسيِّدك وحدك، وهو سيِّدي وسيِّد المسلمين".
+                </p>
               </div>
 
-              {/* أحاديث أهل البيت */}
-              <div className="space-y-6">
-                <h4 className="text-[#c9a227] font-bold flex items-center gap-2 mr-2">
-                  <MessageCircle className="w-5 h-5" /> ميثم في أحاديث المعصومين
-                </h4>
-                
-                <div className="bg-white/5 p-6 rounded-3xl border border-white/10 hover:border-[#c9a227]/30 transition-all">
-                  <p className="text-sm leading-relaxed text-white/80 italic font-serif">
-                    "أين حواري علي بن أبي طالب؟ فيقوم عمرو بن الحمق، ومحمد بن أبي بكر، وميثم بن يحيى التمار.."
-                  </p>
-                  <span className="text-[10px] text-[#c9a227] mt-3 block">- الإمام موسى الكاظم (عليه السلام)</span>
-                </div>
-
-                <div className="bg-white/5 p-6 rounded-3xl border border-white/10 hover:border-[#c9a227]/30 transition-all">
-                  <p className="text-sm leading-relaxed text-white/80 italic font-serif">
-                    "إنّي أُحبّك وأُحبّ أباك حبّاً شديداً"
-                  </p>
-                  <span className="text-[10px] text-[#c9a227] mt-3 block">- الإمام الباقر (ع) لصالح بن ميثم</span>
-                </div>
+              {/* أحاديث الحواريين */}
+              <div className="bg-white/5 p-8 rounded-[2.5rem] border border-white/10">
+                <h4 className="text-[#c9a227] font-bold mb-6 text-lg border-b border-white/10 pb-2">حواريّ علي (ع)</h4>
+                <p className="text-sm leading-relaxed text-white/50 italic mb-4">
+                  "إذا كان يوم القيامة نادى مناد أين حواري علي بن أبي طالب؟ فيقوم عمرو بن الحمق، ومحمد بن أبي بكر، وميثم بن يحيى التمار.."
+                </p>
+                <div className="text-[10px] text-white/30 uppercase tracking-widest text-left">- الإمام الكاظم (ع)</div>
               </div>
             </motion.div>
 
-            {/* المحتوى الرئيسي - السيرة المفصلة */}
+            {/* المحتوى الرئيسي */}
             <motion.div 
               initial={{ opacity: 0, x: -50 }} 
               animate={{ opacity: 1, x: 0 }} 
-              className="lg:col-span-8 space-y-16"
+              className="lg:col-span-8 space-y-20"
             >
-              {/* قسم السيرة والأصل */}
+              {/* السيرة والتسمية */}
               <section className="space-y-8">
-                <div className="flex items-center gap-4 border-b border-white/10 pb-4">
-                  <div className="p-3 bg-[#c9a227]/10 rounded-2xl">
-                    <History className="w-8 h-8 text-[#c9a227]" />
-                  </div>
-                  <h2 className="text-4xl font-bold gold-gradient">الأصل والتسمية</h2>
-                </div>
-                
-                <div className="bg-white/[0.02] p-8 rounded-[2rem] border border-white/5 leading-relaxed text-xl text-white/80 space-y-6">
-                  <p>
-                    يروي الشيخ المفيد في "الإرشاد": أن ميثماً كان عبداً لامرأة من بني أسد، فاشتراه أمير المؤمنين (ع) وأعتقه.
+                <h2 className="text-4xl font-bold gold-gradient flex items-center gap-4">
+                   من العجم إلى الكوفة
+                </h2>
+                <div className="bg-white/[0.02] p-8 md:p-10 rounded-[3rem] border border-white/5 space-y-6 text-lg">
+                  <p className="leading-relaxed">
+                    كان عبداً لامرأة من بني أسد، فاشتراه علي (ع) وأعتقه. قال له: <span className="text-[#c9a227]">"ما اسمك؟"</span> قال: سالم. قال (ع): <span className="text-[#c9a227]">"أخبرني رسول الله (ص) أن اسمك الذي سمّاك به أبواك في العجم ميثم"</span>.
                   </p>
-                  <div className="bg-[#c9a227]/5 p-6 rounded-2xl border-r-4 border-[#c9a227] italic">
-                    قال له الامام (ع): "ما اسمك؟" فقال: سالم. فقال (ع): "أخبرني رسول الله (ص) أن اسمك الذي سمّاك به أبواك في العجم ميثم".
-                    فقال: صدق الله ورسوله، وصدقت يا أمير المؤمنين، والله إنه لإسمي.
-                  </div>
-                  <p>
-                    بناءً على أمر الإمام، عاد ميثم لاسمه الأصلي واكتنى بـ "أبي سالم". لُقب بـ "التمار" لأنه كان يبيع التمر في دكانه بالكوفة، وكان دكانه مقصداً للمؤمنين.
+                  <p className="bg-[#c9a227]/5 p-6 rounded-2xl border-r-4 border-[#c9a227]">
+                    أقر ميثم بصدق الخبر قائلاً: "صدق الله ورسوله، والله إنه لاسمي". فعاد لاسمه الأصلي واكتنى بأبي سالم، واتخذ من بيع التمر مهنة له في الكوفة ليعرف بالتمار.
                   </p>
                 </div>
               </section>
 
-              {/* قسم المنزلة العلمية */}
+              {/* علم الغيب (المنايا والبلايا) */}
               <section className="space-y-8">
-                <div className="flex items-center gap-4 border-b border-white/10 pb-4">
-                  <div className="p-3 bg-[#c9a227]/10 rounded-2xl">
-                    <BookOpen className="w-8 h-8 text-[#c9a227]" />
-                  </div>
-                  <h2 className="text-4xl font-bold gold-gradient">المنزلة العلمية والتفسير</h2>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-white/5 p-8 rounded-3xl border border-white/10">
-                    <h4 className="text-[#c9a227] font-bold mb-4 flex items-center gap-2">
-                      <ScrollText className="w-5 h-5" /> تفسير القرآن
-                    </h4>
-                    <p className="text-white/70 leading-relaxed">
-                      روى الكشي لقاءه بابن عباس، حيث قال له ميثم: "يا ابن عباس سلني ما شئت من تفسير القرآن، فإني قرأت تنزيله على أمير المؤمنين وعلمني تأويله". فأقبل ابن عباس يكتب عنه في القرطاس.
+                <h2 className="text-4xl font-bold gold-gradient flex items-center gap-4">
+                   علم المنايا والبلايا
+                </h2>
+                <div className="grid grid-cols-1 gap-6">
+                  <div className="bg-white/5 p-8 rounded-3xl border border-white/10 relative">
+                    <h4 className="text-[#c9a227] font-bold mb-4 flex items-center gap-2"><Sparkles /> حوار الصادقين</h4>
+                    <p className="text-white/70 leading-relaxed italic">
+                      التقى ميثم بحبيب بن مظاهر، فقال حبيب: "لكأني بشيخ أصلع يبيع البطيخ يُصلب في حب أهل بيت نبيه"، فرد ميثم: "وإني لأعرف رجلاً أحمر يخرج لينصر ابن بنت نبيه فيُقتل ويجال برأسه". فتعجب الناس من صدق قولهما حين وقع كل ما قالا.
                     </p>
                   </div>
                   <div className="bg-white/5 p-8 rounded-3xl border border-white/10">
-                    <h4 className="text-[#c9a227] font-bold mb-4 flex items-center gap-2">
-                      <ShieldCheck className="w-5 h-5" /> شرطة الخميس
-                    </h4>
+                    <h4 className="text-[#c9a227] font-bold mb-4 flex items-center gap-2"><ScrollText /> تفسير القرآن</h4>
                     <p className="text-white/70 leading-relaxed">
-                      يُعد ميثم من أصفياء أصحاب الإمام علي (ع) في "شرطة الخميس"، ومن حوارييه المقربين، وصحب الإمامين الحسن والحسين (عليهما السلام) وكان من التابعين الأجلاء.
+                      قال لابن عباس: "سلني ما شئت من تفسير القرآن، فإني قرأت تنزيله على أمير المؤمنين وعلمني تأويله". فكان ابن عباس يكتب عنه وهو من كبار المفسرين.
                     </p>
                   </div>
                 </div>
               </section>
 
-              {/* علم المنايا والبلايا - القصة الكاملة */}
+              {/* قصة المقتل والنخلة */}
               <section className="space-y-8">
-                <div className="flex items-center gap-4 border-b border-white/10 pb-4">
-                  <div className="p-3 bg-[#c9a227]/10 rounded-2xl">
-                    <Sparkles className="w-8 h-8 text-[#c9a227]" />
-                  </div>
-                  <h2 className="text-4xl font-bold gold-gradient">علم المنايا والبلايا</h2>
-                </div>
-                <div className="bg-gradient-to-r from-white/[0.03] to-transparent p-10 rounded-[2.5rem] border border-white/10 relative overflow-hidden">
-                  <Quote className="absolute -left-4 -top-4 w-32 h-32 text-white/5" />
-                  <p className="text-lg leading-loose text-white/80 relative z-10">
-                    روى الكشي عن فضيل بن الزبير: أن ميثماً التقى بحبيب بن مظاهر الأسدي، فأخبر حبيب بمصلب ميثم وبقر بطنه عند دار الرزق، وأخبر ميثم حبيب بمقتله ونصرته لابن بنت رسول الله وحمل رأسه بالكوفة.
-                  </p>
-                  <div className="mt-8 pt-6 border-t border-white/5 text-white/50 text-sm italic">
-                    "والله ما ذهبت الأيّام حتّى رأينا ميثماً مصلوباً.. وجيء برأس حبيب قد قُتل مع الحسين (ع)، ورأينا كلّ ما قالوا."
+                <h2 className="text-4xl font-bold gold-gradient flex items-center gap-4">
+                   طريق الخلود: قصة الشهادة
+                </h2>
+                <div className="bg-gradient-to-b from-[#0a261a] to-transparent p-8 md:p-12 rounded-[3rem] border border-white/10">
+                  <div className="space-y-8">
+                    <div className="flex gap-6">
+                      <div className="p-3 bg-[#c9a227]/20 rounded-full h-fit text-[#c9a227]"><Clock /></div>
+                      <p className="text-lg leading-loose text-white/80">
+                        أراه الإمام علي (ع) النخلة التي سيصلب عليها، فكان ميثم يتعاهدها ويصلي عندها ويقول: <span className="text-[#c9a227]">"بوركتِ من نخلة، لكِ خُلقتُ ولي غُذيتِ"</span>. وكان يخبر جاره عمرو بن حريث بأنه سيجاوره قريباً وعمرو لا يفهم المقصد.
+                      </p>
+                    </div>
+                    
+                    <div className="bg-black/30 p-8 rounded-3xl border-l-4 border-[#c9a227]">
+                      <h5 className="text-[#c9a227] font-bold mb-4">في سجن ابن زياد</h5>
+                      <p className="text-sm text-white/60 leading-relaxed">
+                        حُبس ميثم مع المختار الثقفي، فبشره ميثم: <span className="text-white">"إنك تفلت وتخرج ثائراً بدم الحسين فتقتل هذا الذي يقتلنا"</span>. وبالفعل خرج المختار وقُتل ميثم.
+                      </p>
+                    </div>
+
+                    <div className="space-y-6">
+                      <p className="text-lg leading-loose">
+                        صلبه ابن زياد، فجعل ميثم وهو على الخشبة يحدث بفضائل بني هاشم، فخاف الظلمة من كلامه وأمروا بـ <span className="text-[#c9a227] font-bold underline">إلجامه</span>، فكان أول من أُلجم في الإسلام. وفي اليوم الثالث طعن بالحربة فكبر ثم فاضت روحه دماً خضب لحيته كما أخبره مولاه.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </section>
 
-              {/* قسم الذرية - الأولاد */}
+              {/* الذرية الطيبة */}
               <section className="space-y-8">
-                <div className="flex items-center gap-4 border-b border-white/10 pb-4">
-                  <div className="p-3 bg-[#c9a227]/10 rounded-2xl">
-                    <Users className="w-8 h-8 text-[#c9a227]" />
-                  </div>
-                  <h2 className="text-4xl font-bold gold-gradient">الذرية المباركة</h2>
-                </div>
+                <h2 className="text-3xl font-bold gold-gradient flex items-center gap-4 pr-2 border-r-4 border-[#c9a227]">
+                   الذرية المباركة
+                </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {[
-                    { name: 'عمران بن ميثم', role: 'من أصحاب الإمام زين العابدين (ع)' },
-                    { name: 'صالح بن ميثم', role: 'من أصحاب الإمامين الباقر والصادق (ع)' },
-                    { name: 'شعيب بن ميثم', role: 'من خيرة أصحاب الإمام الصادق (ع)' },
-                    { name: 'حمزة بن ميثم', role: 'من الرواة الأجلاء عن الأئمة (ع)' }
+                    { name: 'عمران بن ميثم', info: 'من أصحاب الإمام السجاد (ع)' },
+                    { name: 'صالح بن ميثم', info: 'من أصحاب الباقر والصادق (ع)' },
+                    { name: 'شعيب بن ميثم', info: 'من خيرة أصحاب الإمام الصادق (ع)' },
+                    { name: 'حمزة بن ميثم', info: 'من رواة الحديث الأجلاء' }
                   ].map((son, i) => (
-                    <motion.div 
-                      key={i}
-                      whileHover={{ scale: 1.02 }}
-                      className="bg-white/5 p-6 rounded-2xl border border-white/10 flex items-center gap-4"
-                    >
-                      <div className="w-3 h-3 bg-[#c9a227] rounded-full shadow-[0_0_10px_#c9a227]"></div>
-                      <div>
-                        <div className="text-white font-bold">{son.name}</div>
-                        <div className="text-[#c9a227] text-xs mt-1">{son.role}</div>
+                    <div key={i} className="bg-white/5 p-6 rounded-2xl border border-white/10 flex items-center justify-between group hover:border-[#c9a227]/40 transition-all">
+                      <div className="flex flex-col">
+                        <span className="text-white font-bold text-lg">{son.name}</span>
+                        <span className="text-[#c9a227] text-xs font-medium">{son.info}</span>
                       </div>
-                    </motion.div>
+                      <Users className="text-white/10 group-hover:text-[#c9a227]/20 transition-colors" />
+                    </div>
                   ))}
                 </div>
-                <p className="text-white/40 text-sm mt-4 bg-white/5 p-4 rounded-xl border border-white/5 italic">
-                  * عُرف من ذريته رواة حديث عظام وأعلام في الطائفة، كيعقوب بن شعيب وعلي بن إسماعيل بن شعيب الذي كان من وجوه المتكلمين.
-                </p>
+                <div className="p-6 bg-white/[0.02] rounded-2xl border border-white/5 text-sm text-white/40 italic">
+                  * عُرف من أحفاده يعقوب بن شعيب وعلي بن إسماعيل، وكانوا من أعلام الطائفة ووجوه المتكلمين وأصحاب الأئمة عليهم السلام.
+                </div>
               </section>
             </motion.div>
           </div>
 
-          {/* Map Section (ثابتة كما في الطلب) */}
+          {/* شهادته */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="mt-24 bg-[#c9a227]/10 p-12 rounded-[4rem] text-center border-2 border-[#c9a227]/20"
+          >
+            <h2 className="text-4xl font-bold gold-gradient mb-6">الشهادة الخالدة</h2>
+            <p className="text-2xl text-white/80 leading-relaxed">
+              استُشهد في <span className="text-[#c9a227] font-bold">22 ذي الحجّة 60 هـ</span> <br />
+              قبل وصول الإمام الحسين (ع) إلى كربلاء بعشرة أيّام. <br />
+              دُفن في الكوفة المقدسة وقبره اليوم مزار شامخ.
+            </p>
+          </motion.div>
+
+          {/* Map Section (UNTOUCHED) */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
