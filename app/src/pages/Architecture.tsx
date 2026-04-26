@@ -68,7 +68,7 @@ const gallerySections = [
   },
   { 
     title: "صور حديثة للمزار", 
-    images: [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16, img17, img18, img19, img20, img67, img68, img69, img70],
+    images: [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16, img17, img18, img19, img20, img68, img69, img70],
     color: "from-emerald-900/20" 
   },
 ];
