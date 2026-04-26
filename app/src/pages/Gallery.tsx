@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, ChevronLeft, ChevronRight, Camera, MapPin, Users, Building } from 'lucide-react'
+import { X, ChevronLeft, ChevronRight, Camera, MapPin, Users, Building, Image as ImageIcon } from 'lucide-react'
 
+// استيراد الصور القديمة
 import img1 from '../assets/images/1.jpg'
 import img2 from '../assets/images/2.jpg'
 import img3 from '../assets/images/3.jpg'
@@ -17,10 +18,20 @@ import img12 from '../assets/images/12.jpg'
 import img13 from '../assets/images/13.jpg'
 import img14 from '../assets/images/14.jpg'
 
+// استيراد الصور الجديدة (صور الزائرين)
+import img25 from '../assets/images/25.jpg'
+import img26 from '../assets/images/26.jpg'
+import img27 from '../assets/images/27.jpg'
+import img28 from '../assets/images/28.jpg'
+import img29 from '../assets/images/29.jpg'
+import img30 from '../assets/images/30.jpg'
+import img31 from '../assets/images/31.jpg'
+
 const categories = [
   { id: 'all', name: 'الكل', icon: Camera },
   { id: 'shrine', name: 'المزار', icon: Building },
-  { id: 'visitors', name: 'الزائرون', icon: Users },
+  { id: 'visitors_photos', name: 'صور الزائرين', icon: ImageIcon }, // القسم الجديد
+  { id: 'visitors', name: 'توافد المؤمنين', icon: Users },
   { id: 'location', name: 'الموقع', icon: MapPin },
 ]
 
@@ -37,8 +48,17 @@ const galleryImages = [
   { id: 10, title: 'صلاة الجماعة', description: 'المؤمنون يؤدون الصلاة', category: 'visitors', src: img10 },
   { id: 11, title: 'مدخل المزار', description: 'بوابة الدخول الرئيسية', category: 'location', src: img11 },
   { id: 12, title: 'النقوش الإسلامية', description: 'زخارف القبة والمنائر', category: 'shrine', src: img12 },
-  { id: 13, title: 'عنوان الصورة', description: 'وصفها', category: 'visitors', src: img13 },
-  { id: 14, title: 'عنوان الصورة', description: 'وصفها', category: 'visitors', src: img14 },
+  { id: 13, title: 'أجواء إيمانية', description: 'لحظات من زيارة الموالين', category: 'visitors', src: img13 },
+  { id: 14, title: 'خدمة الزوار', description: 'جانب من الخدمات الميدانية', category: 'visitors', src: img14 },
+  
+  // إضافة الصور الجديدة للقسم المطلوب
+  { id: 25, title: 'من تصوير الزوار', description: 'لقطة بعدسة أحد الزائرين للمزار', category: 'visitors_photos', src: img25 },
+  { id: 26, title: 'زاوية خاصة', description: 'صورة تذكارية من داخل الصحن', category: 'visitors_photos', src: img26 },
+  { id: 27, title: 'مشهد للمزار', description: 'المزار الشريف كما يراه الزائر', category: 'visitors_photos', src: img27 },
+  { id: 28, title: 'لحظة دخول', description: 'صور الزوار عند البوابات الشريفة', category: 'visitors_photos', src: img28 },
+  { id: 29, title: 'لقطة علوية', description: 'جمال القبة من زاوية أحد الزوار', category: 'visitors_photos', src: img29 },
+  { id: 30, title: 'في رحاب ميثم', description: 'توثيق الزيارة بعدسة المحبين', category: 'visitors_photos', src: img30 },
+  { id: 31, title: 'ذكرى الزيارة', description: 'صورة من أرشيف الزائرين الكرام', category: 'visitors_photos', src: img31 },
 ]
 
 export default function Gallery() {
@@ -60,9 +80,9 @@ export default function Gallery() {
   }
 
   return (
-    <div className="min-h-screen pt-20 bg-[#0d3322]">
+    <div className="min-h-screen pt-20 bg-[#05140d]">
       <section className="relative py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 islamic-pattern opacity-20" />
+        <div className="absolute inset-0 islamic-pattern opacity-10 pointer-events-none" />
         <div className="relative z-10 max-w-7xl mx-auto">
           
           <motion.div
@@ -74,11 +94,11 @@ export default function Gallery() {
             <span className="inline-block px-4 py-2 rounded-full bg-[#c9a227]/20 text-[#c9a227] text-sm font-medium mb-6">
               معرض الصور
             </span>
-            <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-white">
-              صور من <span className="text-[#c9a227]">المزار الشريف</span>
+            <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-white font-display">
+              صور من <span className="gold-gradient">المزار الشريف</span>
             </h1>
-            <p className="text-xl text-white/70 max-w-3xl mx-auto">
-              معرض يوثق مزار ميثم بن يحيى التمار (رض) وأجواء الزيارة في الكوفة المقدسة
+            <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
+              معرض يوثق مزار ميثم بن يحيى التمار (رض) وأجواء الزيارة وتوثيق الزائرين في الكوفة المقدسة
             </p>
           </motion.div>
 
@@ -92,10 +112,10 @@ export default function Gallery() {
               <button
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
-                className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold transition-all shadow-lg ${
+                className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold transition-all shadow-xl ${
                   activeCategory === category.id
-                    ? 'bg-[#c9a227] text-[#0d3322] scale-105'
-                    : 'bg-white/5 text-white/70 hover:bg-white/10 hover:text-white'
+                    ? 'bg-[#c9a227] text-[#05140d] scale-105'
+                    : 'bg-white/5 text-white/70 hover:bg-white/10 hover:text-white border border-white/10'
                 }`}
               >
                 <category.icon className="w-4 h-4" />
@@ -122,7 +142,7 @@ export default function Gallery() {
                     alt={image.title} 
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-5">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-5 text-right" dir="rtl">
                     <h3 className="text-[#c9a227] font-bold text-lg">{image.title}</h3>
                     <p className="text-white/80 text-xs line-clamp-2">{image.description}</p>
                   </div>
@@ -144,7 +164,7 @@ export default function Gallery() {
           >
             <button
               onClick={() => setSelectedImage(null)}
-              className="absolute top-6 left-6 w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#c9a227] hover:text-[#0d3322] transition-all z-10"
+              className="absolute top-6 left-6 w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#c9a227] hover:text-[#05140d] transition-all z-10"
             >
               <X className="w-6 h-6" />
             </button>
@@ -180,7 +200,7 @@ export default function Gallery() {
                   className="max-w-full max-h-full object-contain" 
                 />
               </div>
-              <div className="text-center">
+              <div className="text-center" dir="rtl">
                 <h3 className="text-3xl font-bold text-[#c9a227] mb-2">{selectedImage.title}</h3>
                 <p className="text-white/60 text-lg">{selectedImage.description}</p>
                 <div className="mt-4 text-white/30 text-sm">
