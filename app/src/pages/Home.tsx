@@ -10,7 +10,9 @@ import {
   ExternalLink,
   User,
   FileText,
-  LayoutGrid
+  LayoutGrid,
+  Library,
+  Layers
 } from 'lucide-react'
 
 // استيراد صور المزار الحقيقية من المجلد المحلي
@@ -19,15 +21,17 @@ import img22 from '../assets/images/22.jpg'
 import img23 from '../assets/images/23.jpg'
 import img24 from '../assets/images/24.jpg'
 
-// الأقسام للوصول السريع في الموبايل
+// الأقسام الستة الكاملة للوصول السريع في الموبايل (مطابقة للصورة)
 const quickNav = [
-  { path: '/about', label: 'نبذة عن ميثم', icon: User, color: 'bg-amber-500/10' },
+  { path: '/about', label: 'نبذة عن ميثم التمار', icon: User, color: 'bg-amber-500/10' },
+  { path: '/sections', label: 'أقسام المزار', icon: LayoutGrid, color: 'bg-blue-500/10' },
+  { path: '/publications', label: 'إصدارات المزار', icon: Library, color: 'bg-purple-500/10' },
   { path: '/videos', label: 'الفيديوهات', icon: Play, color: 'bg-red-500/10' },
   { path: '/articles', label: 'المقالات', icon: FileText, color: 'bg-emerald-500/10' },
-  { path: '/gallery', label: 'معرض الصور', icon: ImageIcon, color: 'bg-blue-500/10' },
+  { path: '/gallery', label: 'معرض الصور', icon: ImageIcon, color: 'bg-sky-500/10' },
 ]
 
-// مصفوفة الفيديوهات المميزة (كاملة كما في الكود القديم)
+// مصفوفة الفيديوهات المميزة
 const featuredVideos = [
   {
     id: 1,
@@ -52,7 +56,7 @@ const featuredVideos = [
   },
 ]
 
-// مصفوفة أحدث المقالات (كاملة كما في الكود القديم)
+// مصفوفة أحدث المقالات (كاملة كما في الكود الأصلي)
 const latestArticles = [
   {
     id: 1,
@@ -77,7 +81,7 @@ const latestArticles = [
   },
 ]
 
-// مصفوفة معاينة معرض الصور (كاملة)
+// مصفوفة معاينة معرض الصور
 const galleryPreview = [
   { id: 1, url: img21, title: 'أروقة المزار' },
   { id: 2, url: img22, title: 'قبة المزار' },
@@ -102,8 +106,8 @@ export default function Home() {
           </motion.div>
           
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8">
-            <span className="text-[#c9a227] drop-shadow-[0_2px_15px_rgba(201,162,39,0.3)] font-ar">ميثم بن يحيى التمار</span>
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 font-display">
+            <span className="text-[#c9a227] drop-shadow-[0_2px_15px_rgba(201,162,39,0.3)]">ميثم بن يحيى التمار</span>
           </motion.h1>
           
           <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }}
@@ -111,27 +115,28 @@ export default function Home() {
             الصحابي الجليل وأول من فسر القرآن بالتأويل
           </motion.p>
 
-          {/* Quick Access Grid - الحل لظهور الأقسام في الموبايل */}
+          {/* شبكة الوصول السريع (6 أقسام) - تظهر فقط في الموبايل */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="grid grid-cols-2 gap-4 sm:hidden max-w-sm mx-auto mb-10"
+            className="grid grid-cols-3 gap-3 sm:hidden max-w-md mx-auto mb-12 px-2"
           >
             {quickNav.map((item) => (
               <Link 
                 key={item.path} 
                 to={item.path}
-                className="flex flex-col items-center justify-center p-5 bg-white/5 rounded-3xl border border-[#c9a227]/10 active:scale-95 transition-all shadow-xl"
+                className="flex flex-col items-center justify-center p-3 bg-white/5 rounded-2xl border border-[#c9a227]/10 active:scale-95 transition-all shadow-lg"
               >
-                <div className={`w-12 h-12 rounded-2xl ${item.color} flex items-center justify-center mb-3`}>
-                  <item.icon className="w-6 h-6 text-[#c9a227]" />
+                <div className={`w-10 h-10 rounded-xl ${item.color} flex items-center justify-center mb-2`}>
+                  <item.icon className="w-5 h-5 text-[#c9a227]" />
                 </div>
-                <span className="text-xs font-bold text-white/90">{item.label}</span>
+                <span className="text-[9px] font-bold text-white/90 leading-tight text-center">{item.label}</span>
               </Link>
             ))}
           </motion.div>
           
+          {/* الأزرار للشاشات الكبيرة (Desktop) */}
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }}
             className="hidden sm:flex flex-row items-center justify-center gap-5">
             <Link to="/about" className="px-10 py-4 bg-[#c9a227] text-[#05140d] rounded-full font-bold text-lg hover:bg-[#e0b83a] transition-all transform hover:scale-105 shadow-xl">
@@ -194,7 +199,7 @@ export default function Home() {
                 className="bg-[#0a261a]/50 rounded-2xl p-6 border border-white/5 hover:bg-[#0a261a] transition-all group">
                 <div className="flex items-center justify-end gap-3 mb-4">
                   <span className="flex items-center gap-1 text-white/30 text-xs">{article.date} <Calendar className="w-3.5 h-3.5" /></span>
-                  <span className="px-3 py-1 rounded-lg bg-[#c9a227]/10 text-[#c9a227] text-xs font-bold">{article.category}</span>
+                  <span className="px-3 py-1 rounded-lg bg-[#c9a227]/10 text-[#c9a227] text-xs font-bold uppercase">{article.category}</span>
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#c9a227] transition-colors leading-tight">{article.title}</h3>
                 <p className="text-white/50 text-sm line-clamp-3 mb-6 leading-relaxed">{article.excerpt}</p>
