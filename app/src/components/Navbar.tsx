@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Youtube, Facebook, ChevronDown } from 'lucide-react'
+import { Menu, X, Youtube, Facebook } from 'lucide-react'
 
 // استيراد الشعار
 import mazarLogo from '../assets/images/logo.png'
@@ -10,7 +10,7 @@ const navItems = [
   { name: 'الرئيسية', path: '/' },
   { name: 'نبذة عن ميثم التمار', path: '/about' },
   { name: 'أقسام المزار', path: '/departments' },
-  { name: 'عمارة المزار', path: '/architecture' }, // القسم الجديد الذي تمت إضافته
+  { name: 'عمارة المزار', path: '/architecture' }, // القسم الجديد
   { name: 'إصدارات المزار', path: '/publications' },
   { name: 'الفيديوهات', path: '/videos' },
   { name: 'المقالات', path: '/articles' },
@@ -30,7 +30,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // إغلاق القائمة عند تغيير المسار
   useEffect(() => {
     setIsOpen(false)
   }, [location])
@@ -46,11 +45,11 @@ export default function Navbar() {
           : 'bg-transparent py-4'
       }`}
     >
-      <div className="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1550px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           
           {/* Logo & Identity Section */}
-          <Link to="/" className="flex items-center gap-3 sm:gap-4 group flex-shrink-0">
+          <Link to="/" className="flex items-center gap-3 group flex-shrink-0">
             <div className="relative">
               <div className="absolute -inset-1 bg-[#c9a227]/30 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
               <img 
@@ -64,21 +63,21 @@ export default function Navbar() {
               <h1 className="text-lg sm:text-2xl font-bold gold-gradient leading-none tracking-tight font-display">
                 مزار ميثم التمار
               </h1>
-              <p className="text-[8px] sm:text-[10px] text-white/50 font-medium tracking-widest mt-1 uppercase">
+              <p className="text-[7px] sm:text-[10px] text-white/50 font-medium tracking-widest mt-1 uppercase">
                 الأمانة العامة للمزارات الشيعية الشريفة
               </p>
             </div>
           </Link>
 
-          {/* Desktop Navigation - تم تحسين التباعد والخط لتناسب الأقسام الـ 8 */}
+          {/* Desktop Navigation - تم تقليل حجم الخط والتباعد لتناسب الروابط الـ 8 */}
           <div className="hidden lg:flex items-center gap-0.5 bg-white/5 px-1.5 py-1.5 rounded-full border border-white/10 backdrop-blur-md">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`px-3 xl:px-4 py-2 text-[12px] xl:text-[13px] font-bold transition-all duration-300 rounded-full whitespace-nowrap ${
+                className={`px-2.5 xl:px-4 py-2 text-[11px] xl:text-[13px] font-bold transition-all duration-300 rounded-full whitespace-nowrap ${
                   location.pathname === item.path
-                    ? 'bg-[#c9a227] text-[#05140d] shadow-lg'
+                    ? 'bg-[#c9a227] text-[#05140d] shadow-lg shadow-[#c9a227]/20'
                     : 'text-white/70 hover:text-[#c9a227] hover:bg-white/5'
                 }`}
               >
@@ -88,13 +87,13 @@ export default function Navbar() {
           </div>
 
           {/* Social Icons & Mobile Toggle */}
-          <div className="flex items-center gap-3">
-            <div className="hidden xl:flex items-center gap-3 ml-4 border-l border-white/10 pl-4">
+          <div className="flex items-center gap-2">
+            <div className="hidden xl:flex items-center gap-3 ml-2 border-l border-white/10 pl-4">
               <a
                 href="https://www.youtube.com/@mazar.altammar"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center hover:bg-red-600 transition-all duration-300"
+                className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center hover:bg-red-600/20 hover:text-red-500 transition-all duration-300"
               >
                 <Youtube className="w-4 h-4" />
               </a>
@@ -102,7 +101,7 @@ export default function Navbar() {
                 href="https://web.facebook.com/mazar.altammar"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-600 transition-all duration-300"
+                className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-600/20 hover:text-blue-500 transition-all duration-300"
               >
                 <Facebook className="w-4 h-4" />
               </a>
@@ -119,15 +118,15 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Full Screen لسهولة التصفح */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: '100vh' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.4 }}
-            className="lg:hidden bg-[#05140d] fixed inset-0 top-20 z-40 overflow-y-auto"
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            className="lg:hidden fixed inset-0 top-20 bg-[#05140d] z-40 overflow-y-auto border-t border-[#c9a227]/20"
           >
             <div className="px-6 py-10 space-y-3 pb-32">
               {navItems.map((item, index) => (
@@ -151,10 +150,10 @@ export default function Navbar() {
               ))}
               
               <div className="flex justify-center gap-8 pt-10 border-t border-[#c9a227]/10 mt-8">
-                <a href="https://www.youtube.com/@mazar.altammar" className="text-white/40 hover:text-red-500 transition-colors">
+                <a href="https://www.youtube.com/@mazar.altammar" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-red-500 transition-colors">
                   <Youtube className="w-8 h-8" />
                 </a>
-                <a href="https://web.facebook.com/mazar.altammar" className="text-white/40 hover:text-blue-500 transition-colors">
+                <a href="https://web.facebook.com/mazar.altammar" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-blue-500 transition-colors">
                   <Facebook className="w-8 h-8" />
                 </a>
               </div>
