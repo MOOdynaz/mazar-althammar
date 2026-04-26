@@ -69,10 +69,10 @@ const galleryImages = [
   { id: 31, title: 'ذكرى الزيارة', description: 'صورة من أرشيف الزائرين الكرام', category: 'visitors_photos', src: img31 },
 
   // صور الذكاء الاصطناعي (تمت إضافة الصور من 33 إلى 36)
-  { id: 32, title: 'تجسيد فني (1)', description: 'لوحة فنية للمزار بواسطة الذكاء الاصطناعي', category: 'ai_photos', src: img32 },
-  { id: 33, title: 'تجسيد فني (2)', description: 'رؤية فنية رقمية للمرقد الشريف', category: 'ai_photos', src: img33 },
-  { id: 34, title: 'تجسيد فني (3)', description: 'تصميم تخيلي لجماليات العمارة الإسلامية', category: 'ai_photos', src: img34 },
-  { id: 35, title: 'تجسيد فني (4)', description: 'إبداع بصري يجسد هيبة المقام', category: 'ai_photos', src: img35 },
+  { id: 32, title: 'تجسيد فني (1)', description: 'لوحة تشبيه للصحابي ميثم التمار رضي الله عنه ', category: 'ai_photos', src: img32 },
+  { id: 33, title: 'تجسيد فني (2)', description: 'السلام على المصلوب ظلما ', category: 'ai_photos', src: img33 },
+  { id: 34, title: 'تجسيد فني (3)', description: 'السلام على المحدث العالم', category: 'ai_photos', src: img34 },
+  { id: 35, title: 'تجسيد فني (4)', description: 'السلام على حواري امير المؤمنين', category: 'ai_photos', src: img35 },
   { id: 36, title: 'تجسيد فني (5)', description: 'لوحة رقمية مستوحاة من عبق التاريخ', category: 'ai_photos', src: img36 },
 ]
 
