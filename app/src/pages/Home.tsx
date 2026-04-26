@@ -9,7 +9,8 @@ import {
   User, 
   FileText,
   LayoutGrid,
-  Library
+  Library,
+  Building // استيراد أيقونة العمارة
 } from 'lucide-react'
 
 // استيراد صور المزار الحقيقية من المجلد المحلي
@@ -18,10 +19,11 @@ import img22 from '../assets/images/22.jpg'
 import img23 from '../assets/images/23.jpg'
 import img24 from '../assets/images/24.jpg'
 
-// الأقسام الستة الكاملة - تم تحديث المسار إلى /departments
+// الأقسام السبعة الكاملة بعد إضافة "عمارة المزار"
 const quickNav = [
   { path: '/about', label: 'نبذة عن ميثم التمار', icon: User, color: 'bg-amber-500/10' },
   { path: '/departments', label: 'أقسام المزار', icon: LayoutGrid, color: 'bg-blue-500/10' },
+  { path: '/architecture', label: 'عمارة المزار', icon: Building, color: 'bg-emerald-500/10' }, // القسم الجديد
   { path: '/publications', label: 'إصدارات المزار', icon: Library, color: 'bg-purple-500/10' },
   { path: '/videos', label: 'الفيديوهات', icon: Play, color: 'bg-red-500/10' },
   { path: '/articles', label: 'المقالات', icon: FileText, color: 'bg-emerald-500/10' },
@@ -69,7 +71,7 @@ export default function Home() {
           
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 font-display">
-            <span className="text-[#c9a227] drop-shadow-[0_2px_15px_rgba(201,162,39,0.3)]">ميثم بن يحيى التمار</span>
+            <span className="text-[#c9a227] drop-shadow-[0_2px_15px_rgba(201,162,39,0.3)] font-ar">ميثم بن يحيى التمار</span>
           </motion.h1>
           
           <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }}
@@ -77,24 +79,24 @@ export default function Home() {
             الصحابي الجليل وأول من فسر القرآن بالتأويل
           </motion.p>
 
-          {/* شبكة الوصول السريع للموبايل - تم استخدام onClick مع navigate لضمان الاستجابة */}
+          {/* شبكة الوصول السريع المطورة - أصبحت 4 أعمدة في الشاشات الصغيرة لتناسب العدد 7 */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="grid grid-cols-3 gap-3 sm:hidden max-w-md mx-auto mb-12 px-2 relative z-50"
+            className="grid grid-cols-4 gap-2 sm:hidden max-w-lg mx-auto mb-12 px-1 relative z-50"
           >
             {quickNav.map((item) => (
               <button 
                 key={item.path} 
                 onClick={() => navigate(item.path)}
-                className="flex flex-col items-center justify-center p-3 bg-white/5 rounded-2xl border border-[#c9a227]/10 active:bg-[#c9a227]/30 transition-all shadow-lg touch-manipulation relative z-50 overflow-hidden select-none"
+                className="flex flex-col items-center justify-center p-2.5 bg-white/5 rounded-xl border border-[#c9a227]/10 active:bg-[#c9a227]/30 transition-all shadow-lg touch-manipulation relative z-50 overflow-hidden select-none group"
                 style={{ WebkitTapHighlightColor: 'transparent' }}
               >
-                <div className="w-10 h-10 rounded-xl bg-[#c9a227]/10 flex items-center justify-center mb-2 pointer-events-none">
-                  <item.icon className="w-5 h-5 text-[#c9a227]" />
+                <div className="w-9 h-9 rounded-lg bg-[#c9a227]/10 flex items-center justify-center mb-1.5 pointer-events-none group-active:scale-90 transition-transform">
+                  <item.icon className="w-4.5 h-4.5 text-[#c9a227]" />
                 </div>
-                <span className="text-[9px] font-bold text-white/90 leading-tight text-center pointer-events-none">
+                <span className="text-[8px] font-bold text-white/90 leading-tight text-center pointer-events-none">
                   {item.label}
                 </span>
               </button>
@@ -106,14 +108,15 @@ export default function Home() {
             <Link to="/about" className="px-10 py-4 bg-[#c9a227] text-[#05140d] rounded-full font-bold text-lg hover:bg-[#e0b83a] transition-all transform hover:scale-105 shadow-xl">
               تعرف على سيرته
             </Link>
-            <Link to="/videos" className="px-10 py-4 border border-[#c9a227]/40 text-white rounded-full font-bold text-lg hover:bg-[#c9a227]/10 transition-all flex items-center justify-center gap-2">
-              <Play className="w-5 h-5 text-[#c9a227]" /> شاهد الفيديوهات
+            <Link to="/architecture" className="px-10 py-4 border border-[#c9a227]/40 text-white rounded-full font-bold text-lg hover:bg-[#c9a227]/10 transition-all flex items-center justify-center gap-2">
+              <Building className="w-5 h-5 text-[#c9a227]" /> عمارة المزار
             </Link>
           </motion.div>
         </div>
       </section>
 
-      {/* Featured Videos Section */}
+      {/* باقي الأقسام (فيديوهات، مقالات، معرض الصور، حكمة) تبقى كما هي */}
+      {/* Featured Videos Section ... */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-black/20">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-end justify-between mb-12 border-r-4 border-[#c9a227] pr-6 flex-row-reverse">
@@ -145,7 +148,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Latest Articles Section */}
+      {/* Latest Articles Section ... */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#05140d]">
         <div className="max-w-7xl mx-auto text-right">
           <div className="flex items-end justify-between mb-12 border-r-4 border-[#c9a227] pr-6 flex-row-reverse">
@@ -174,7 +177,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Gallery Preview Section */}
+      {/* Gallery Preview Section ... */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-black/20">
         <div className="max-w-7xl mx-auto text-right">
           <div className="flex items-end justify-between mb-12 border-r-4 border-[#c9a227] pr-6 flex-row-reverse">
@@ -201,7 +204,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Quote Section */}
+      {/* Quote Section ... */}
       <section className="py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <div className="absolute inset-0 bg-[#c9a227]/5" />
         <div className="max-w-4xl mx-auto text-center relative z-10">

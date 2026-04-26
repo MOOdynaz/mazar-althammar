@@ -1,12 +1,15 @@
 import { Link } from 'react-router-dom'
 import { MapPin, Phone, Mail, Clock, Youtube, Facebook } from 'lucide-react'
 
-// استيراد الشعار من المسار الذي ذكرته
+// استيراد الشعار
 import mazarLogo from '../assets/images/logo.png'
 
 const quickLinks = [
   { name: 'الرئيسية', path: '/' },
   { name: 'نبذة عن ميثم التمار', path: '/about' },
+  { name: 'أقسام المزار', path: '/departments' },
+  { name: 'عمارة المزار', path: '/architecture' }, // القسم الجديد
+  { name: 'إصدارات المزار', path: '/publications' },
   { name: 'الفيديوهات', path: '/videos' },
   { name: 'المقالات', path: '/articles' },
   { name: 'معرض الصور', path: '/gallery' },
@@ -24,7 +27,6 @@ export default function Footer() {
           {/* About Section */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-4 mb-6">
-              {/* استخدام الشعار المستورد هنا */}
               <div className="relative group">
                 <div className="absolute -inset-1 bg-[#c9a227]/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
                 <img 
@@ -34,7 +36,7 @@ export default function Footer() {
                 />
               </div>
               <div>
-                <h3 className="text-xl font-bold gold-gradient leading-tight">مزار ميثم التمار</h3>
+                <h3 className="text-xl font-bold gold-gradient leading-tight font-display">مزار ميثم التمار</h3>
                 <p className="text-[10px] text-[#c9a227]/70 uppercase tracking-wider font-medium">الأمانة العامة للمزارات الشيعية</p>
               </div>
             </div>
@@ -43,10 +45,10 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick Links - تم تحديث الروابط هنا */}
           <div>
             <h4 className="text-lg font-semibold mb-6 text-white border-r-4 border-[#c9a227] pr-3">روابط سريعة</h4>
-            <ul className="space-y-3">
+            <ul className="grid grid-cols-1 gap-x-8 gap-y-3">
               {quickLinks.map((link) => (
                 <li key={link.path}>
                   <Link
@@ -66,7 +68,7 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3 group">
                 <MapPin className="w-5 h-5 text-[#c9a227] group-hover:scale-110 transition-transform mt-0.5" />
-                <span className="text-white/60 text-sm leading-relaxed">العراق، الكوفة المقدسة، قرب مسجد الكوفة</span>
+                <span className="text-white/60 text-sm leading-relaxed text-right">العراق، الكوفة المقدسة، قرب مسجد الكوفة</span>
               </li>
               <li className="flex items-center gap-3 group">
                 <Phone className="w-5 h-5 text-[#c9a227] group-hover:scale-110 transition-transform" />
@@ -87,10 +89,10 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-6 text-white border-r-4 border-[#c9a227] pr-3">تابعنا</h4>
             <div className="flex gap-4 mb-8">
-              <a href="https://www.youtube.com/@mazar.altammar" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-red-600 transition-all duration-300 group shadow-lg">
+              <a href="https://www.youtube.com/@mazar.altammar" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-red-600 transition-all duration-300 group shadow-lg">
                 <Youtube className="w-5 h-5 text-white/70 group-hover:text-white" />
               </a>
-              <a href="https://web.facebook.com/mazar.altammar" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-600 transition-all duration-300 group shadow-lg">
+              <a href="https://web.facebook.com/mazar.altammar" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-600 transition-all duration-300 group shadow-lg">
                 <Facebook className="w-5 h-5 text-white/70 group-hover:text-white" />
               </a>
             </div>
@@ -104,7 +106,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-white/5">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-[11px] text-white/30">
-            <p>
+            <p className="text-center md:text-right">
               جميع الحقوق محفوظة لمزار ميثم بن يحيى التمار رضي الله عنه © {new Date().getFullYear()}
             </p>
             <div className="flex gap-8">
