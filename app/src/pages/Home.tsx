@@ -12,28 +12,30 @@ import {
   Library
 } from 'lucide-react'
 
-// استيراد صور المزار الحقيقية
+// استيراد صور المزار الحقيقية من المجلد المحلي
 import img21 from '../assets/images/21.jpg'
 import img22 from '../assets/images/22.jpg'
 import img23 from '../assets/images/23.jpg'
 import img24 from '../assets/images/24.jpg'
 
-// الأقسام الستة الكاملة مطابقة تماماً للمطلوب
+// الأقسام الستة الكاملة - تم تحديث المسار إلى /departments
 const quickNav = [
   { path: '/about', label: 'نبذة عن ميثم التمار', icon: User, color: 'bg-amber-500/10' },
-  { path: '/sections', label: 'أقسام المزار', icon: LayoutGrid, color: 'bg-blue-500/10' },
+  { path: '/departments', label: 'أقسام المزار', icon: LayoutGrid, color: 'bg-blue-500/10' },
   { path: '/publications', label: 'إصدارات المزار', icon: Library, color: 'bg-purple-500/10' },
   { path: '/videos', label: 'الفيديوهات', icon: Play, color: 'bg-red-500/10' },
   { path: '/articles', label: 'المقالات', icon: FileText, color: 'bg-emerald-500/10' },
   { path: '/gallery', label: 'معرض الصور', icon: ImageIcon, color: 'bg-sky-500/10' },
 ]
 
+// مصفوفة الفيديوهات المميزة
 const featuredVideos = [
   { id: 1, title: 'زيارة الصحابي الجليل ميثم التمار', youtubeId: 'uwBkiS5Td5k', duration: '15:30', views: '12.5K' },
   { id: 2, title: 'تصوير جوي للمزار الشريف', youtubeId: 'yYBeaWwUve8', duration: '22:45', views: '8.3K' },
   { id: 3, title: 'سماحة الشيخ زمان الحسناوي - ذكرى الاستشهاد', youtubeId: 'VmSYeLDdOyk', duration: '18:20', views: '15.1K' },
 ]
 
+// مصفوفة أحدث المقالات
 const latestArticles = [
   { id: 1, title: 'ميثم التمار: أول من فسر القرآن بالتأويل', excerpt: 'يُعرف ميثم بن يحيى التمار بأنه أول من فسر القرآن الكريم بالتأويل، وقد تتلمذ على يد الإمام علي عليه السلام واستقى منه علوم التفسير التي لم تكن معروفة آنذاك...', date: '2025-03-20', category: 'سيرة' },
   { id: 2, title: 'استشهاد ميثم التمار على يد عبيد الله بن زياد', excerpt: 'استشهد ميثم التمار رضي الله عنه في الكوفة صابراً ثابتاً حتى آخر لحظة في حب أمير المؤمنين، حيث صلب على جذع نخلة كان يتردد إليها ويصلي عندها...', date: '2025-03-18', category: 'تاريخ' },
@@ -51,7 +53,7 @@ export default function Home() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-[#05140d] text-white overflow-x-hidden text-right" dir="rtl">
+    <div className="min-h-screen bg-[#05140d] text-white overflow-x-hidden text-right pb-10" dir="rtl">
       
       {/* Hero Section */}
       <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
@@ -75,7 +77,7 @@ export default function Home() {
             الصحابي الجليل وأول من فسر القرآن بالتأويل
           </motion.p>
 
-          {/* Quick Access Grid - الحل النهائي لمشكلة الموبايل باستخدام useNavigate */}
+          {/* شبكة الوصول السريع للموبايل - تم استخدام onClick مع navigate لضمان الاستجابة */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -116,8 +118,8 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-end justify-between mb-12 border-r-4 border-[#c9a227] pr-6 flex-row-reverse">
             <div className="text-right w-full">
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2 font-ar">فيديوهات مميزة</h2>
-              <p className="text-white/50 text-lg">شاهد أهم الفيديوهات عن سيرة ميثم التمار</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2 font-ar text-right">فيديوهات مميزة</h2>
+              <p className="text-white/50 text-lg text-right">شاهد أهم الفيديوهات عن سيرة ميثم التمار</p>
             </div>
             <Link to="/videos" className="hidden sm:flex items-center gap-2 text-[#c9a227] hover:underline transition-all whitespace-nowrap">
               عرض الكل <ChevronLeft className="w-5 h-5" />
@@ -127,10 +129,10 @@ export default function Home() {
             {featuredVideos.map((video, index) => (
               <motion.div key={video.id} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }}
                 className="bg-[#0a261a] rounded-2xl overflow-hidden border border-white/5 group hover:border-[#c9a227]/30 transition-all shadow-2xl">
-                <div className="relative aspect-video">
+                <div className="relative aspect-video bg-black">
                   <iframe className="absolute top-0 left-0 w-full h-full border-0" src={`https://www.youtube.com/embed/${video.youtubeId}`} title={video.title} allowFullScreen></iframe>
                 </div>
-                <div className="p-6">
+                <div className="p-6 text-right">
                   <h3 className="text-white font-bold mb-4 line-clamp-1 group-hover:text-[#c9a227] transition-colors text-lg">{video.title}</h3>
                   <div className="flex items-center justify-between text-white/40 text-sm">
                     <span className="bg-black/40 px-3 py-1 rounded-lg text-xs font-mono">{video.duration}</span>
@@ -145,20 +147,20 @@ export default function Home() {
 
       {/* Latest Articles Section */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#05140d]">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto text-right">
           <div className="flex items-end justify-between mb-12 border-r-4 border-[#c9a227] pr-6 flex-row-reverse">
             <div className="text-right w-full">
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2 font-ar">أحدث المقالات</h2>
-              <p className="text-white/50 text-lg">اقرأ المقالات الدينية والتاريخية</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2 font-ar text-right">أحدث المقالات</h2>
+              <p className="text-white/50 text-lg text-right">اقرأ المقالات الدينية والتاريخية</p>
             </div>
             <Link to="/articles" className="hidden sm:flex items-center gap-2 text-[#c9a227] hover:underline transition-all font-bold whitespace-nowrap">
               عرض الكل <ChevronLeft className="w-5 h-5" />
             </Link>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-right">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {latestArticles.map((article, index) => (
               <motion.article key={article.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }}
-                className="bg-[#0a261a]/50 rounded-2xl p-6 border border-white/5 hover:bg-[#0a261a] transition-all group">
+                className="bg-[#0a261a]/50 rounded-2xl p-6 border border-white/5 hover:bg-[#0a261a] transition-all group text-right">
                 <div className="flex items-center justify-end gap-3 mb-4">
                   <span className="flex items-center gap-1 text-white/30 text-xs">{article.date} <Calendar className="w-3.5 h-3.5" /></span>
                   <span className="px-3 py-1 rounded-lg bg-[#c9a227]/10 text-[#c9a227] text-xs font-bold uppercase">{article.category}</span>
@@ -174,11 +176,11 @@ export default function Home() {
 
       {/* Gallery Preview Section */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-black/20">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto text-right">
           <div className="flex items-end justify-between mb-12 border-r-4 border-[#c9a227] pr-6 flex-row-reverse">
             <div className="text-right w-full">
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2 font-ar">معرض الصور</h2>
-              <p className="text-white/50 text-lg">لقطات من المزار الشريف</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2 font-ar text-right">معرض الصور</h2>
+              <p className="text-white/50 text-lg text-right">لقطات من المزار الشريف</p>
             </div>
             <Link to="/gallery" className="text-[#c9a227] hover:underline transition-all font-bold flex items-center gap-2 whitespace-nowrap">
               عرض كامل المعرض <ChevronLeft className="w-5 h-5" />
