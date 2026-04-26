@@ -2,26 +2,23 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { 
   Play, 
-  BookOpen, 
   Image as ImageIcon, 
   ChevronLeft, 
   Calendar, 
   Eye, 
-  ExternalLink,
-  User,
+  User, 
   FileText,
   LayoutGrid,
-  Library,
-  Layers
+  Library
 } from 'lucide-react'
 
-// استيراد صور المزار الحقيقية من المجلد المحلي
+// استيراد صور المزار الحقيقية
 import img21 from '../assets/images/21.jpg'
 import img22 from '../assets/images/22.jpg'
 import img23 from '../assets/images/23.jpg'
 import img24 from '../assets/images/24.jpg'
 
-// الأقسام الستة الكاملة للوصول السريع في الموبايل (مطابقة للصورة)
+// الأقسام الستة الكاملة (مطابقة للصور) مع ألوان مميزة
 const quickNav = [
   { path: '/about', label: 'نبذة عن ميثم التمار', icon: User, color: 'bg-amber-500/10' },
   { path: '/sections', label: 'أقسام المزار', icon: LayoutGrid, color: 'bg-blue-500/10' },
@@ -31,57 +28,18 @@ const quickNav = [
   { path: '/gallery', label: 'معرض الصور', icon: ImageIcon, color: 'bg-sky-500/10' },
 ]
 
-// مصفوفة الفيديوهات المميزة
 const featuredVideos = [
-  {
-    id: 1,
-    title: 'زيارة الصحابي الجليل ميثم التمار',
-    youtubeId: 'uwBkiS5Td5k',
-    duration: '15:30',
-    views: '12.5K',
-  },
-  {
-    id: 2,
-    title: 'تصوير جوي للمزار الشريف',
-    youtubeId: 'yYBeaWwUve8', 
-    duration: '22:45',
-    views: '8.3K',
-  },
-  {
-    id: 3,
-    title: 'سماحة الشيخ زمان الحسناوي - ذكرى الاستشهاد',
-    youtubeId: 'VmSYeLDdOyk',
-    duration: '18:20',
-    views: '15.1K',
-  },
+  { id: 1, title: 'زيارة الصحابي الجليل ميثم التمار', youtubeId: 'uwBkiS5Td5k', duration: '15:30', views: '12.5K' },
+  { id: 2, title: 'تصوير جوي للمزار الشريف', youtubeId: 'yYBeaWwUve8', duration: '22:45', views: '8.3K' },
+  { id: 3, title: 'سماحة الشيخ زمان الحسناوي - ذكرى الاستشهاد', youtubeId: 'VmSYeLDdOyk', duration: '18:20', views: '15.1K' },
 ]
 
-// مصفوفة أحدث المقالات (كاملة كما في الكود الأصلي)
 const latestArticles = [
-  {
-    id: 1,
-    title: 'ميثم التمار: أول من فسر القرآن بالتأويل',
-    excerpt: 'يُعرف ميثم بن يحيى التمار بأنه أول من فسر القرآن الكريم بالتأويل، وقد تتلمذ على يد الإمام علي عليه السلام واستقى منه علوم التفسير التي لم تكن معروفة آنذاك...',
-    date: '2025-03-20',
-    category: 'سيرة',
-  },
-  {
-    id: 2,
-    title: 'استشهاد ميثم التمار على يد عبيد الله بن زياد',
-    excerpt: 'استشهد ميثم التمار رضي الله عنه في الكوفة صابراً ثابتاً حتى آخر لحظة في حب أمير المؤمنين، حيث صلب على جذع نخلة كان يتردد إليها ويصلي عندها...',
-    date: '2025-03-18',
-    category: 'تاريخ',
-  },
-  {
-    id: 3,
-    title: 'مكانة ميثم التمار بين أصحاب الإمام علي',
-    excerpt: 'كان ميثم التمار من أخلص أصحاب الإمام علي بن أبي طالب عليه السلام، وقد أخذ عنه علوماً جمة في البلايا والمنايا، وكان من شرطة الخميس المستعدين للتضحية...',
-    date: '2025-03-15',
-    category: 'فضائل',
-  },
+  { id: 1, title: 'ميثم التمار: أول من فسر القرآن بالتأويل', excerpt: 'يُعرف ميثم بن يحيى التمار بأنه أول من فسر القرآن الكريم بالتأويل، وقد تتلمذ على يد الإمام علي عليه السلام واستقى منه علوم التفسير التي لم تكن معروفة آنذاك...', date: '2025-03-20', category: 'سيرة' },
+  { id: 2, title: 'استشهاد ميثم التمار على يد عبيد الله بن زياد', excerpt: 'استشهد ميثم التمار رضي الله عنه في الكوفة صابراً ثابتاً حتى آخر لحظة في حب أمير المؤمنين، حيث صلب على جذع نخلة كان يتردد إليها ويصلي عندها...', date: '2025-03-18', category: 'تاريخ' },
+  { id: 3, title: 'مكانة ميثم التمار بين أصحاب الإمام علي', excerpt: 'كان ميثم التمار من أخلص أصحاب الإمام علي بن أبي طالب عليه السلام، وقد أخذ عنه علوماً جمة في البلايا والمنايا، وكان من شرطة الخميس المستعدين للتضحية...', date: '2025-03-15', category: 'فضائل' },
 ]
 
-// مصفوفة معاينة معرض الصور
 const galleryPreview = [
   { id: 1, url: img21, title: 'أروقة المزار' },
   { id: 2, url: img22, title: 'قبة المزار' },
@@ -111,11 +69,11 @@ export default function Home() {
           </motion.h1>
           
           <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl sm:text-2xl text-white font-light mb-12 max-w-3xl mx-auto leading-relaxed">
+            className="text-xl sm:text-2xl text-white font-light mb-12 max-w-3xl mx-auto">
             الصحابي الجليل وأول من فسر القرآن بالتأويل
           </motion.p>
 
-          {/* شبكة الوصول السريع (6 أقسام) - تظهر فقط في الموبايل */}
+          {/* Quick Access Grid - 6 أزرار مع إصلاح مشكلة الموبايل */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -126,17 +84,18 @@ export default function Home() {
               <Link 
                 key={item.path} 
                 to={item.path}
-                className="flex flex-col items-center justify-center p-3 bg-white/5 rounded-2xl border border-[#c9a227]/10 active:scale-95 transition-all shadow-lg"
+                className="flex flex-col items-center justify-center p-3 bg-white/5 rounded-2xl border border-[#c9a227]/10 active:bg-[#c9a227]/20 transition-all shadow-lg touch-manipulation select-none"
               >
-                <div className={`w-10 h-10 rounded-xl ${item.color} flex items-center justify-center mb-2`}>
+                <div className="w-10 h-10 rounded-xl bg-[#c9a227]/10 flex items-center justify-center mb-2 pointer-events-none">
                   <item.icon className="w-5 h-5 text-[#c9a227]" />
                 </div>
-                <span className="text-[9px] font-bold text-white/90 leading-tight text-center">{item.label}</span>
+                <span className="text-[9px] font-bold text-white/90 leading-tight text-center pointer-events-none">
+                  {item.label}
+                </span>
               </Link>
             ))}
           </motion.div>
           
-          {/* الأزرار للشاشات الكبيرة (Desktop) */}
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }}
             className="hidden sm:flex flex-row items-center justify-center gap-5">
             <Link to="/about" className="px-10 py-4 bg-[#c9a227] text-[#05140d] rounded-full font-bold text-lg hover:bg-[#e0b83a] transition-all transform hover:scale-105 shadow-xl">
