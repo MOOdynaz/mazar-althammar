@@ -112,20 +112,21 @@ export default function About() {
 
               <div className="space-y-6">
                 <h2 className="text-3xl font-bold gold-gradient flex items-center gap-3">
-                  <Users className="w-8 h-8" /> الذرية الطيبة
+                  <Users className="w-8 h-8" /> أولاد ميثم (رض)
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {[
-                    { name: 'عمران بن ميثم', info: 'صاحب الإمام زين العابدين (ع)' },
-                    { name: 'صالح بن ميثم', info: 'صاحب الإمامين الباقر والصادق (ع)' },
+                    { name: 'عمران بن ميثم', info: 'من أصحاب الإمام زين العابدين (ع)' },
+                    { name: 'صالح بن ميثم', info: 'من أصحاب الإمامين الباقر والصادق (ع)' },
                     { name: 'شعيب بن ميثم', info: 'من خيرة أصحاب الإمام الصادق (ع)' },
-                    { name: 'حمزة بن ميثم', info: 'من رواة الحديث الأجلاء' },
-                    { name: 'يعقوب بن شعيب', info: 'من أعلام الطائفة ورواة الحديث' },
-                    { name: 'علي بن إسماعيل', info: 'من وجوه المتكلمين وأصحاب الأئمة' }
+                    { name: 'حمزة بن ميثم', info: 'من رواة الحديث الأجلاء' }
                   ].map((son) => (
-                    <div key={son.name} className="bg-white/5 border border-white/10 p-4 rounded-xl hover:border-[#c9a227]/30 transition-all">
-                      <div className="text-[#c9a227] font-bold text-sm">{son.name}</div>
-                      <div className="text-white/50 text-xs mt-1">{son.info}</div>
+                    <div key={son.name} className="bg-white/5 border border-white/10 p-4 rounded-xl hover:border-[#c9a227]/30 transition-all flex items-center gap-4">
+                      <div className="w-2 h-2 bg-[#c9a227] rounded-full shrink-0"></div>
+                      <div>
+                        <div className="text-[#c9a227] font-bold text-sm">{son.name}</div>
+                        <div className="text-white/50 text-xs mt-1">{son.info}</div>
+                      </div>
                     </div>
                   ))}
                 </div>
