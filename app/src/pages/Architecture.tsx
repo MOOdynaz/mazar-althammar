@@ -2,16 +2,6 @@ import { motion } from 'framer-motion'
 import { 
   Box, Ruler, Layers, History, Anchor, Hexagon, DoorOpen, Quote, Sparkles, Maximize2, Layout, Image as ImageIcon
 } from 'lucide-react'
-
-// --- 1. استيراد الصور الأساسية (للأقسام العلوية) ---
-import arch37 from '../assets/images/37.jpg'
-import arch38 from '../assets/images/38.jpg'
-import arch39 from '../assets/images/39.jpg'
-import arch40 from '../assets/images/40.jpg'
-import arch41 from '../assets/images/41.jpg'
-import arch42 from '../assets/images/42.jpg'
-import arch43 from '../assets/images/43.jpg'
-
 // --- 2. استيراد صور المعرض (50 سطراً لضمان ظهور الصور 100%) ---
 // القسم الأول: صور قديمة (37-50)
 import img37 from '../assets/images/37.jpg'; import img38 from '../assets/images/38.jpg';
@@ -21,6 +11,11 @@ import img43 from '../assets/images/43.jpg'; import img44 from '../assets/images
 import img45 from '../assets/images/45.jpg'; import img46 from '../assets/images/46.jpg';
 import img47 from '../assets/images/47.jpg'; import img48 from '../assets/images/48.jpg';
 import img49 from '../assets/images/49.jpg'; import img50 from '../assets/images/50.jpg';
+import img66 from '../assets/images/66.jpg'
+import img67 from '../assets/images/67.jpg'
+import img68 from '../assets/images/68.jpg'
+import img69 from '../assets/images/69.jpg'
+import img70 from '../assets/images/70.jpg'
 
 // القسم الثاني: ما قبل الإعمار (51-65)
 import img51 from '../assets/images/51.jpg'; import img52 from '../assets/images/52.jpg';
@@ -46,13 +41,12 @@ import img19 from '../assets/images/19.jpg'; import img20 from '../assets/images
 
 // --- 3. تنظيم المصفوفات للعرض ---
 const archImages = [
-  { src: arch37, title: "المنظور المعماري للمزار الشريف" },
-  { src: arch38, title: "القبة والمنائر بارتفاع 28.5م" },
-  { src: arch39, title: "الواجهة والنقوش الإسلامية" },
-  { src: arch40, title: "الصحن الشريف بعد التوسعة" },
-  { src: arch41, title: "تفاصيل الكاشي الكربلائي" },
-  { src: arch42, title: "شباك الضريح الجديد" },
-  { src: arch43, title: "أروقة المقام الشريف" },
+  { src: img66, title: "حجر القبر القديم" },
+  { src: img67, title: "حجر القبر الجديد" },
+  { src: img68, title: "المرقد الشريف بعد الاعمار" },
+  { src: img69, title: "المرقد الشريف بعد الاعمار" },
+  { src: img70, title: "اروقة الضريح بعد الاعمار" },
+
 ]
 
 const historicalArchitectures = [
