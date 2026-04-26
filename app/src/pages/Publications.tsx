@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { FileText, Download, Eye, Search, BookOpen, FileType } from 'lucide-react'
 import { useState } from 'react'
 
-// مصفوفة البيانات المحدثة بالتفاصيل الهندسية والتاريخية
+// مصفوفة البيانات المحدثة بالروابط والوصف الجديد
 const publications = [
   {
     id: 1,
@@ -16,31 +16,31 @@ const publications = [
   },
   {
     id: 2,
-    title: 'ميثم التمار.. صدى الحق وشهيد الولاء',
+    title: 'زيارة ميثم التمار (رض)',
     author: 'الأمانة الخاصة لمزار ميثم التمار',
     year: '2024',
-    category: 'تاريخ وتراث',
-    description: 'بحث معمق يسلّط الضوء على المواقف البطولية للشهيد ميثم التمار وثباته على نهج أمير المؤمنين عليه السلام حتى نيله الشهادة.',
+    category: 'أدعية وزيارات',
+    description: 'كتيب يضم نص الزيارة المخصوصة للصحابي ميثم التمار مع مجموعة من الأدعية والكرامات الموثقة.',
     fileUrl: 'https://files.catbox.moe/7d8uzy.pdf',
     fileSize: '1.2 MB'
   },
   {
     id: 3,
-    title: 'ميثم التمار.. حواري أمير المؤمنين (ع)',
+    title: 'المقام الشريف في الوقت الحاضر',
     author: 'الأمانة الخاصة لمزار ميثم التمار',
     year: '2024',
     category: 'عمارة وهندسة',
-    description: 'دراسة تخصصية تركز على البناء المعماري الحالي للمقام الشريف، مستعرضة التفاصيل الهندسية الدقيقة والجماليات العمرانية للمزار في وقته الحاضر.',
+    description: 'إصدار تخصصي يركز على البناء والتفاصيل الهندسية للمقام الشريف في الوقت الحالي، مستعرضاً القياسات والتصاميم العمرانية الحديثة.',
     fileUrl: 'https://files.catbox.moe/kxieom.pdf',
     fileSize: '1.8 MB'
   },
   {
     id: 4,
-    title: 'ميثم التمار.. من الكوفة إلى الخلود',
+    title: 'مراحل التطور العمراني للمقام الشريف',
     author: 'الأمانة الخاصة لمزار ميثم التمار',
     year: '2024',
     category: 'تاريخ الإعمار',
-    description: 'توثيق تاريخي شامل لمراحل إعمار وتطوير المزار الشريف عبر العصور المختلفة، متتبعاً التغييرات الهيكلية والتوسعات التي شهدها المرقد عبر التاريخ.',
+    description: 'توثيق تاريخي شامل يركز على مراحل إعمار المزار الشريف عبر التاريخ، منذ البناء الأول باللبن وصولاً إلى التوسعات الكبرى.',
     fileUrl: 'https://files.catbox.moe/jvzm1.pdf',
     fileSize: '2.1 MB'
   }
@@ -50,38 +50,47 @@ export default function Publications() {
   const [searchTerm, setSearchTerm] = useState('')
 
   const filteredPubs = publications.filter(pub => 
-    pub.title.includes(searchTerm) || pub.category.includes(searchTerm) || pub.description.includes(searchTerm)
+    pub.title.includes(searchTerm) || pub.category.includes(searchTerm)
   )
+
+  const handleDownload = (url: string, fileName: string) => {
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', fileName);
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+  }
 
   return (
     <div className="min-h-screen bg-[#05140d] text-white py-24 px-4 sm:px-6 lg:px-8" dir="rtl">
       <div className="max-w-7xl mx-auto">
         
-        {/* Header */}
+        {/* Header Section */}
         <div className="text-center mb-20">
           <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }}>
             <div className="w-20 h-20 bg-[#c9a227]/10 rounded-full flex items-center justify-center mx-auto mb-6 border border-[#c9a227]/20">
               <BookOpen className="w-10 h-10 text-[#c9a227]" />
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold font-display mb-6">المكتبة الرقمية</h1>
+            <h1 className="text-4xl md:text-6xl font-bold font-display mb-6 tracking-tight">المكتبة الرقمية</h1>
             <p className="text-white/50 text-lg max-w-2xl mx-auto leading-relaxed">
               تصفح وحمل الإصدارات والكتب الصادرة عن الأمانة الخاصة لمزار ميثم بن يحيى التمار (رض)
             </p>
           </motion.div>
 
-          {/* Search Bar */}
+          {/* Search bar */}
           <div className="mt-12 max-w-xl mx-auto relative">
             <Search className="absolute right-5 top-1/2 -translate-y-1/2 text-[#c9a227] w-5 h-5 opacity-50" />
             <input 
               type="text"
-              placeholder="ابحث في العناوين أو التصنيفات أو المواضيع..."
+              placeholder="ابحث في العناوين أو التصنيفات..."
               className="w-full bg-white/[0.03] border border-white/10 rounded-2xl py-4 pr-14 pl-6 focus:outline-none focus:border-[#c9a227] focus:bg-white/[0.05] transition-all text-lg font-display"
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
         </div>
 
-        {/* Publications List */}
+        {/* Publications Grid */}
         <div className="grid grid-cols-1 gap-8 max-w-5xl mx-auto">
           {filteredPubs.map((pub, index) => (
             <motion.div 
@@ -92,7 +101,7 @@ export default function Publications() {
               transition={{ delay: index * 0.1 }}
               className="group bg-gradient-to-l from-white/[0.03] to-transparent hover:from-[#c9a227]/5 border border-white/5 hover:border-[#c9a227]/30 rounded-[2.5rem] p-8 md:p-10 transition-all flex flex-col md:flex-row items-center gap-10 shadow-2xl"
             >
-              {/* File Icon Illustration */}
+              {/* PDF Icon Styling */}
               <div className="w-40 h-52 bg-gradient-to-br from-[#0a261a] to-[#05140d] rounded-3xl border border-white/10 flex flex-col items-center justify-center shrink-0 shadow-2xl relative overflow-hidden group-hover:border-[#c9a227]/50 transition-colors">
                 <div className="absolute top-0 right-0 w-10 h-10 bg-white/5 rounded-bl-3xl border-b border-l border-white/10" />
                 <FileType className="w-16 h-16 text-[#c9a227] mb-3 opacity-80" />
@@ -100,7 +109,7 @@ export default function Publications() {
                 <div className="absolute bottom-0 left-0 w-full h-1 bg-[#c9a227]/20" />
               </div>
 
-              {/* Content */}
+              {/* Publication Details */}
               <div className="flex-grow text-center md:text-right">
                 <div className="flex flex-wrap justify-center md:justify-start gap-3 mb-4">
                   <span className="px-4 py-1 rounded-full bg-[#c9a227]/10 text-[#c9a227] text-xs font-bold border border-[#c9a227]/20">
@@ -115,30 +124,30 @@ export default function Publications() {
                 </p>
               </div>
 
-              {/* Actions */}
+              {/* Action Buttons */}
               <div className="flex flex-row md:flex-col gap-4 shrink-0 w-full md:w-auto">
                 <button 
                   onClick={() => window.open(pub.fileUrl, '_blank')}
                   className="flex-1 md:w-44 flex items-center justify-center gap-3 py-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all font-bold text-sm"
                 >
-                  <Eye className="w-5 h-5 text-[#c9a227]" /> قراءة الكتاب
+                  <Eye className="w-5 h-5 text-[#c9a227]" /> قراءة الآن
                 </button>
-                <a 
-                  href={pub.fileUrl}
-                  download={`${pub.title}.pdf`}
+                <button 
+                  onClick={() => handleDownload(pub.fileUrl, `${pub.title}.pdf`)}
                   className="flex-1 md:w-44 flex items-center justify-center gap-3 py-4 rounded-2xl bg-[#c9a227] hover:bg-[#e0b83a] text-[#05140d] transition-all font-bold text-sm shadow-xl shadow-[#c9a227]/10"
                 >
-                  <Download className="w-5 h-5" /> تحميل النسخة
-                </a>
+                  <Download className="w-5 h-5" /> تحميل PDF
+                </button>
               </div>
             </motion.div>
           ))}
         </div>
 
+        {/* Empty State */}
         {filteredPubs.length === 0 && (
           <div className="text-center py-32 border border-dashed border-white/10 rounded-[3rem]">
             <FileText className="w-16 h-16 text-white/10 mx-auto mb-4" />
-            <p className="text-white/30">عذراً، لا توجد نتائج للبحث حالياً.</p>
+            <p className="text-white/30">عذراً، لم نجد نتائج لما تبحث عنه..</p>
           </div>
         )}
       </div>
