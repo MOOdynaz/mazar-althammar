@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { 
   Play, 
   Image as ImageIcon, 
@@ -18,7 +18,7 @@ import img22 from '../assets/images/22.jpg'
 import img23 from '../assets/images/23.jpg'
 import img24 from '../assets/images/24.jpg'
 
-// الأقسام الستة الكاملة (مطابقة للصور) مع ألوان مميزة
+// الأقسام الستة الكاملة مطابقة تماماً للمطلوب
 const quickNav = [
   { path: '/about', label: 'نبذة عن ميثم التمار', icon: User, color: 'bg-amber-500/10' },
   { path: '/sections', label: 'أقسام المزار', icon: LayoutGrid, color: 'bg-blue-500/10' },
@@ -48,6 +48,8 @@ const galleryPreview = [
 ]
 
 export default function Home() {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-[#05140d] text-white overflow-x-hidden text-right" dir="rtl">
       
@@ -69,22 +71,23 @@ export default function Home() {
           </motion.h1>
           
           <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl sm:text-2xl text-white font-light mb-12 max-w-3xl mx-auto">
+            className="text-xl sm:text-2xl text-white font-light mb-12 max-w-3xl mx-auto leading-relaxed">
             الصحابي الجليل وأول من فسر القرآن بالتأويل
           </motion.p>
 
-          {/* Quick Access Grid - 6 أزرار مع إصلاح مشكلة الموبايل */}
+          {/* Quick Access Grid - الحل النهائي لمشكلة الموبايل باستخدام useNavigate */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="grid grid-cols-3 gap-3 sm:hidden max-w-md mx-auto mb-12 px-2"
+            className="grid grid-cols-3 gap-3 sm:hidden max-w-md mx-auto mb-12 px-2 relative z-50"
           >
             {quickNav.map((item) => (
-              <Link 
+              <button 
                 key={item.path} 
-                to={item.path}
-                className="flex flex-col items-center justify-center p-3 bg-white/5 rounded-2xl border border-[#c9a227]/10 active:bg-[#c9a227]/20 transition-all shadow-lg touch-manipulation select-none"
+                onClick={() => navigate(item.path)}
+                className="flex flex-col items-center justify-center p-3 bg-white/5 rounded-2xl border border-[#c9a227]/10 active:bg-[#c9a227]/30 transition-all shadow-lg touch-manipulation relative z-50 overflow-hidden select-none"
+                style={{ WebkitTapHighlightColor: 'transparent' }}
               >
                 <div className="w-10 h-10 rounded-xl bg-[#c9a227]/10 flex items-center justify-center mb-2 pointer-events-none">
                   <item.icon className="w-5 h-5 text-[#c9a227]" />
@@ -92,7 +95,7 @@ export default function Home() {
                 <span className="text-[9px] font-bold text-white/90 leading-tight text-center pointer-events-none">
                   {item.label}
                 </span>
-              </Link>
+              </button>
             ))}
           </motion.div>
           
@@ -120,14 +123,14 @@ export default function Home() {
               عرض الكل <ChevronLeft className="w-5 h-5" />
             </Link>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-right">
             {featuredVideos.map((video, index) => (
               <motion.div key={video.id} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }}
                 className="bg-[#0a261a] rounded-2xl overflow-hidden border border-white/5 group hover:border-[#c9a227]/30 transition-all shadow-2xl">
                 <div className="relative aspect-video">
                   <iframe className="absolute top-0 left-0 w-full h-full border-0" src={`https://www.youtube.com/embed/${video.youtubeId}`} title={video.title} allowFullScreen></iframe>
                 </div>
-                <div className="p-6 text-right">
+                <div className="p-6">
                   <h3 className="text-white font-bold mb-4 line-clamp-1 group-hover:text-[#c9a227] transition-colors text-lg">{video.title}</h3>
                   <div className="flex items-center justify-between text-white/40 text-sm">
                     <span className="bg-black/40 px-3 py-1 rounded-lg text-xs font-mono">{video.duration}</span>
