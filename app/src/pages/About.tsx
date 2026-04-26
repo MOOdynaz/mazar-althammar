@@ -33,9 +33,12 @@ const timeline = [
 ]
 
 export default function About() {
+  // الإحداثيات الدقيقة
   const lat = 32.0264024;
   const lng = 44.3951297;
-  const directMapUrl = "https://www.google.com/maps/search/?api=1&query=32.0264024,44.3951297";
+  
+  // إرجاع الرابط المباشر الأصلي كما طلبت
+  const directMapUrl = "https://www.google.com/maps/dir/?api=1&destination=32.0264024,44.3951297";
 
   return (
     <div className="min-h-screen pt-20 bg-[#05140d] text-white overflow-x-hidden">
@@ -92,10 +95,9 @@ export default function About() {
                 <h2 className="text-3xl font-bold gold-gradient flex items-center gap-3">
                   <History className="w-8 h-8" /> ومضات من حياته
                 </h2>
-                {/* تم تعديل التنسيق هنا لمنع القص وإلغاء text-justify الذي قد يسبب مشاكل */}
                 <div className="space-y-4 text-white/80 leading-relaxed text-lg border-r-4 border-[#c9a227]/30 pr-6">
                   <p className="break-words">
-                    كان ميثم عبداً لامرأة من بني أسد، فاشتراه أمير المؤمنين (ع) وأعتقه. لقّب بالتمّار لأنه كان يبيع التمر في الكوفة، وكان دكانه مقصداً للمؤمنين الصالحين، حيث كان ينهل من علوم وصي رسول الله (ص).
+                    كان ميثم عبداً لامرأة من بني أسد، فاشتراه أمير المؤمنين (ع) وأعتقه. لقّب بالتمّار لأنه كان يبيع التمر في الكوفة، وكان دكانه مقصداً للمؤمنين الصالحين.
                   </p>
                 </div>
               </div>
@@ -116,33 +118,6 @@ export default function About() {
             </motion.div>
           </div>
 
-          {/* Timeline Section */}
-          <div className="mb-20 px-2">
-            <h2 className="text-3xl font-bold mb-12 text-center gold-gradient">محطات تاريخية</h2>
-            <div className="relative space-y-8">
-              <div className="absolute right-1/2 top-0 bottom-0 w-px bg-[#c9a227]/20 hidden lg:block" />
-              {timeline.map((item, index) => (
-                <motion.div 
-                  key={index} 
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  className={`flex flex-col lg:flex-row items-center gap-6 ${index % 2 === 0 ? 'lg:flex-row-reverse' : ''}`}
-                >
-                  <div className="flex-1 w-full">
-                    <div className="glass-card p-6 border border-[#c9a227]/10 hover:border-[#c9a227]/40 transition-colors group">
-                      <span className="inline-block px-3 py-1 rounded-full bg-[#c9a227]/20 text-[#c9a227] text-xs mb-3 font-bold">{item.year}</span>
-                      <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                      <p className="text-white/60 text-sm leading-relaxed break-words">{item.description}</p>
-                    </div>
-                  </div>
-                  <div className="w-4 h-4 rounded-full bg-[#c9a227] hidden lg:block z-10 shadow-[0_0_10px_#c9a227]" />
-                  <div className="flex-1" />
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
           {/* Map Section */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -152,7 +127,7 @@ export default function About() {
           >
             <div className="flex flex-col items-center mb-8">
               <MapPin className="w-12 h-12 text-[#c9a227] mb-4" />
-              <h2 className="text-3xl font-bold gold-gradient mb-2">موقع الضريح الطاهر</h2>
+              <h2 className="text-3xl font-bold gold-gradient mb-2 font-display">موقع الضريح الطاهر</h2>
               <p className="text-white/70 max-w-2xl mx-auto leading-relaxed">
                 يقع الضريح المبارك في مدينة الكوفة المقدسة <br /> 
                 <span className="text-[#c9a227] font-mono mt-2 block font-bold text-lg select-all">29GW+H36</span>
@@ -162,7 +137,7 @@ export default function About() {
             <div className="relative rounded-2xl overflow-hidden h-[400px] sm:h-[500px] border border-[#c9a227]/20">
               <iframe
                 title="مرقد ميثم التمار"
-                src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3408.4116812852234!2d${lng}!3d${lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDAxJzM1LjAiTiA0NMKwMjMnNDIuNSJF!5e0!3m2!1sar!2siq!4v1715000000000!5m2!1sar!2siq`}
+                src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3401.234!2d${lng}!3d${lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDAxJzM1LjAiTiA0NMKwMjMnNDIuNSJF!5e0!3m2!1sar!2siq!4v1715000000000!5m2!1sar!2siq`}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -179,7 +154,7 @@ export default function About() {
                   className="flex items-center justify-center gap-2 bg-[#c9a227] text-[#05140d] px-8 py-4 rounded-xl font-bold shadow-2xl hover:bg-[#e5c035] transition-all"
                 >
                   <Navigation className="w-5 h-5" />
-                  فتح في خرائط Google
+                  توجيه GPS (فتح الخرائط)
                 </a>
               </div>
             </div>
