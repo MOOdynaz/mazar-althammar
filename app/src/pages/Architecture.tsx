@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion'
 import { 
-  Box, Ruler, Layers, History, Anchor, Hexagon, DoorOpen, Quote, Sparkles, Maximize2, Layout 
+  Box, Ruler, Layers, History, Anchor, Hexagon, DoorOpen, Quote, Sparkles, Maximize2, Layout, Image as ImageIcon
 } from 'lucide-react'
 
-// استيراد الصور المطلوبة
+// استيراد الصور الأساسية للعرض الجانبي
 import arch37 from '../assets/images/37.jpg'
 import arch38 from '../assets/images/38.jpg'
 import arch39 from '../assets/images/39.jpg'
@@ -31,6 +31,21 @@ const historicalArchitectures = [
   { title: "العمارة السادسة", desc: "عمارة الحاج محمد رشاد ميرزه (1963-1968م)، بلغت مساحة الضريح فيها 413م²." },
   { title: "العمارة السابعة (الحالية)", desc: "بدأ العمل بها في 23/3/2011م، وبلغت مساحة الضريح 1200م² وصحن إجمالي 14,400م²." },
 ]
+
+// دالة لتوليد مسارات الصور ديناميكياً
+const generateImageRange = (start: number, end: number) => {
+  const images = [];
+  for (let i = start; i <= end; i++) {
+    images.push(`/src/assets/images/${i}.jpg`);
+  }
+  return images;
+};
+
+const gallerySections = [
+  { title: "صور قديمة للمزار", range: generateImageRange(37, 50), color: "from-amber-900/20" },
+  { title: "المزار ما قبل الإعمار الأخير", range: generateImageRange(51, 65), color: "from-blue-900/20" },
+  { title: "صور حديثة للمزار", range: generateImageRange(1, 20), color: "from-emerald-900/20" },
+];
 
 export default function Architecture() {
   return (
@@ -87,26 +102,23 @@ export default function Architecture() {
       </section>
 
       {/* Technical Details Section */}
-      <section className="py-24 px-4 max-w-7xl mx-auto">
+      <section className="py-24 px-4 max-w-7xl mx-auto border-b border-white/5 pb-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          
           <div className="space-y-16">
-            {/* Shubbak Details */}
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold flex items-center gap-4">
+              <h2 className="text-3xl font-bold flex items-center gap-4 text-white">
                 <Sparkles className="text-[#c9a227]" /> شباك الضريح المقدس
               </h2>
               <p className="text-white/70 leading-relaxed text-justify">
                 صُنع الشباك الجديد بمواصفات هندسية دقيقة، حيث يبلغ طوله <span className="text-[#c9a227]">5.22 م</span> وعرضه <span className="text-[#c9a227]">3.91 م</span>. يتميز بـ 13 نافذة فضية وتاج ذهبي يضم 70 سعفة نخلة ذهبية بارزة، ترمز للنخلة التي صُلب عليها ميثم التمار (رض).
               </p>
-              <div className="p-6 rounded-2xl bg-white/5 border-r-4 border-[#c9a227] italic text-sm text-white/60">
+              <div className="p-6 rounded-2xl bg-white/5 border-r-4 border-[#c9a227] italic text-sm text-white/60 leading-relaxed">
                 "يا روعة كرؤية الأقمار .. أنواره في روضة الأبرار <br /> قد شع شباك الضريح .. أرخوا لأنه في ميثم التمار"
               </div>
             </div>
 
-            {/* Minarets & Dome */}
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold flex items-center gap-4">
+              <h2 className="text-3xl font-bold flex items-center gap-4 text-white">
                 <Hexagon className="text-[#c9a227]" /> المنائر والقبة
               </h2>
               <p className="text-white/70 leading-relaxed text-sm text-justify">
@@ -114,7 +126,6 @@ export default function Architecture() {
               </p>
             </div>
 
-            {/* Khatam Box */}
             <div className="p-10 rounded-[2.5rem] bg-gradient-to-br from-[#c9a227]/10 to-transparent border border-[#c9a227]/20">
               <h3 className="text-2xl font-bold mb-4 flex items-center gap-3"><Anchor className="text-[#c9a227]" /> صندوق الخاتم</h3>
               <p className="text-white/60 text-sm leading-relaxed mb-6">
@@ -126,12 +137,11 @@ export default function Architecture() {
             </div>
           </div>
 
-          {/* Gallery Sticky Grid */}
           <div className="lg:sticky lg:top-32 grid grid-cols-2 gap-4">
             {archImages.map((img, index) => (
               <motion.div key={index} whileHover={{ y: -5 }} className={`relative rounded-3xl overflow-hidden group border border-white/5 ${index === 0 ? 'col-span-2 aspect-video' : 'aspect-square'}`}>
                 <img src={img.src} alt={img.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#05140d] via-transparent to-transparent opacity-80 transition-opacity group-hover:opacity-90" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#05140d] via-transparent to-transparent opacity-80" />
                 <div className="absolute bottom-4 right-4"><p className="text-[10px] font-bold text-white/90 uppercase tracking-tighter">{img.title}</p></div>
               </motion.div>
             ))}
@@ -139,8 +149,50 @@ export default function Architecture() {
         </div>
       </section>
 
+      {/* New Photo Gallery Section */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-black/40">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-center gap-4 mb-16 justify-center">
+            <ImageIcon className="text-[#c9a227] w-8 h-8" />
+            <h2 className="text-4xl font-bold font-display gold-gradient">معرض عمارة المزار</h2>
+          </div>
+
+          <div className="space-y-32">
+            {gallerySections.map((section, idx) => (
+              <div key={idx} className="space-y-8">
+                <div className={`p-4 border-r-4 border-[#c9a227] bg-gradient-to-l ${section.color} to-transparent`}>
+                  <h3 className="text-2xl font-bold">{section.title}</h3>
+                </div>
+                
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                  {section.range.map((imgUrl, imgIdx) => (
+                    <motion.div
+                      key={imgIdx}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      whileHover={{ scale: 1.05, zIndex: 10 }}
+                      className="aspect-square rounded-2xl overflow-hidden bg-white/5 border border-white/10 relative group"
+                    >
+                      <img 
+                        src={imgUrl} 
+                        alt={`صورة من ${section.title}`} 
+                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                        onError={(e) => (e.currentTarget.style.display = 'none')} // إخفاء الصورة إذا لم تكن موجودة
+                      />
+                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                         <Maximize2 className="text-[#c9a227] w-6 h-6" />
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Doors Section */}
-      <section className="py-24 bg-black/40">
+      <section className="py-24 bg-[#05140d]">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-16">أبواب المقام الشريف</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
