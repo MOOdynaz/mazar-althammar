@@ -41,7 +41,7 @@ const publications = [
     year: '2024',
     category: 'تاريخ الإعمار',
     description: 'توثيق تاريخي شامل يركز على مراحل إعمار المزار الشريف عبر التاريخ، منذ البناء الأول باللبن وصولاً إلى التوسعات الكبرى.',
-    fileUrl: 'https://files.catbox.moe/gmzyh1.pdf',
+    fileUrl: 'https://files.catbox.moe/jvzm1.pdf',
     fileSize: '2.1 MB'
   }
 ]
@@ -53,13 +53,25 @@ export default function Publications() {
     pub.title.includes(searchTerm) || pub.category.includes(searchTerm)
   )
 
-  const handleDownload = (url: string, fileName: string) => {
-    const link = document.createElement('a');
-    link.href = url;
-    link.setAttribute('download', fileName);
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
+  // الدالة المحسنة لضمان التحميل المباشر للملفات الخارجية
+  const handleDownload = async (url: string, fileName: string) => {
+    try {
+      const response = await fetch(url);
+      const blob = await response.blob();
+      const blobUrl = window.URL.createObjectURL(blob);
+      
+      const link = document.createElement('a');
+      link.href = blobUrl;
+      link.download = fileName; // هذا سيجبر المتصفح على التحميل
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(blobUrl); // تنظيف الذاكرة
+    } catch (error) {
+      // في حال وجود قيود CORS تمنع الـ Fetch، نفتح الملف في نافذة جديدة كحل احتياطي
+      console.error('Download failed, opening in new tab instead:', error);
+      window.open(url, '_blank');
+    }
   }
 
   return (
