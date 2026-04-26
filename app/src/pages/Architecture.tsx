@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { 
-  Box, Ruler, Layers, History, Anchor, Hexagon, DoorOpen, Quote, Sparkles
+  Box, Ruler, Layers, History, Anchor, Hexagon, DoorOpen, Quote, Sparkles, Maximize2 
 } from 'lucide-react'
 
 // استيراد الصور المطلوبة
@@ -26,7 +26,7 @@ const historicalArchitectures = [
   { title: "العمارة الأولى", desc: "بنيت باللبن بمساحة لا تتجاوز 500م² مع مقابر (جبانات مراد)، وتعرضت للفيضانات والحروب." },
   { title: "العمارة الثانية", desc: "يرجح أنها تعود لعهد الدولة البويهية (371هـ)، وبقيت صامدة لأكثر من 400 عام رغم الإهمال والظروف الجوية." },
   { title: "العمارة الثالثة", desc: "شملت اكتشاف غرفة قديمة مبنية بالطابوق أسفل البناء الحالي بعمق 2-3 أمتار خلال تجديدات عام 2011م." },
-  { title: "العمارة الرابعة", desc: "بدأت عام 1900م بقبة واطئة، وشهدت بناء سور السيد عطاء الله الأرومي لحماية المرقد عام 1850م." },
+  { title: "العمارة الرابعة", desc: "بدأت عام 1900م بقبة واطئة، وشهدت بناء سور السيد عطاء الله الأرومي للحماية من الهجمات عام 1850م." },
   { title: "العمارة الخامسة", desc: "الفترة ما بعد ثورة العشرين حتى عام 1963م، تميزت بمساحة وفخامة أكبر من سابقاتها." },
   { title: "العمارة السادسة", desc: "عمارة الحاج محمد رشاد ميرزه (1963-1968م)، بلغت مساحة الضريح فيها 413م²." },
   { title: "العمارة السابعة (الحالية)", desc: "بدأ العمل بها في 23/3/2011م، وبلغت مساحة الضريح 1200م² وصحن إجمالي 14,400م²." },
@@ -38,7 +38,7 @@ export default function Architecture() {
       
       {/* Hero Header */}
       <section className="relative py-24 px-4 overflow-hidden text-center">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#144d34] via-transparent to-transparent opacity-20" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#144d34] via-[#05140d] to-black opacity-20" />
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <h1 className="text-5xl md:text-7xl font-bold mb-8 font-display">
@@ -59,7 +59,7 @@ export default function Architecture() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {historicalArchitectures.map((item, i) => (
-            <div key={i} className={`p-8 rounded-3xl border ${i === 6 ? 'bg-[#c9a227]/10 border-[#c9a227]/40 lg:col-span-3' : 'bg-white/5 border-white/10'} relative overflow-hidden group`}>
+            <div key={i} className={`p-8 rounded-3xl border ${i === 6 ? 'bg-[#c9a227]/10 border-[#c9a227]/40 lg:col-span-3' : 'bg-white/5 border-white/10'} relative overflow-hidden group transition-all`}>
               <div className="text-5xl font-black text-white/[0.03] absolute top-2 left-4">{i + 1}</div>
               <h4 className="text-[#c9a227] font-bold text-xl mb-4">{item.title}</h4>
               <p className="text-white/60 text-sm leading-relaxed">{item.desc}</p>
@@ -96,7 +96,7 @@ export default function Architecture() {
               <h2 className="text-3xl font-bold flex items-center gap-4">
                 <Sparkles className="text-[#c9a227]" /> شباك الضريح المقدس
               </h2>
-              <p className="text-white/70 leading-relaxed">
+              <p className="text-white/70 leading-relaxed text-justify">
                 صُنع الشباك الجديد بمواصفات هندسية دقيقة، حيث يبلغ طوله <span className="text-[#c9a227]">5.22 م</span> وعرضه <span className="text-[#c9a227]">3.91 م</span>. يتميز بـ 13 نافذة فضية وتاج ذهبي يضم 70 سعفة نخلة ذهبية بارزة، ترمز للنخلة التي صُلب عليها ميثم التمار (رض).
               </p>
               <div className="p-6 rounded-2xl bg-white/5 border-r-4 border-[#c9a227] italic text-sm text-white/60">
@@ -109,8 +109,8 @@ export default function Architecture() {
               <h2 className="text-3xl font-bold flex items-center gap-4">
                 <Hexagon className="text-[#c9a227]" /> المنائر والقبة
               </h2>
-              <p className="text-white/70 leading-relaxed text-sm">
-                يصل ارتفاع المنارة إلى 28.5م وهي مكونة من 5 مراحل هندسية (القاعدة، الأسطوانة، المأذنة، الكأس، والقمة). أما القبة الداخلية فيبلغ قطرها 8م وارتفاعها 18.5م، بينما القبة الخارجية بصلية الشكل بارتفاع 22م، وتمتاز برقبة طويلة تزيد من هيبتها.
+              <p className="text-white/70 leading-relaxed text-sm text-justify">
+                يصل ارتفاع المنارة إلى 28.5م وهي مكونة من 5 مراحل هندسية (القاعدة، الأسطوانة، المأذنة، الكأس، والقمة). أما القبة الداخلية فيبلغ قطرها 8م وارتفاعها 18.5م، بينما القبة الخارجية بصلية الشكل بارتفاع 22م، وتمتاز برقبة طويلة تزيد من هيبتها وضخامتها.
               </p>
             </div>
 
@@ -129,9 +129,9 @@ export default function Architecture() {
           {/* Gallery Sticky Grid */}
           <div className="lg:sticky lg:top-32 grid grid-cols-2 gap-4">
             {archImages.map((img, index) => (
-              <motion.div key={index} whileHover={{ y: -5 }} className={`relative rounded-3xl overflow-hidden group ${index === 0 ? 'col-span-2 aspect-video' : 'aspect-square'}`}>
+              <motion.div key={index} whileHover={{ y: -5 }} className={`relative rounded-3xl overflow-hidden group border border-white/5 ${index === 0 ? 'col-span-2 aspect-video' : 'aspect-square'}`}>
                 <img src={img.src} alt={img.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#05140d] via-transparent to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#05140d] via-transparent to-transparent opacity-80 transition-opacity group-hover:opacity-90" />
                 <div className="absolute bottom-4 right-4"><p className="text-[10px] font-bold text-white/90 uppercase tracking-tighter">{img.title}</p></div>
               </motion.div>
             ))}
@@ -149,7 +149,7 @@ export default function Architecture() {
               { name: "باب الإمام المرتضى (ع)", side: "الجهة الشمالية", desc: "مقابل شارع الكوفة، سميت نسبة لحديث الإمام علي: 'يا ميثم إذن تكون معي في درجتي'." },
               { name: "باب الإمام الباقر (ع)", side: "الجهة الجنوبية", desc: "مقابل المقبرة القديمة، سميت لقول الإمام الباقر: 'إني لأحبه حباً شديداً'." },
             ].map((door, i) => (
-              <div key={i} className="p-8 rounded-3xl border border-white/5 bg-white/[0.02] text-center">
+              <div key={i} className="p-8 rounded-3xl border border-white/5 bg-white/[0.02] text-center transition-colors hover:border-[#c9a227]/30">
                 <DoorOpen className="w-8 h-8 text-[#c9a227] mx-auto mb-6 opacity-40" />
                 <h4 className="text-xl font-bold mb-2">{door.name}</h4>
                 <p className="text-[#c9a227] text-[10px] font-bold uppercase mb-4 tracking-widest">{door.side}</p>
