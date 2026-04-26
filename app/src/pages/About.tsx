@@ -4,40 +4,39 @@ import {
   Navigation, 
   History, 
   Quote, 
-  Users 
+  Users,
+  BookOpen,
+  Sparkles
 } from 'lucide-react'
 
 const mazarLogo = '/logo.png'; 
 
 const timeline = [
   { 
-    year: 'النشأة', 
+    year: 'اللقاء التاريخي', 
     title: 'من سالم إلى ميثم', 
-    description: 'كان عبداً لامرأة من بني أسد فاشتراه أمير المؤمنين (ع) وأعتقه، وأخبره باسمه الحقيقي "ميثم" الذي سماه به أبواه في العجم.' 
+    description: 'اشتراه أمير المؤمنين (ع) وأعتقه، وأخبره بأن رسول الله (ص) أخبره بأن اسمه الحقيقي الذي سماه به أبواه في العجم هو "ميثم"، فصدق ميثم ذلك ورجع لاسمه الأصلي واكتنى بأبي سالم.' 
   },
   { 
-    year: 'الصحبة', 
-    title: 'عالم البلايا والمنايا', 
-    description: 'لازم أمير المؤمنين (ع) فخصه بعلم البلايا والمنايا، وكان من أصحاب الإمامين الحسن والحسين عليهما السلام.' 
+    year: 'المنزلة العلمية', 
+    title: 'تفسير القرآن وعلم المنايا', 
+    description: 'قرأ تنزيل القرآن على الإمام علي (ع) وعلمه تأويله، كما خصه الإمام بعلم "المنايا والبلايا"، فتنبأ بمقتله ومقتل حبيب بن مظاهر بدقة مذهلة.' 
   },
   { 
-    year: 'البشارة', 
-    title: 'الإخبار بالشهادة', 
-    description: 'بشره الإمام علي (ع) باستشهاده مصلوباً على جذع نخلة حددها له، فكان ميثم يتردد إليها ويصلي عندها.' 
+    year: 'الصحبة والولاء', 
+    title: 'حواري الأئمة', 
+    description: 'عُد من أصفياء أصحاب الإمام علي (ع) في "شرطة الخميس"، وكان من أصحاب الإمامين الحسن والحسين (ع)، وقريباً جداً من أهل بيت النبوة.' 
   },
   { 
-    year: 'سنة 60 هـ', 
-    title: 'الشهادة الخالدة', 
-    description: 'استشهد على يد ابن زياد صابراً، وكان أول من أُلجم في الإسلام لمنعه من ذكر فضائل بني هاشم وهو على الخشبة.' 
+    year: 'الشهادة', 
+    title: 'الثبات حتى الصلب', 
+    description: 'رفض البراءة من أمير المؤمنين (ع) أمام ابن زياد، فأمر بصلبه وبقر بطنه، فاستشهد صابراً محتسباً ليكون مع الإمام في درجته.' 
   },
 ]
 
 export default function About() {
-  // الإحداثيات الدقيقة
   const lat = 32.0264024;
   const lng = 44.3951297;
-  
-  // إرجاع الرابط المباشر الأصلي كما طلبت
   const directMapUrl = "https://www.google.com/maps/dir/?api=1&destination=32.0264024,44.3951297";
 
   return (
@@ -48,69 +47,85 @@ export default function About() {
         <div className="relative z-10 max-w-7xl mx-auto text-right" dir="rtl">
           
           {/* Header Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-16"
-          >
-            <span className="inline-block px-4 py-2 rounded-full bg-[#c9a227]/20 text-[#c9a227] text-sm font-medium mb-6">
-              من خواص أصحاب أمير المؤمنين (عليه السلام)
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-16">
+            <span className="inline-block px-4 py-2 rounded-full bg-[#c9a227]/20 text-[#c9a227] text-sm font-medium mb-6 border border-[#c9a227]/30">
+              حواري أمير المؤمنين ومولى بني أسد
             </span>
-            <h1 className="text-4xl sm:text-5xl font-bold mb-6 font-display">
+            <h1 className="text-4xl sm:text-6xl font-bold mb-6 font-display">
               <span className="gold-gradient">ميثم بن يحيى التمّار</span>
             </h1>
             <p className="text-lg sm:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-              أبو سالم، شهيد الولاية والعالم المحدث الذي صلب دفاعاً عن الحق 
+              التابعي الجليل، عالم المنايا والبلايا، وشهيد العقيدة الذي لم ينقض العهد
             </p>
           </motion.div>
 
-          {/* Intro Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-20">
-            <motion.div 
-              initial={{ opacity: 0, x: 30 }} 
-              animate={{ opacity: 1, x: 0 }} 
-              className="w-full lg:sticky lg:top-32 rounded-3xl overflow-hidden glass-card flex items-center justify-center bg-gradient-to-br from-[#1a5f3f] to-[#0d3322] border border-[#c9a227]/20 shadow-2xl p-6"
-            >
-              <div className="text-center w-full">
-                <div className="relative group mb-6">
+            {/* Right Column: Quotes & Media */}
+            <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} className="space-y-8 lg:sticky lg:top-32">
+              <div className="rounded-3xl overflow-hidden glass-card bg-gradient-to-br from-[#1a5f3f] to-[#0d3322] border border-[#c9a227]/20 shadow-2xl p-8 text-center">
+                <div className="relative mb-6">
                   <div className="absolute -inset-4 bg-[#c9a227]/20 rounded-full blur-2xl opacity-50"></div>
-                  <img 
-                    src={mazarLogo} 
-                    alt="شعار مزار ميثم التمار" 
-                    className="relative w-40 h-40 sm:w-48 sm:h-48 mx-auto object-contain drop-shadow-[0_0_15px_rgba(201,162,39,0.4)]" 
-                  />
+                  <img src={mazarLogo} alt="Logo" className="relative w-40 h-40 mx-auto object-contain drop-shadow-[0_0_15px_rgba(201,162,39,0.4)]" />
                 </div>
-                <div className="bg-black/30 p-5 sm:p-8 rounded-2xl backdrop-blur-sm border border-white/5">
-                   <Quote className="w-8 h-8 text-[#c9a227] mx-auto mb-4 opacity-50" />
-                   <p className="text-white/90 italic text-lg leading-relaxed font-serif break-words">
-                    "قال مِيثَم التمار: دعاني أمير المؤمنين(ع) وقال: كيف أنت يا ميثم إذا دعاك دعي بني أُمية عبيد الله بن زياد إلى البراءة منّي؟ فقال: يا أمير المؤمنين، أنا والله لا أبرأ منك... فقال: يا ميثم إذًا تكون معي في درجتي"
-                   </p>
-                   <span className="block mt-4 text-[#c9a227] text-sm">- من حديث الإمام علي (ع) لميثم التمار</span>
+                <div className="space-y-6">
+                  <div className="bg-black/40 p-6 rounded-2xl border border-[#c9a227]/20">
+                    <Quote className="w-6 h-6 text-[#c9a227] mb-3 opacity-50" />
+                    <p className="text-white/90 italic leading-relaxed font-serif">
+                      "يا ميثم، إذًا تكون معي في درجتي"
+                    </p>
+                    <span className="text-[#c9a227] text-xs mt-2 block">- قول الإمام علي (ع) لميثم عند بشارة الشهادة</span>
+                  </div>
+                  <div className="bg-black/40 p-6 rounded-2xl border border-[#c9a227]/20">
+                    <p className="text-white/90 italic leading-relaxed font-serif">
+                      "إنّي أُحبّك وأُحبّ أباك حبّاً شديداً"
+                    </p>
+                    <span className="text-[#c9a227] text-xs mt-2 block">- قول الإمام الباقر (ع) لصالح بن ميثم</span>
+                  </div>
                 </div>
               </div>
             </motion.div>
 
+            {/* Left Column: Biography Details */}
             <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} className="space-y-12">
               <div className="space-y-6">
                 <h2 className="text-3xl font-bold gold-gradient flex items-center gap-3">
-                  <History className="w-8 h-8" /> ومضات من حياته
+                  <History className="w-8 h-8" /> السيرة المباركة
                 </h2>
-                <div className="space-y-4 text-white/80 leading-relaxed text-lg border-r-4 border-[#c9a227]/30 pr-6">
-                  <p className="break-words">
-                    كان ميثم عبداً لامرأة من بني أسد، فاشتراه أمير المؤمنين (ع) وأعتقه. لقّب بالتمّار لأنه كان يبيع التمر في الكوفة، وكان دكانه مقصداً للمؤمنين الصالحين.
+                <div className="space-y-6 text-white/80 leading-relaxed text-lg border-r-4 border-[#c9a227]/30 pr-6">
+                  <p>
+                    ذكر الشيخ المفيد في الإرشاد أن ميثماً كان عبداً لامرأة من بني أسد، فاشتراه أمير المؤمنين (ع) وأعتقه. كانت مهنته بيع التمر في الكوفة ولذلك لُقب بالتمار.
+                  </p>
+                  <p>
+                    اشتهر بعلمه بتفسير القرآن، حيث قال لابن عباس: <span className="text-[#c9a227]">"سلني ما شئت من تفسير القرآن، فإني قرأت تنزيله على أمير المؤمنين وعلمني تأويله"</span>، فكان ابن عباس يكتب عنه.
                   </p>
                 </div>
               </div>
 
               <div className="space-y-6">
                 <h2 className="text-3xl font-bold gold-gradient flex items-center gap-3">
-                  <Users className="w-8 h-8" /> أولاده وذريته
+                  <Sparkles className="w-8 h-8" /> علم المنايا والبلايا
                 </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {['عمران (صاحب الإمام السجاد عليه السلام)', 'صالح (صاحب الامامين الباقر والصادق عليهما السلام)', 'شعيب (صاحب الإمام الصادق عليه السلام)', 'حمزة بن ميثم'].map((son) => (
-                    <div key={son} className="bg-white/5 border border-white/10 p-4 rounded-xl text-white/90 text-sm hover:border-[#c9a227]/30 transition-all flex items-center">
-                       <span className="w-2 h-2 bg-[#c9a227] rounded-full ml-3 shrink-0"></span>
-                       {son}
+                <div className="bg-white/5 p-6 rounded-2xl border border-white/10 italic text-base leading-relaxed">
+                  روى الكشي حادثة لقائه بحبيب بن مظاهر، حيث أخبر حبيب بمصلب ميثم وبقر بطنه، وأخبر ميثم حبيب بمقتله وحمل رأسه في الكوفة، فكان كما قالا تماماً، مما أدهش أهل الكوفة من دقة علمهما بما سيجري.
+                </div>
+              </div>
+
+              <div className="space-y-6">
+                <h2 className="text-3xl font-bold gold-gradient flex items-center gap-3">
+                  <Users className="w-8 h-8" /> الذرية الطيبة
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {[
+                    { name: 'عمران بن ميثم', info: 'صاحب الإمام زين العابدين (ع)' },
+                    { name: 'صالح بن ميثم', info: 'صاحب الإمامين الباقر والصادق (ع)' },
+                    { name: 'شعيب بن ميثم', info: 'من خيرة أصحاب الإمام الصادق (ع)' },
+                    { name: 'حمزة بن ميثم', info: 'من رواة الحديث الأجلاء' },
+                    { name: 'يعقوب بن شعيب', info: 'من أعلام الطائفة ورواة الحديث' },
+                    { name: 'علي بن إسماعيل', info: 'من وجوه المتكلمين وأصحاب الأئمة' }
+                  ].map((son) => (
+                    <div key={son.name} className="bg-white/5 border border-white/10 p-4 rounded-xl hover:border-[#c9a227]/30 transition-all">
+                      <div className="text-[#c9a227] font-bold text-sm">{son.name}</div>
+                      <div className="text-white/50 text-xs mt-1">{son.info}</div>
                     </div>
                   ))}
                 </div>
@@ -118,7 +133,23 @@ export default function About() {
             </motion.div>
           </div>
 
-          {/* Map Section */}
+          {/* Timeline Section */}
+          <div className="mb-32">
+            <h2 className="text-3xl font-bold gold-gradient text-center mb-16 font-display">محطات النور في حياته</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {timeline.map((item, index) => (
+                <motion.div key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }}
+                  className="bg-[#0a261a] p-6 rounded-2xl border border-white/5 hover:border-[#c9a227]/40 transition-all group"
+                >
+                  <div className="text-[#c9a227] font-bold mb-2">{item.year}</div>
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-[#c9a227] transition-colors">{item.title}</h3>
+                  <p className="text-white/50 text-sm leading-relaxed">{item.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Map Section (UNTOUCHED) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
