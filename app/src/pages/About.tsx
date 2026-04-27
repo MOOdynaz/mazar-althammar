@@ -40,7 +40,7 @@ export default function About() {
               <div className="absolute top-0 left-0 w-32 h-32 bg-[#c9a227]/10 rounded-br-full -translate-x-16 -translate-y-16" />
               <Quote className="w-12 h-12 text-[#c9a227] mb-6 opacity-60" />
               <blockquote className="text-2xl md:text-4xl font-bold leading-relaxed mb-8 text-white">
-                <span className="text-[#c9a227]">قال مِيثَم التمار:</span> دعاني أمير المؤمنين (ع) وقال: كيف أنت يا ميثم إذا دعاك دعي بني أُمية عبيد الله بن زياد إلى البراءة منّي؟ فقال: يا أمير المؤمنين، أنا والله لا أبرأ منك، قال: إذًا والله يقتلك ويصلبك، قلت: أصبر فذاك في الله قليل، فقال:
+                <span className="text-[#c9a227]">قال مِيثَم التمار:</span> دعاني أمير المؤمنين (عليه السلام) وقال: كيف أنت يا ميثم إذا دعاك دعي بني أُمية عبيد الله بن زياد إلى البراءة منّي؟ فقال: يا أمير المؤمنين، أنا والله لا أبرأ منك، قال: إذًا والله يقتلك ويصلبك، قلت: أصبر فذاك في الله قليل، فقال:
                 <div className="mt-6 p-4 bg-[#c9a227] text-[#05140d] rounded-2xl inline-block shadow-[0_0_20px_rgba(201,162,39,0.4)]">
                   "يا ميثم إذًا تكون معي في درجتي"
                 </div>
@@ -63,7 +63,7 @@ export default function About() {
               <div className="bg-gradient-to-br from-[#1a5f3f]/20 to-transparent p-8 rounded-[2.5rem] border border-[#c9a227]/20 relative overflow-hidden">
                 <div className="absolute top-2 left-2 opacity-10"><MessageCircle size={80}/></div>
                 <h4 className="text-[#c9a227] font-bold mb-4 flex items-center gap-2 text-xl">
-                   لقاؤه بأُمّ سلمة (رض)
+                   لقاؤه بأُمّ سلمة (رضي الله عنها)
                 </h4>
                 <p className="text-sm text-white/70 leading-loose italic">
                   قالت له أم سلمة: "والله لطالما سمعت رسول الله يوصي بك عليًا في جوف الليل". فدعت بطيب وطيبت لحيته، فقال لها: "أما أنَّها ستخضَّب بدم". فبكت وقالت: "إنه ليس بسيِّدك وحدك، وهو سيِّدي وسيِّد المسلمين".
@@ -72,11 +72,11 @@ export default function About() {
 
               {/* أحاديث الحواريين */}
               <div className="bg-white/5 p-8 rounded-[2.5rem] border border-white/10">
-                <h4 className="text-[#c9a227] font-bold mb-6 text-lg border-b border-white/10 pb-2">حواريّ علي (ع)</h4>
+                <h4 className="text-[#c9a227] font-bold mb-6 text-lg border-b border-white/10 pb-2">حواريّ علي (عليه السلام)</h4>
                 <p className="text-sm leading-relaxed text-white/50 italic mb-4">
                   "إذا كان يوم القيامة نادى مناد أين حواري علي بن أبي طالب؟ فيقوم عمرو بن الحمق، ومحمد بن أبي بكر، وميثم بن يحيى التمار.."
                 </p>
-                <div className="text-[10px] text-white/30 uppercase tracking-widest text-left">- الإمام الكاظم (ع)</div>
+                <div className="text-[10px] text-white/30 uppercase tracking-widest text-left">- الإمام الكاظم (عليه السلام)</div>
               </div>
             </motion.div>
 
@@ -93,7 +93,7 @@ export default function About() {
                 </h2>
                 <div className="bg-white/[0.02] p-8 md:p-10 rounded-[3rem] border border-white/5 space-y-6 text-lg">
                   <p className="leading-relaxed">
-                    كان عبداً لامرأة من بني أسد، فاشتراه علي (ع) وأعتقه. قال له: <span className="text-[#c9a227]">"ما اسمك؟"</span> قال: سالم. قال (ع): <span className="text-[#c9a227]">"أخبرني رسول الله (ص) أن اسمك الذي سمّاك به أبواك في العجم ميثم"</span>.
+                    كان عبداً لامرأة من بني أسد، فاشتراه علي (عليه السلام) وأعتقه. قال له: <span className="text-[#c9a227]">"ما اسمك؟"</span> قال: سالم. قال (عليه السلام): <span className="text-[#c9a227]">"أخبرني رسول الله (ص) أن اسمك الذي سمّاك به أبواك في العجم ميثم"</span>.
                   </p>
                   <p className="bg-[#c9a227]/5 p-6 rounded-2xl border-r-4 border-[#c9a227]">
                     أقر ميثم بصدق الخبر قائلاً: "صدق الله ورسوله، والله إنه لاسمي". فعاد لاسمه الأصلي واكتنى بأبي سالم، واتخذ من بيع التمر مهنة له في الكوفة ليعرف بالتمار.
@@ -132,7 +132,7 @@ export default function About() {
                     <div className="flex gap-6">
                       <div className="p-3 bg-[#c9a227]/20 rounded-full h-fit text-[#c9a227]"><Clock /></div>
                       <p className="text-lg leading-loose text-white/80">
-                        أراه الإمام علي (ع) النخلة التي سيصلب عليها، فكان ميثم يتعاهدها ويصلي عندها ويقول: <span className="text-[#c9a227]">"بوركتِ من نخلة، لكِ خُلقتُ ولي غُذيتِ"</span>. وكان يخبر جاره عمرو بن حريث بأنه سيجاوره قريباً وعمرو لا يفهم المقصد.
+                        أراه الإمام علي (عليه السلام) النخلة التي سيصلب عليها، فكان ميثم يتعاهدها ويصلي عندها ويقول: <span className="text-[#c9a227]">"بوركتِ من نخلة، لكِ خُلقتُ ولي غُذيتِ"</span>. وكان يخبر جاره عمرو بن حريث بأنه سيجاوره قريباً وعمرو لا يفهم المقصد.
                       </p>
                     </div>
                     
@@ -159,9 +159,9 @@ export default function About() {
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {[
-                    { name: 'عمران بن ميثم', info: 'من أصحاب الإمام السجاد (ع)' },
-                    { name: 'صالح بن ميثم', info: 'من أصحاب الباقر والصادق (ع)' },
-                    { name: 'شعيب بن ميثم', info: 'من خيرة أصحاب الإمام الصادق (ع)' },
+                    { name: 'عمران بن ميثم', info: 'من أصحاب الإمام السجاد (عليه السلام )' },
+                    { name: 'صالح بن ميثم', info: 'من أصحاب الباقر والصادق (عليه السلام)' },
+                    { name: 'شعيب بن ميثم', info: 'من خيرة أصحاب الإمام الصادق (عليه السلام)' },
                     { name: 'حمزة بن ميثم', info: 'من رواة الحديث الأجلاء' }
                   ].map((son, i) => (
                     <div key={i} className="bg-white/5 p-6 rounded-2xl border border-white/10 flex items-center justify-between group hover:border-[#c9a227]/40 transition-all">
@@ -189,7 +189,7 @@ export default function About() {
             <h2 className="text-4xl font-bold gold-gradient mb-6">الشهادة الخالدة</h2>
             <p className="text-2xl text-white/80 leading-relaxed">
               استُشهد في <span className="text-[#c9a227] font-bold">22 ذي الحجّة 60 هـ</span> <br />
-              قبل وصول الإمام الحسين (ع) إلى كربلاء بعشرة أيّام. <br />
+              قبل وصول الإمام الحسين (عليه السلام) إلى كربلاء بعشرة أيّام. <br />
               دُفن في الكوفة المقدسة وقبره اليوم مزار شامخ.
             </p>
           </motion.div>
