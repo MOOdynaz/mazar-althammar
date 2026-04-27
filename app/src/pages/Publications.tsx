@@ -6,17 +6,17 @@ import { useState } from 'react'
 const publications = [
   {
     id: 1,
-    title: 'في رحاب ميثم التمار (رض)',
+    title: 'في رحاب ميثم التمار (رضي الله عنه)',
     author: 'الأمانة الخاصة لمزار ميثم التمار - الشؤون الفكرية والثقافية',
     year: '2024',
     category: 'سيرة وكرامات',
-    description: 'إصدار متميز يتناول حياة الصحابي الجليل ميثم بن يحيى التمار (رض)، كراماته الباهرة، والزيارة المأثورة المروية في حقه.',
+    description: 'إصدار متميز يتناول حياة الصحابي الجليل ميثم بن يحيى التمار (رضي الله عنه)، كراماته الباهرة، والزيارة المأثورة المروية في حقه.',
     fileUrl: 'https://files.catbox.moe/0wf0nn.pdf',
     fileSize: '1.5 MB'
   },
   {
     id: 2,
-    title: 'زيارة ميثم التمار (رض)',
+    title: 'زيارة ميثم التمار (رضي الله عنه)',
     author: 'الأمانة الخاصة لمزار ميثم التمار',
     year: '2024',
     category: 'أدعية وزيارات',
@@ -86,7 +86,7 @@ export default function Publications() {
             </div>
             <h1 className="text-4xl md:text-6xl font-bold font-display mb-6 tracking-tight">المكتبة الرقمية</h1>
             <p className="text-white/50 text-lg max-w-2xl mx-auto leading-relaxed">
-              تصفح وحمل الإصدارات والكتب الصادرة عن الأمانة الخاصة لمزار ميثم بن يحيى التمار (رض)
+              تصفح وحمل الإصدارات والكتب الصادرة عن الأمانة الخاصة لمزار ميثم بن يحيى التمار (رضي الله عنه)
             </p>
           </motion.div>
 

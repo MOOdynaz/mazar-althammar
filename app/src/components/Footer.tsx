@@ -36,7 +36,7 @@ export default function Footer() {
                 />
               </div>
               <div>
-                <h3 className="text-xl font-bold gold-gradient font-display">مزار ميثم التمار</h3>
+                <h3 className="text-xl font-bold gold-gradient font-display"> مزار ميثم التمار رضوان الله عليه </h3>
                 <p className="text-[10px] text-[#c9a227]/70 uppercase tracking-widest font-bold">الأمانة العامة للمزارات الشيعية</p>
               </div>
             </div>
