@@ -72,9 +72,9 @@ export default function About() {
 
               {/* أحاديث الحواريين */}
               <div className="bg-white/5 p-8 rounded-[2.5rem] border border-white/10">
-                <h4 className="text-[#c9a227] font-bold mb-6 text-lg border-b border-white/10 pb-2">حواريّ علي (عليه السلام)</h4>
+                <h4 className="text-[#c9a227] font-bold mb-6 text-lg border-b border-white/10 pb-2">حواريّ الامام علي (عليه السلام)</h4>
                 <p className="text-sm leading-relaxed text-white/50 italic mb-4">
-                  "إذا كان يوم القيامة نادى مناد أين حواري علي بن أبي طالب؟ فيقوم عمرو بن الحمق، ومحمد بن أبي بكر، وميثم بن يحيى التمار.."
+                  "إذا كان يوم القيامة نادى مناد أين حواري الامام علي بن أبي طالب؟ فيقوم عمرو بن الحمق، ومحمد بن أبي بكر، وميثم بن يحيى التمار.."
                 </p>
                 <div className="text-[10px] text-white/30 uppercase tracking-widest text-left">- الإمام الكاظم (عليه السلام)</div>
               </div>
@@ -93,7 +93,7 @@ export default function About() {
                 </h2>
                 <div className="bg-white/[0.02] p-8 md:p-10 rounded-[3rem] border border-white/5 space-y-6 text-lg">
                   <p className="leading-relaxed">
-                    كان عبداً لامرأة من بني أسد، فاشتراه علي (عليه السلام) وأعتقه. قال له: <span className="text-[#c9a227]">"ما اسمك؟"</span> قال: سالم. قال (عليه السلام): <span className="text-[#c9a227]">"أخبرني رسول الله (ص) أن اسمك الذي سمّاك به أبواك في العجم ميثم"</span>.
+                    كان عبداً لامرأة من بني أسد، فاشتراه الامام علي (عليه السلام) وأعتقه. قال له: <span className="text-[#c9a227]">"ما اسمك؟"</span> قال: سالم. قال (عليه السلام): <span className="text-[#c9a227]">"أخبرني رسول الله (صلى الله عليه واله) أن اسمك الذي سمّاك به أبواك في العجم ميثم"</span>.
                   </p>
                   <p className="bg-[#c9a227]/5 p-6 rounded-2xl border-r-4 border-[#c9a227]">
                     أقر ميثم بصدق الخبر قائلاً: "صدق الله ورسوله، والله إنه لاسمي". فعاد لاسمه الأصلي واكتنى بأبي سالم، واتخذ من بيع التمر مهنة له في الكوفة ليعرف بالتمار.
@@ -132,7 +132,7 @@ export default function About() {
                     <div className="flex gap-6">
                       <div className="p-3 bg-[#c9a227]/20 rounded-full h-fit text-[#c9a227]"><Clock /></div>
                       <p className="text-lg leading-loose text-white/80">
-                        أراه الإمام علي (عليه السلام) النخلة التي سيصلب عليها، فكان ميثم يتعاهدها ويصلي عندها ويقول: <span className="text-[#c9a227]">"بوركتِ من نخلة، لكِ خُلقتُ ولي غُذيتِ"</span>. وكان يخبر جاره عمرو بن حريث بأنه سيجاوره قريباً وعمرو لا يفهم المقصد.
+                        أراه الإمام الامام علي (عليه السلام) النخلة التي سيصلب عليها، فكان ميثم يتعاهدها ويصلي عندها ويقول: <span className="text-[#c9a227]">"بوركتِ من نخلة، لكِ خُلقتُ ولي غُذيتِ"</span>. وكان يخبر جاره عمرو بن حريث بأنه سيجاوره قريباً وعمرو لا يفهم المقصد.
                       </p>
                     </div>
                     
