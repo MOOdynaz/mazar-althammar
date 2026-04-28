@@ -10,7 +10,8 @@ import {
   FileText,
   LayoutGrid,
   Library,
-  Building 
+  Building,
+  Quote 
 } from 'lucide-react'
 
 import img21 from '../assets/images/21.jpg'
@@ -75,7 +76,7 @@ export default function Home() {
             الصحابي الجليل وأول من فسر القرآن بالتأويل
           </motion.p>
 
-          {/* كود الموبايل (Grid الأيقونات) - لم يتم تغييره لضمان صحته */}
+          {/* كود الموبايل (Grid الأيقونات) */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -99,7 +100,7 @@ export default function Home() {
             ))}
           </motion.div>
           
-          {/* كود المتصفح (الأزرار الكبيرة) - تم تعديله ليظهر زر واحد فقط بارز */}
+          {/* كود المتصفح (الأزرار الكبيرة) */}
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }}
             className="hidden sm:flex flex-row items-center justify-center gap-5">
             <Link to="/about" className="px-12 py-5 bg-[#c9a227] text-[#05140d] rounded-full font-bold text-xl hover:bg-[#e0b83a] transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(201,162,39,0.3)]">
@@ -109,7 +110,61 @@ export default function Home() {
         </div>
       </section>
 
-      {/* باقي الأقسام كما هي تماماً */}
+      {/* --- قسم الرواية الشريفة الجديد --- */}
+      <section className="relative py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#05140d] to-black/40">
+        <div className="max-w-5xl mx-auto">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="relative p-1 rounded-[3rem] bg-gradient-to-tr from-[#c9a227]/20 via-transparent to-[#c9a227]/20 shadow-2xl"
+          >
+            <div className="relative bg-[#0a1a14] rounded-[2.8rem] p-8 md:p-16 border border-[#c9a227]/10 overflow-hidden">
+              {/* أيقونة خلفية زخرفية */}
+              <Quote className="absolute top-10 left-10 w-24 h-24 text-[#c9a227]/5 -scale-x-100" />
+              
+              <div className="relative z-10 space-y-8 text-center md:text-right">
+                <div className="flex items-center gap-3 justify-center md:justify-start mb-6">
+                  <div className="h-[2px] w-10 bg-[#c9a227]" />
+                  <span className="text-[#c9a227] font-bold text-sm tracking-[0.2em] uppercase">رواية الكشي</span>
+                </div>
+
+                <h3 className="text-2xl md:text-4xl font-bold leading-relaxed text-white font-display">
+                  قال <span className="text-[#c9a227]">مِيثَم التمار:</span> دعاني أمير المؤمنين (عليه السلام) وقال: 
+                  <span className="block mt-4 text-white/80 text-xl md:text-2xl font-medium italic">
+                    "كيف أنت يا ميثم إذا دعاك دعي بني أُمية عبيد الله بن زياد إلى البراءة منّي؟"
+                  </span>
+                </h3>
+
+                <p className="text-lg md:text-2xl text-white/60 leading-loose border-r-4 border-[#c9a227]/30 pr-6 mr-4 italic">
+                  فقال: يا أمير المؤمنين، أنا والله لا أبرأ منك، قال: إذًا والله يقتلك ويصلبك، قلت: أصبر فذاك في الله قليل، فقال:
+                </p>
+
+                <div className="pt-8">
+                  <motion.div 
+                    whileHover={{ scale: 1.02 }}
+                    className="inline-block relative"
+                  >
+                    <div className="absolute -inset-4 bg-[#c9a227]/20 blur-xl rounded-full opacity-50" />
+                    <div className="relative bg-gradient-to-l from-[#c9a227] to-[#e5c035] px-10 py-6 rounded-2xl">
+                      <span className="text-2xl md:text-5xl font-black text-[#05140d] drop-shadow-sm">
+                        "يا ميثم إذًا تكون معي في درجتي"
+                      </span>
+                    </div>
+                  </motion.div>
+                </div>
+
+                <div className="mt-12 pt-8 border-t border-white/5 flex items-center gap-2 text-white/30 text-xs justify-center md:justify-start">
+                  <Library className="w-4 h-4" />
+                  المصدر: كتاب الرجال للشيخ الكشي
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* فيديوهات مميزة */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-black/20">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-end justify-between mb-12 border-r-4 border-[#c9a227] pr-6 flex-row-reverse">
@@ -141,7 +196,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* باقي المحتوى ... */}
+      {/* باقي الأقسام مثل المقالات ومعرض الصور يمكن إكمالها هنا بنفس الطريقة */}
     </div>
   )
 }
