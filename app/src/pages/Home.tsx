@@ -126,7 +126,7 @@ export default function Home() {
               <div className="relative z-10 space-y-8 text-center md:text-right">
                 <div className="flex items-center gap-3 justify-center md:justify-start mb-6">
                   <div className="h-[2px] w-10 bg-[#c9a227]" />
-                  <span className="text-[#c9a227] font-bold text-sm tracking-[0.2em] uppercase">رواية الكشي</span>
+                  <span className="text-[#c9a227] font-bold text-sm tracking-[0.2em] uppercase">السلام عليك يا صاحب أمير المؤمنين عليه السلام</span>
                 </div>
 
                 <h3 className="text-2xl md:text-4xl font-bold leading-relaxed text-white font-display">
