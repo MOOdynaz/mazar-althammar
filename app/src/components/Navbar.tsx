@@ -24,19 +24,16 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // تم تعديل حساسية النزول لضمان سرعة استجابة القائمة
       setScrolled(window.scrollY > 20)
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // إغلاق القائمة عند تغيير الصفحة
   useEffect(() => {
     setIsOpen(false)
   }, [location])
 
-  // منع التمرير في الخلفية عند فتح قائمة الموبايل
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden'
@@ -60,7 +57,7 @@ export default function Navbar() {
         <div className="max-w-[1550px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             
-            {/* Logo & Identity Section - مطابق تماماً لكودك الأصلي */}
+            {/* Logo & Identity Section - مطابق تماماً لكودك */}
             <Link to="/" className="flex items-center gap-3 group flex-shrink-0 relative z-[1002]">
               <div className="relative">
                 <div className="absolute -inset-1 bg-[#c9a227]/30 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
@@ -81,7 +78,7 @@ export default function Navbar() {
               </div>
             </Link>
 
-            {/* Desktop Navigation - مطابق تماماً لكودك الأصلي */}
+            {/* Desktop Navigation - مطابق تماماً لكودك */}
             <div className="hidden lg:flex items-center gap-0.5 bg-white/5 px-1.5 py-1.5 rounded-full border border-white/10 backdrop-blur-md">
               {navItems.map((item) => (
                 <Link
@@ -98,7 +95,7 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* Social Icons & Mobile Toggle - مطابق تماماً لكودك الأصلي */}
+            {/* Social Icons & Mobile Toggle - مطابق تماماً لكودك */}
             <div className="flex items-center gap-2 relative z-[1002]">
               <div className="hidden xl:flex items-center gap-3 ml-2 border-l border-white/10 pl-4">
                 <a 
@@ -119,7 +116,7 @@ export default function Navbar() {
                 </a>
               </div>
 
-              {/* Mobile Menu Button - تم رفعه ليكون فوق كل شيء بـ z-index مستقل */}
+              {/* Mobile Menu Button - المُحسن للوضوح */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="lg:hidden w-11 h-11 rounded-xl bg-[#c9a227] text-[#05140d] flex items-center justify-center border border-[#c9a227]/20 hover:bg-[#e0b83a] transition-all shadow-lg pointer-events-auto"
@@ -130,7 +127,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Menu Overlay - تم فصله ليكون بمساحة كاملة واستقلال تام */}
+        {/* Mobile Menu Overlay - معالجة مشكلة الـ Blur والوضوح */}
         <AnimatePresence mode="wait">
           {isOpen && (
             <motion.div
@@ -140,7 +137,8 @@ export default function Navbar() {
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
               className="lg:hidden fixed inset-0 bg-[#05140d] z-[1001] flex flex-col pt-24 h-screen"
             >
-              <div className="absolute inset-0 islamic-pattern opacity-5 pointer-events-none" />
+              {/* زخرفة إسلامية خفيفة جداً لا تشوش على النص */}
+              <div className="absolute inset-0 islamic-pattern opacity-[0.03] pointer-events-none" />
               
               <div className="px-6 py-8 space-y-3 overflow-y-auto relative z-10 flex-grow">
                 {navItems.map((item, index) => (
@@ -155,8 +153,8 @@ export default function Navbar() {
                       onClick={() => setIsOpen(false)}
                       className={`block px-6 py-5 rounded-2xl text-xl font-bold transition-all shadow-sm text-center border ${
                         location.pathname === item.path
-                          ? 'bg-[#c9a227] text-[#05140d] shadow-[#c9a227]/20 border border-[#c9a227]'
-                          : 'text-white/70 bg-white/5 border border-white/5'
+                          ? 'bg-[#c9a227] text-[#05140d] shadow-[#c9a227]/20 border-[#c9a227] opacity-100'
+                          : 'text-white bg-white/5 border-white/5 opacity-100 hover:bg-white/10'
                       }`}
                     >
                       {item.name}
