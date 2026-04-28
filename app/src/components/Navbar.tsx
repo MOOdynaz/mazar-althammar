@@ -24,19 +24,16 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // تم تعديل حساسية النزول لضمان سرعة استجابة القائمة
       setScrolled(window.scrollY > 20)
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // إغلاق القائمة عند تغيير الصفحة
   useEffect(() => {
     setIsOpen(false)
   }, [location])
 
-  // منع التمرير في الخلفية عند فتح قائمة الموبايل
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden'
@@ -108,7 +105,7 @@ export default function Navbar() {
                 </a>
               </div>
 
-              {/* Mobile Menu Button - تم تحسينه ليكون فوق أي عنصر آخر */}
+              {/* Mobile Menu Button - المُحسن */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="lg:hidden w-11 h-11 rounded-xl bg-[#c9a227]/10 flex items-center justify-center border border-[#c9a227]/20 text-[#c9a227] hover:bg-[#c9a227]/20 transition-all shadow-lg pointer-events-auto"
@@ -119,18 +116,22 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Menu - Full Screen */}
+        {/* Mobile Menu Overlay - الإصلاح الجذري */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ opacity: 0, x: '100%' }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: '100%' }}
-              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-              className="lg:hidden fixed inset-0 bg-[#05140d] z-[90] flex flex-col pt-24"
+              initial={{ opacity: 0, y: '-100%' }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: '-100%' }}
+              transition={{ type: 'tween', duration: 0.4 }}
+              className="lg:hidden fixed inset-0 bg-[#05140d] z-[90] flex flex-col"
             >
-              <div className="absolute inset-0 islamic-pattern opacity-5 pointer-events-none" />
-              <div className="px-6 py-6 space-y-3 overflow-y-auto relative z-10">
+              {/* مساحة فارغة لتعويض ارتفاع الـ Header لضمان عدم اختفاء الروابط */}
+              <div className="h-24 shrink-0" /> 
+              
+              <div className="flex-grow overflow-y-auto px-6 py-4 space-y-3 relative z-10">
+                <div className="absolute inset-0 islamic-pattern opacity-5 pointer-events-none" />
+                
                 {navItems.map((item, index) => (
                   <motion.div
                     key={item.path}
@@ -141,10 +142,10 @@ export default function Navbar() {
                     <Link
                       to={item.path}
                       onClick={() => setIsOpen(false)}
-                      className={`block px-6 py-4 rounded-2xl text-lg font-bold transition-all shadow-sm ${
+                      className={`block w-full px-6 py-5 rounded-2xl text-xl font-bold transition-all border ${
                         location.pathname === item.path
-                          ? 'bg-[#c9a227] text-[#05140d] shadow-[#c9a227]/20'
-                          : 'text-white/70 bg-white/5 border border-white/5'
+                          ? 'bg-[#c9a227] text-[#05140d] border-[#c9a227] shadow-xl shadow-[#c9a227]/10'
+                          : 'text-white/80 bg-white/5 border-white/5'
                       }`}
                     >
                       {item.name}
@@ -152,24 +153,26 @@ export default function Navbar() {
                   </motion.div>
                 ))}
                 
-                <div className="flex justify-center gap-8 pt-10 border-t border-[#c9a227]/10 mt-8">
-                  <a href="https://www.youtube.com/@mazar.altammar" className="text-[#c9a227]">
+                <div className="flex justify-center gap-10 pt-10 border-t border-white/10 mt-8">
+                  <a href="https://www.youtube.com/@mazar.altammar" target="_blank" rel="noopener noreferrer" className="text-[#c9a227] p-3 bg-white/5 rounded-full hover:bg-red-600/20 transition-colors">
                     <Youtube className="w-8 h-8" />
                   </a>
-                  <a href="https://web.facebook.com/mazar.altammar" className="text-[#c9a227]">
+                  <a href="https://web.facebook.com/mazar.altammar" target="_blank" rel="noopener noreferrer" className="text-[#c9a227] p-3 bg-white/5 rounded-full hover:bg-blue-600/20 transition-colors">
                     <Facebook className="w-8 h-8" />
                   </a>
                 </div>
+                {/* تباعد سفلي */}
+                <div className="h-20" /> 
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </motion.nav>
       
-      {/* طبقة خلفية معتمة عند فتح القائمة لإجبار التركيز على الروابط */}
+      {/* Overlay للخلفية */}
       {isOpen && (
         <div 
-          className="fixed inset-0 bg-black/40 z-[80] lg:hidden"
+          className="fixed inset-0 bg-black/60 z-[80] lg:hidden backdrop-blur-sm"
           onClick={() => setIsOpen(false)}
         />
       )}
