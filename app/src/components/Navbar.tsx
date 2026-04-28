@@ -49,15 +49,17 @@ export default function Navbar() {
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-500 ${
-          scrolled || isOpen
-            ? 'bg-[#05140d]/95 backdrop-blur-lg shadow-2xl border-b border-[#c9a227]/20 py-1'
-            : 'bg-transparent py-4'
+          isOpen 
+            ? 'bg-[#05140d] border-b border-[#c9a227]/20 py-1' // لون صلب عند الفتح لإزالة الضبابية
+            : scrolled 
+              ? 'bg-[#05140d]/95 backdrop-blur-lg shadow-2xl border-b border-[#c9a227]/20 py-1'
+              : 'bg-transparent py-4'
         }`}
       >
         <div className="max-w-[1550px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             
-            {/* Logo & Identity Section - مطابق تماماً لكودك */}
+            {/* Logo & Identity Section */}
             <Link to="/" className="flex items-center gap-3 group flex-shrink-0 relative z-[1002]">
               <div className="relative">
                 <div className="absolute -inset-1 bg-[#c9a227]/30 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
@@ -78,7 +80,7 @@ export default function Navbar() {
               </div>
             </Link>
 
-            {/* Desktop Navigation - مطابق تماماً لكودك */}
+            {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-0.5 bg-white/5 px-1.5 py-1.5 rounded-full border border-white/10 backdrop-blur-md">
               {navItems.map((item) => (
                 <Link
@@ -95,31 +97,20 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* Social Icons & Mobile Toggle - مطابق تماماً لكودك */}
+            {/* Social Icons & Mobile Toggle */}
             <div className="flex items-center gap-2 relative z-[1002]">
               <div className="hidden xl:flex items-center gap-3 ml-2 border-l border-white/10 pl-4">
-                <a 
-                  href="https://www.youtube.com/@mazar.altammar" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center hover:bg-red-600/20 hover:text-red-500 transition-all duration-300"
-                >
+                <a href="https://www.youtube.com/@mazar.altammar" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center hover:bg-red-600/20 hover:text-red-500 transition-all duration-300">
                   <Youtube className="w-4 h-4" />
                 </a>
-                <a 
-                  href="https://web.facebook.com/mazar.altammar" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-600/20 hover:text-blue-500 transition-all duration-300"
-                >
+                <a href="https://web.facebook.com/mazar.altammar" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-600/20 hover:text-blue-500 transition-all duration-300">
                   <Facebook className="w-4 h-4" />
                 </a>
               </div>
 
-              {/* Mobile Menu Button - المُحسن للوضوح */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="lg:hidden w-11 h-11 rounded-xl bg-[#c9a227] text-[#05140d] flex items-center justify-center border border-[#c9a227]/20 hover:bg-[#e0b83a] transition-all shadow-lg pointer-events-auto"
+                className="lg:hidden w-11 h-11 rounded-xl bg-[#c9a227] text-[#05140d] flex items-center justify-center shadow-lg active:scale-95 transition-all"
               >
                 {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -127,7 +118,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Menu Overlay - معالجة مشكلة الـ Blur والوضوح */}
+        {/* Mobile Menu Overlay - تم إلغاء الـ Blur الداخلي لضمان الوضوح التام */}
         <AnimatePresence mode="wait">
           {isOpen && (
             <motion.div
@@ -137,10 +128,7 @@ export default function Navbar() {
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
               className="lg:hidden fixed inset-0 bg-[#05140d] z-[1001] flex flex-col pt-24 h-screen"
             >
-              {/* زخرفة إسلامية خفيفة جداً لا تشوش على النص */}
-              <div className="absolute inset-0 islamic-pattern opacity-[0.03] pointer-events-none" />
-              
-              <div className="px-6 py-8 space-y-3 overflow-y-auto relative z-10 flex-grow">
+              <div className="px-6 py-8 space-y-4 overflow-y-auto relative z-10 flex-grow">
                 {navItems.map((item, index) => (
                   <motion.div
                     key={item.path}
@@ -151,10 +139,10 @@ export default function Navbar() {
                     <Link
                       to={item.path}
                       onClick={() => setIsOpen(false)}
-                      className={`block px-6 py-5 rounded-2xl text-xl font-bold transition-all shadow-sm text-center border ${
+                      className={`block px-6 py-5 rounded-2xl text-xl font-bold transition-all text-center border ${
                         location.pathname === item.path
-                          ? 'bg-[#c9a227] text-[#05140d] shadow-[#c9a227]/20 border-[#c9a227] opacity-100'
-                          : 'text-white bg-white/5 border-white/5 opacity-100 hover:bg-white/10'
+                          ? 'bg-[#c9a227] text-[#05140d] border-[#c9a227] opacity-100' // نص واضح 100%
+                          : 'text-white bg-white/5 border-white/5 opacity-100' // نص أبيض ناصع
                       }`}
                     >
                       {item.name}
@@ -162,7 +150,7 @@ export default function Navbar() {
                   </motion.div>
                 ))}
                 
-                {/* قسم أيقونات التواصل في الموبايل */}
+                {/* قسم أيقونات التواصل الاجتماعي */}
                 <div className="flex justify-center gap-10 pt-10 border-t border-[#c9a227]/10 mt-10">
                   <a href="https://www.youtube.com/@mazar.altammar" target="_blank" rel="noopener noreferrer" className="text-[#c9a227] p-3 bg-white/5 rounded-full">
                     <Youtube className="w-7 h-7" />
@@ -179,10 +167,10 @@ export default function Navbar() {
         </AnimatePresence>
       </motion.nav>
       
-      {/* طبقة خلفية معتمة (Overlay) */}
+      {/* طبقة خلفية سوداء صلبة تمنع تداخل محتوى الصفحة مع القائمة */}
       {isOpen && (
         <div 
-          className="fixed inset-0 bg-black/60 z-[1000] lg:hidden backdrop-blur-sm"
+          className="fixed inset-0 bg-[#05140d] z-[999] lg:hidden"
           onClick={() => setIsOpen(false)}
         />
       )}
